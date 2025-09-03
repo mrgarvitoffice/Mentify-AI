@@ -38,10 +38,10 @@ export default function ValuePropsSection() {
         <div className="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-4 md:gap-x-8">
           {valueProps.map((prop) => (
             <div key={prop.title} className="flex flex-col items-center text-center p-8 rounded-3xl glass-card hover:border-accent transition-colors">
-              <div className="flex justify-center items-center h-24 w-24 rounded-2xl bg-gradient-to-br from-accent to-secondary text-white shadow-lg shadow-accent/20 transition-transform duration-300 hover:scale-110 hover:animate-pulse">
+              <div className="flex justify-center items-center h-24 w-24 rounded-2xl bg-gradient-to-br from-accent to-secondary text-white shadow-lg shadow-accent/20 transition-transform duration-300 hover:scale-110 hover:animate-pulse mb-6">
                 <prop.icon className="h-12 w-12" />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-foreground">{prop.title}</h3>
+              <h3 className="text-xl font-bold text-foreground">{prop.title}</h3>
               <p className="mt-4 flex-grow text-muted-foreground">{prop.description}</p>
             </div>
           ))}

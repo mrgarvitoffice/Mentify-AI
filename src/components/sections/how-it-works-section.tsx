@@ -61,7 +61,7 @@ export default function HowItWorksSection() {
                 <div className="mt-20 grid grid-cols-1 gap-16 md:grid-cols-3">
                     {steps.map((step) => (
                         <div key={step.number} className="flex flex-col items-center text-center">
-                            <div className="relative flex justify-center items-center h-40 w-40">
+                            <div className="relative flex justify-center items-center h-40 w-40 mb-6">
                                 <span className="absolute font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5 opacity-50">
                                     {step.number}
                                 </span>
@@ -69,7 +69,7 @@ export default function HowItWorksSection() {
                                     <step.icon className="h-12 w-12 text-primary animate-pulse-slow" />
                                 </div>
                             </div>
-                            <h3 className="mt-6 text-2xl font-bold">{step.title}</h3>
+                            <h3 className="text-2xl font-bold">{step.title}</h3>
                             <p className="mt-4 text-muted-foreground">{step.description}</p>
                         </div>
                     ))}

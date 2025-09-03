@@ -1,44 +1,37 @@
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 
 const buddies = [
   {
     icon: TrendingUp,
     title: "Business Motivator & Mentor",
     description: "Inspires, guides, and explains business strategies. Your 24/7 business coach.",
-    badge: "New",
   },
   {
     icon: Heart,
     title: "Relationship & Social Buddy",
     description: "Navigate love, friendship, and emotional connections with confidence.",
-    badge: "Popular",
   },
   {
     icon: Wallet,
     title: "Finance & Real Estate Buddy",
     description: "Your personal guide for investments, savings, and real estate.",
-    badge: "New",
   },
   {
     icon: ShieldPlus,
     title: "Health & Wellness Buddy",
     description: "Holistic health advisor for diet, fitness, and wellbeing transformation.",
-    badge: "New",
   },
   {
     icon: Share2,
     title: "Social Media & Branding Buddy",
     description: "Build your online identity and grow your digital presence.",
-    badge: "Popular",
   },
   {
     icon: GraduationCap,
     title: "Problem Solver & Education Buddy",
     description: "Your learning companion for skill development and problem-solving.",
-    badge: "New",
   },
 ];
 
@@ -60,12 +53,12 @@ export default function BuddiesSection() {
               key={buddy.title}
               className="group flex flex-col items-center text-center transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl glass-card"
             >
-              <CardHeader className="p-0">
+              <CardHeader className="p-0 mb-6">
                 <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/40">
                   <buddy.icon className="h-12 w-12 text-primary" />
                 </div>
               </CardHeader>
-              <CardContent className="flex-grow pt-6">
+              <CardContent className="flex-grow pt-0">
                 <h3 className="text-2xl font-bold text-foreground">{buddy.title}</h3>
                 <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
               </CardContent>

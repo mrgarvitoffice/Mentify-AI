@@ -52,6 +52,7 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+          <Quote className="mx-auto h-12 w-12 text-primary/30 mb-4" />
           <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Loved by Thousands
           </h2>
@@ -64,7 +65,6 @@ export default function TestimonialsSection() {
              <div className="mx-auto max-w-6xl columns-1 gap-8 sm:columns-2 lg:columns-3">
                  {testimonials.map((testimonial, index) => (
                      <Card key={index} className="relative mb-8 break-inside-avoid rounded-2xl p-6 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-accent/20 glass-card">
-                        <Quote className="absolute top-4 right-4 h-8 w-8 text-primary/20" />
                          <CardContent className="p-0 pt-8">
                              <blockquote className="text-muted-foreground">"{testimonial.quote}"</blockquote>
                              <figcaption className="mt-6 flex items-center gap-4">
