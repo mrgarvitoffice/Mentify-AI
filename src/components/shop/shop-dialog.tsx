@@ -1,8 +1,8 @@
 
 'use client';
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Dialog,
   DialogContent,
@@ -75,21 +75,36 @@ const colorThemes: { [key: string]: { bg: string, border: string, text: string }
     purple: { bg: 'bg-purple-400/10 dark:bg-purple-800/10', border: 'border-purple-500/50', text: 'text-purple-500' },
 };
 
-export function ShopDialog({ children }: { children: React.ReactNode }) {
+function ShopDialogContent({ children, initialBuddy }: { children: React.ReactNode, initialBuddy?: string | null }) {
     const router = useRouter();
-    const [selectedBuddy, setSelectedBuddy] = useState<string | null>(null);
+    const searchParams = useSearchParams();
+    const refId = searchParams.get('ref');
+    
+    const [selectedBuddy, setSelectedBuddy] = useState<string | null>(initialBuddy || null);
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (isOpen && initialBuddy) {
+            setSelectedBuddy(initialBuddy);
+        }
+    }, [isOpen, initialBuddy]);
+
 
     const handleBuyNow = () => {
         if (selectedBuddy) {
-            router.push(`/checkout?buddy=${encodeURIComponent(selectedBuddy)}`);
+            const params = new URLSearchParams();
+            params.append('buddy', selectedBuddy);
+            if(refId) {
+                params.append('ref', refId);
+            }
+            router.push(`/checkout?${params.toString()}`);
             setIsOpen(false);
         }
     };
 
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>{children}</DialogTrigger>
+          <DialogTrigger asChild onClick={() => setIsOpen(true)}>{children}</DialogTrigger>
           <DialogContent className="sm:max-w-2xl p-0 bg-background/90 backdrop-blur-lg border-2 border-primary/20">
             <DialogHeader className="p-6 pb-4 text-center items-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2 animate-pulse">
@@ -153,5 +168,15 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+    );
+}
+
+export function ShopDialog({ children, initialBuddy }: { children: React.ReactNode, initialBuddy?: string | null }) {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ShopDialogContent initialBuddy={initialBuddy}>
+                {children}
+            </ShopDialogContent>
+        </Suspense>
     );
 }

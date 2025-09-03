@@ -1,8 +1,12 @@
+
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Check, Gem, Crown, Rocket } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import AnimatedParticles from '@/components/ui/animated-particles';
+import { ShopDialog } from '../shop/shop-dialog';
 
 const plans = [
     {
@@ -13,7 +17,8 @@ const plans = [
         description: "Perfect for trying one specialist.",
         features: ["1 AI Buddy Access", "Birth Chart Personalization", "Text & Voice Interaction", "Standard Support"],
         isFeatured: false,
-        cta: "Get Started"
+        cta: "Get Started",
+        initialBuddy: "Business Motivator & Mentor",
     },
     {
         icon: Crown,
@@ -23,7 +28,8 @@ const plans = [
         description: "The complete AI ecosystem for holistic life transformation.",
         features: ["All 6 AI Buddies", "Birth Chart Personalization", "Text, Voice & Video", "Priority Support", "Advanced Learning"],
         isFeatured: true,
-        cta: "Choose Bundle"
+        cta: "Choose Bundle",
+        initialBuddy: null, // Let user choose from all in dialog
     },
     {
         icon: Rocket,
@@ -33,7 +39,8 @@ const plans = [
         description: "For creators who want to build and monetize their own AI.",
         features: ["All 6 AI Buddies", "Create Your Own Buddy", "Monetization Tools", "Dedicated Support", "API Access"],
         isFeatured: false,
-        cta: "Go Premium"
+        cta: "Go Premium",
+        initialBuddy: null, // Let user choose from all in dialog
     }
 ];
 
@@ -76,14 +83,16 @@ export default function PricingSection() {
                                     ))}
                                 </ul>
                             </div>
-                            <Button className={cn(
-                                "mt-8 w-full rounded-full font-bold py-3 text-lg",
-                                plan.isFeatured 
-                                    ? "bg-gradient-to-r from-primary to-yellow-300 text-primary-foreground hover:shadow-primary/40 hover:-translate-y-1 transition-all"
-                                    : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                            )}>
-                                {plan.cta}
-                            </Button>
+                            <ShopDialog initialBuddy={plan.initialBuddy}>
+                                <Button className={cn(
+                                    "mt-8 w-full rounded-full font-bold py-3 text-lg",
+                                    plan.isFeatured 
+                                        ? "bg-gradient-to-r from-primary to-yellow-300 text-primary-foreground hover:shadow-primary/40 hover:-translate-y-1 transition-all"
+                                        : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                                )}>
+                                    {plan.cta}
+                                </Button>
+                            </ShopDialog>
                         </div>
                     ))}
                 </div>
