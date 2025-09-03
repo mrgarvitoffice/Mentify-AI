@@ -1,3 +1,4 @@
+
 import { Facebook, Twitter, Instagram, Linkedin, Sparkles } from 'lucide-react';
 import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
 import { FaqDialog } from '../info-dialogs/faq-dialog';
@@ -72,6 +73,9 @@ export default function Footer() {
                     <div>
                         <h4 className="font-semibold tracking-wider uppercase text-foreground">Support</h4>
                         <ul className="mt-4 space-y-2">
+                             <li>
+                                <Link href="/pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
+                            </li>
                             {supportLinks.map((link) => {
                                 const DialogComponent = link.component;
                                 return (

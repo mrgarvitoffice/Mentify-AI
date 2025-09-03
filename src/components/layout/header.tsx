@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -27,8 +28,8 @@ export default function Header() {
   }, [isScrolled]);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Features', href: '#features' },
+    { name: 'Home', href: '/' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Testimonials', href: '#testimonials' },
   ];
@@ -54,7 +55,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-base font-medium text-gray-600 dark:text-gray-300 transition-colors duration-300 hover:text-primary group"
+                className="relative text-base font-medium text-muted-foreground transition-colors duration-300 hover:text-primary group"
               >
                 {item.name}
                 <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -66,7 +67,7 @@ export default function Header() {
             <ThemeToggle />
             <ShopDialog>
               <Button
-                className="group relative rounded-lg bg-primary px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative rounded-lg bg-primary px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
               >
                 Get Your AI Buddies
               </Button>
