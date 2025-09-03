@@ -24,7 +24,6 @@ import {
   ShoppingCart,
   CheckCircle2,
 } from 'lucide-react';
-import { Badge } from '../ui/badge';
 import { cn } from '@/lib/utils';
 
 const buddies = [
@@ -90,7 +89,7 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>{children}</DialogTrigger>
-          <DialogContent className="sm:max-w-4xl p-0 bg-transparent border-none shadow-none">
+          <DialogContent className="sm:max-w-2xl p-0 bg-transparent border-none shadow-none">
             <div className="relative bg-background/80 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden animate-dialog-in">
               <DialogHeader className="p-8 text-center flex flex-col items-center">
                 <div className="p-3 rounded-full bg-primary/10 mb-4 animate-pulse">
