@@ -4,69 +4,67 @@
 
 @layer base {
   :root {
-    --background: 216 67% 98%; /* #f6f8fc - Ice Blue */
-    --foreground: 218 33% 15%; /* #1a2332 - Navy Charcoal */
+    --background: 30 50% 98%; /* Warm Ivory */
+    --foreground: 24 68% 10%; /* Rich Brown */
 
-    --card: 217 60% 95%; /* #ebf1f9 - Powder Blue */
-    --card-foreground: 218 33% 15%;
+    --card: 30 50% 98%;
+    --card-foreground: 24 68% 10%;
 
-    --popover: 217 60% 95%;
-    --popover-foreground: 218 33% 15%;
+    --popover: 30 50% 98%;
+    --popover-foreground: 24 68% 10%;
 
-    --primary: 217 91% 60%; /* #3b82f6 - Azure Blue */
-    --primary-foreground: 216 67% 98%;
+    --primary: 45 100% 51%; /* Royal Gold */
+    --primary-foreground: 24 68% 10%;
 
-    --secondary: 45 96% 56%; /* #fbbf24 - Solar Gold */
-    --secondary-foreground: 218 33% 15%;
+    --secondary: 195 100% 61%; /* Sky Blue */
+    --secondary-foreground: 30 50% 98%;
     
-    --muted: 215 52% 91%; /* #dde8f4 - Sky Mist */
-    --muted-foreground: 218 33% 35%; /* Darker Navy Charcoal for muted text */
+    --muted: 30 33% 91%; /* Soft Cream */
+    --muted-foreground: 24 68% 25%;
 
-    --accent: 261 100% 71%; /* #A66CFF - Lavender (Kept from previous for some elements) */
-    --accent-foreground: 240 2% 11%;
-
-    --maroon: 0 100% 25%; /* #800000 */
+    --accent: 258 100% 71%; /* Lavender Purple */
+    --accent-foreground: 30 50% 98%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 52% 91%;
-    --input: 217 60% 95%;
-    --ring: 217 91% 60%;
+    --border: 30 33% 89%; /* Champagne */
+    --input: 30 33% 91%;
+    --ring: 45 100% 51%;
 
-    --radius: 0.75rem;
+    --maroon: 0 100% 25%; /* #800000 */
   }
 
   .dark {
-    --background: 235 27% 6%; /* #0A0A1A - Deep Cosmic Black */
-    --foreground: 240 5% 95%;
+    --background: 240 50% 5%; /* Cosmic Black */
+    --foreground: 210 40% 98%; /* Starlight */
 
-    --card: 240 10% 9%;
-    --card-foreground: 240 5% 95%;
+    --card: 240 40% 12%; /* Space Purple */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 240 10% 4%;
-    --popover-foreground: 240 5% 95%;
+    --popover: 240 50% 5%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 44 100% 55%; /* Lighter Gold */
-    --primary-foreground: 240 10% 4%;
+    --primary: 258 83% 64%; /* Nebula Purple */
+    --primary-foreground: 210 40% 98%;
     
-    --secondary: 217 100% 68%; /* Lighter Blue */
-    --secondary-foreground: 240 10% 4%;
+    --secondary: 190 95% 42%; /* Star Cyan */
+    --secondary-foreground: 240 50% 5%;
 
-    --muted: 240 5% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 240_40%_12%;
+    --muted-foreground: 210 40% 70%;
 
-    --accent: 261 100% 78%; /* Lighter Lavender */
-    --accent-foreground: 240 5% 95%;
-
-    --maroon: 0 74% 42%; /* #B22222 */
+    --accent: 258 83% 64%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 240 5% 95%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 240 5% 20%;
-    --input: 240 5% 20%;
-    --ring: 44 100% 55%;
+    --border: 240 40% 17%; /* Galaxy Dark */
+    --input: 240 40% 17%;
+    --ring: 258 83% 64%;
+
+    --maroon: 0 67% 44%; /* #B22222 */
   }
 }
 
@@ -86,13 +84,21 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
   }
-  
+
   .beige-gradient {
     background: linear-gradient(135deg, rgba(253,245,230,0.95), rgba(255,255,255,0.8));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .dark .beige-gradient {
     background: linear-gradient(145deg, rgba(10,10,26,0.95), rgba(20,20,40,0.9));
+     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .light-background {
+    background-color: hsl(var(--background));
   }
 
   .cosmic-nebula {
@@ -100,20 +106,14 @@
   }
 
   .dark .cosmic-nebula {
-     background:
-      radial-gradient(ellipse 80% 50% at 50% 120%, hsl(var(--accent) / 0.2), transparent),
-      linear-gradient(160deg, hsl(var(--background)) 50%, hsl(var(--accent) / 0.15) 100%);
-  }
-
-  .light-background {
-      background-color: hsl(var(--background));
+    background: linear-gradient(145deg, #0a0a14 0%, #14142b 25%, #1e1e42 75%, #0f0f23 100%);
   }
 
   .glass-card {
-    @apply bg-card/60 backdrop-blur-lg border-white/10;
+    @apply bg-card/60 backdrop-blur-lg border border-white/10;
   }
-  
+
   .dark .glass-card {
-    @apply bg-card/60 backdrop-blur-lg border-white/10;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
   }
 }
