@@ -113,6 +113,7 @@ export default function Header() {
             ))}
             <ShopDialog>
                <Button
+                onClick={() => setIsMenuOpen(false)}
                 className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
               >
                 Shop AI Buddies

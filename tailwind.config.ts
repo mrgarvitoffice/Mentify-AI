@@ -120,6 +120,10 @@ export default {
           '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
           '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
           '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+        },
+        'dialog-in': {
+            '0%': { opacity: '0', transform: 'scale(0.95) translateY(20px)' },
+            '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
         }
       },
       animation: {
@@ -133,6 +137,7 @@ export default {
         'float': 'float 15s infinite ease-in-out',
         'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
         'gradient-blob': 'gradient-blob 8s ease-in-out infinite',
+        'dialog-in': 'dialog-in 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
       },
       backgroundSize: {
         '200%': '200% 200%',
