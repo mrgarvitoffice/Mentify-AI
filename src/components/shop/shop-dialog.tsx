@@ -159,4 +159,3 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
         </Dialog>
     );
 }
-
