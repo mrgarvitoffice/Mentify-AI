@@ -51,26 +51,26 @@ const steps = [
 
 export default function HowItWorksSection() {
     return (
-        <section id="how-it-works" className="relative bg-[#0f0f23] text-white py-24 sm:py-32 overflow-hidden">
-            <AnimatedParticles count={30} className="opacity-50" />
+        <section id="how-it-works" className="relative bg-background text-foreground py-24 sm:py-32 overflow-hidden">
+            <AnimatedParticles count={200} className="opacity-50" />
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">How It Works</h2>
-                    <p className="mt-6 text-lg leading-8 text-gray-300">A simple three-step journey to your personalized AI companion.</p>
+                    <p className="mt-6 text-lg leading-8 text-muted-foreground">A simple three-step journey to your personalized AI companion.</p>
                 </div>
                 <div className="mt-20 grid grid-cols-1 gap-16 md:grid-cols-3">
                     {steps.map((step) => (
                         <div key={step.number} className="text-center">
                             <div className="relative flex justify-center items-center">
-                                <span className="font-headline text-9xl font-black text-gradient bg-gradient-to-br from-white/10 to-white/5">
+                                <span className="font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5">
                                     {step.number}
                                 </span>
                                 <div className="absolute">
-                                    <step.icon className="h-20 w-20 text-yellow-300 animate-pulse" />
+                                    <step.icon className="h-20 w-20 text-primary animate-pulse" />
                                 </div>
                             </div>
                             <h3 className="mt-6 text-2xl font-bold">{step.title}</h3>
-                            <p className="mt-4 text-gray-400">{step.description}</p>
+                            <p className="mt-4 text-muted-foreground">{step.description}</p>
                         </div>
                     ))}
                 </div>

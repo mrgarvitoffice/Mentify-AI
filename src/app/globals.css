@@ -4,20 +4,20 @@
 
 @layer base {
   :root {
-    --background: 36 67% 91%;
+    --background: 0 0% 98%;
     --foreground: 222.2 84% 4.9%;
-    --card: 36 67% 91%;
+    --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-    --popover: 36 67% 91%;
+    --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 51 100% 50%;
     --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 215.4 16.3% 46.9%;
+    --secondary: 246 76% 60%; /* celestial blue */
+    --secondary-foreground: 210 40% 98%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 32 100% 64%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --accent: 266 58% 65%; /* mystical purple */
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
@@ -26,25 +26,25 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 228 12% 6%; /* deep space black */
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 228 12% 9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 228 12% 6%;
     --popover-foreground: 210 40% 98%;
-    --primary: 51 100% 50%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
+    --primary: 56 100% 65%; /* electric gold */
+    --primary-foreground: 228 12% 6%;
+    --secondary: 176 56% 59%; /* neon blue */
+    --secondary-foreground: 228 12% 6%;
+    --muted: 228 12% 9%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 32 100% 64%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --accent: 261 86% 77%; /* aurora purple */
+    --accent-foreground: 228 12% 6%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 51 100% 50%;
+    --border: 228 12% 12%;
+    --input: 228 12% 12%;
+    --ring: 56 100% 65%;
   }
 }
 

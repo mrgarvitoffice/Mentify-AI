@@ -32,18 +32,18 @@ export default function Header() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300',
+          'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 animate-aurora',
           isScrolled
-            ? 'bg-white/95 shadow-md'
-            : 'bg-white/10 border-b border-white/10 [backdrop-filter:blur(20px)]'
+            ? 'bg-background/80 shadow-lg shadow-primary/10 [backdrop-filter:blur(12px)]'
+            : 'bg-transparent border-b border-white/10'
         )}
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-2">
-            <span className={cn('animate-sparkle text-2xl font-bold', isScrolled ? 'text-black' : 'text-white')}>
+          <Link href="/" className="flex items-center gap-2 group">
+            <span className={cn('animate-sparkle text-2xl font-bold text-primary')}>
               ✨
             </span>
-            <span className={cn('text-2xl font-bold', isScrolled ? 'text-black' : 'text-white')}>
+            <span className={cn('text-2xl font-bold text-foreground')}>
               Mentify-AI
             </span>
           </Link>
@@ -55,7 +55,7 @@ export default function Header() {
                 href={item.href}
                 className={cn(
                   'text-base font-medium transition-all duration-300 hover:text-primary hover:-translate-y-0.5',
-                  isScrolled ? 'text-gray-700' : 'text-white'
+                   'text-foreground'
                 )}
               >
                 {item.name}
@@ -66,15 +66,14 @@ export default function Header() {
           <div className="hidden md:block">
             <Button
               asChild
-              className="rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 px-6 py-3 font-bold text-black shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-yellow-400/30"
-              style={{ background: 'linear-gradient(45deg, #ffd700, #ffed4e)' }}
+              className="rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/30"
             >
               <Link href="#">Shop AI Buddies</Link>
             </Button>
           </div>
 
           <div className="md:hidden">
-            <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(true)} className={cn(isScrolled ? 'text-black' : 'text-white')}>
+            <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(true)} className='text-foreground'>
               <Menu />
             </Button>
           </div>
@@ -83,16 +82,16 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        'fixed inset-0 z-50 bg-gray-900/80 [backdrop-filter:blur(10px)] transition-opacity duration-300 md:hidden',
+        'fixed inset-0 z-50 bg-background/90 [backdrop-filter:blur(10px)] transition-opacity duration-300 md:hidden',
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       )}>
         <div className="container mx-auto flex h-full flex-col p-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center gap-2">
-                <span className="animate-sparkle text-2xl font-bold text-white">✨</span>
-                <span className="text-2xl font-bold text-white">Mentify-AI</span>
+                <span className="animate-sparkle text-2xl font-bold text-primary">✨</span>
+                <span className="text-2xl font-bold text-foreground">Mentify-AI</span>
             </Link>
-            <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(false)} className="text-white">
+            <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(false)} className="text-foreground">
                 <X />
             </Button>
           </div>
@@ -101,7 +100,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-2xl font-medium text-white transition-colors duration-300 hover:text-primary"
+                className="text-2xl font-medium text-foreground transition-colors duration-300 hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -109,8 +108,7 @@ export default function Header() {
             ))}
              <Button
               asChild
-              className="mt-8 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 px-8 py-4 text-lg font-bold text-black shadow-lg"
-              style={{ background: 'linear-gradient(45deg, #ffd700, #ffed4e)' }}
+              className="mt-8 rounded-full bg-gradient-to-r from-primary to-accent px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
             >
               <Link href="#">Shop AI Buddies</Link>
             </Button>
