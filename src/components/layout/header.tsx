@@ -12,10 +12,12 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -32,33 +34,34 @@ export default function Header() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 animate-aurora',
+          'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300',
           isScrolled
             ? 'bg-background/80 shadow-lg shadow-primary/10 [backdrop-filter:blur(12px)]'
-            : 'bg-transparent border-b border-white/10'
+            : 'bg-transparent'
         )}
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2 group">
-            <span className={cn('animate-sparkle text-2xl font-bold text-primary')}>
+            <span className={cn('animate-shimmer text-2xl font-bold text-primary')}>
               ✨
             </span>
-            <span className={cn('text-2xl font-bold text-foreground')}>
+            <span className={cn('text-2xl font-bold font-headline text-foreground')}>
               Mentify-AI
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'text-base font-medium transition-all duration-300 hover:text-primary hover:-translate-y-0.5',
+                  'text-base font-medium transition-all duration-300 hover:text-primary relative group',
                    'text-foreground'
                 )}
               >
                 {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </nav>
@@ -66,9 +69,12 @@ export default function Header() {
           <div className="hidden md:block">
             <Button
               asChild
-              className="rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/30"
+              className="group relative rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
             >
-              <Link href="#">Shop AI Buddies</Link>
+              <Link href="#">
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-secondary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer-slow"></span>
+                <span className="relative">Shop AI Buddies</span>
+              </Link>
             </Button>
           </div>
 
@@ -88,8 +94,8 @@ export default function Header() {
         <div className="container mx-auto flex h-full flex-col p-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center gap-2">
-                <span className="animate-sparkle text-2xl font-bold text-primary">✨</span>
-                <span className="text-2xl font-bold text-foreground">Mentify-AI</span>
+                <span className="animate-shimmer text-2xl font-bold text-primary">✨</span>
+                <span className="text-2xl font-bold font-headline text-foreground">Mentify-AI</span>
             </Link>
             <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(false)} className="text-foreground">
                 <X />
