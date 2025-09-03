@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import AnimatedParticles from '@/components/ui/animated-particles';
 import { Star } from 'lucide-react';
+import { ShopDialog } from '../shop/shop-dialog';
+import Link from 'next/link';
 
 export default function CtaSection() {
     return (
@@ -30,16 +32,21 @@ export default function CtaSection() {
                     Join 40,000+ users who’ve discovered their perfect AI companions.
                 </p>
                 <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                    <Button
-                        className="group w-full sm:w-auto rounded-full bg-gradient-to-r from-primary to-yellow-500 text-black dark:text-primary-foreground px-8 py-4 text-base font-bold shadow-lg shadow-amber-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/40"
-                    >
-                        <span className="relative flex items-center gap-2">✨ Shop AI Buddies</span>
-                    </Button>
+                    <ShopDialog>
+                        <Button
+                            className="group w-full sm:w-auto rounded-full bg-gradient-to-r from-primary to-yellow-500 text-black dark:text-primary-foreground px-8 py-4 text-base font-bold shadow-lg shadow-amber-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-amber-500/40"
+                        >
+                            <span className="relative flex items-center gap-2">✨ Shop AI Buddies</span>
+                        </Button>
+                    </ShopDialog>
                     <Button
                         variant="outline"
                         className="w-full sm:w-auto rounded-full border-2 border-maroon dark:border-maroon bg-transparent px-8 py-4 text-base font-bold text-maroon dark:text-maroon transition-all duration-300 hover:bg-maroon hover:text-primary dark:hover:text-primary hover:shadow-lg hover:shadow-maroon/20 hover:-translate-y-1"
+                        asChild
                     >
-                        Start Free Demo <span aria-hidden="true">→</span>
+                        <Link href="#how-it-works">
+                            Start Free Demo <span aria-hidden="true">→</span>
+                        </Link>
                     </Button>
                 </div>
             </div>

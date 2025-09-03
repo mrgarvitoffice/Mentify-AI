@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { PlayCircle, TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap } from 'lucide-react';
 import AnimatedParticles from '@/components/ui/animated-particles';
+import { ShopDialog } from '../shop/shop-dialog';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -66,17 +68,22 @@ export default function HeroSection() {
             className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center animate-fade-in-up"
             style={{ animationDelay: '0.8s' }}
           >
-            <Button
-              className="w-full rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-7 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/40 sm:w-auto"
-            >
-              Discover Your AI Buddy
-            </Button>
+            <ShopDialog>
+              <Button
+                className="w-full rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-7 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/40 sm:w-auto"
+              >
+                Discover Your AI Buddy
+              </Button>
+            </ShopDialog>
             <Button
               variant="outline"
               className="w-full rounded-full border-2 border-secondary/50 bg-background/50 px-8 py-7 text-lg font-bold text-secondary transition-colors hover:bg-secondary hover:text-secondary-foreground hover:border-secondary sm:w-auto"
+              asChild
             >
-              <PlayCircle className="mr-2 h-6 w-6" />
-              Watch Demo
+              <Link href="#how-it-works">
+                <PlayCircle className="mr-2 h-6 w-6" />
+                Watch Demo
+              </Link>
             </Button>
           </div>
         </div>
