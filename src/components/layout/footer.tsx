@@ -1,18 +1,21 @@
-
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Sparkles } from 'lucide-react';
 import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
 import { FaqDialog } from '../info-dialogs/faq-dialog';
 import { PrivacyPolicyDialog } from '../info-dialogs/privacy-policy-dialog';
 import { TermsOfServiceDialog } from '../info-dialogs/terms-of-service-dialog';
 import { ContactUsDialog } from '../info-dialogs/contact-us-dialog';
+import { ShopDialog } from '../shop/shop-dialog';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 const buddies = [
-  { icon: "TrendingUp", title: "Business Motivator & Mentor", description: "Inspires, guides, and explains business strategies. Your 24/7 business coach." },
-  { icon: "Heart", title: "Relationship & Social Buddy", description: "Navigate love, friendship, and emotional connections with confidence." },
-  { icon: "Wallet", title: "Finance & Real Estate Buddy", description: "Your personal guide for investments, savings, and real estate." },
+  { icon: "Briefcase", title: "Business Motivator & Mentor", description: "Inspires, guides, and explains business strategies. Your 24/7 business coach." },
+  { icon: "HeartHandshake", title: "Relationship & Social Buddy", description: "Navigate love, friendship, and emotional connections with confidence." },
+  { icon: "LandPlot", title: "Finance & Real Estate Buddy", description: "Your personal guide for investments, savings, and real estate." },
   { icon: "ShieldPlus", title: "Health & Wellness Buddy", description: "Holistic health advisor for diet, fitness, and wellbeing transformation." },
-  { icon: "Share2", title: "Social Media & Branding Buddy", description: "Build your online identity and grow your digital presence." },
-  { icon: "GraduationCap", title: "Problem Solver & Education Buddy", description: "Your learning companion for skill development and problem-solving." },
+  { icon: "MonitorSmartphone", title: "Social Media & Branding Buddy", description: "Build your online identity and grow your digital presence." },
+  { icon: "BookOpen", title: "Problem Solver & Education Buddy", description: "Your learning companion for skill development and problem-solving." },
 ];
 
 export default function Footer() {
@@ -31,19 +34,22 @@ export default function Footer() {
   ];
 
     return (
-        <footer className="relative bg-card/50 text-white overflow-hidden">
-            <div className="relative container mx-auto px-6 py-16">
+        <footer className="bg-muted/30 text-foreground">
+            <div className="container mx-auto px-6 py-16">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
                     <div className="lg:col-span-2">
-                        <h3 className="text-2xl font-bold flex items-center gap-2">
-                          <span className="text-primary animate-pulse">✨</span> Mentify-AI
-                        </h3>
+                         <Link href="/" className="flex items-center gap-2 group w-fit">
+                            <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
+                            <span className={cn('text-2xl font-bold font-headline')}>
+                            Mentify-AI
+                            </span>
+                        </Link>
                         <p className="mt-4 max-w-md text-muted-foreground">
-                            Our mission is to provide hyper-personalized AI companions that empower individuals to achieve their fullest potential, guided by the wisdom of the stars.
+                           Your AI companions that never sleep. Build, grow, and transform your life with a team of AI Buddies personalized to your soul.
                         </p>
                         <div className="mt-6 flex gap-4">
                             {socialLinks.map((link, i) => (
-                                <a key={i} href={link.href} className="text-muted-foreground hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">
+                                <a key={i} href={link.href} className="text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
                                     <link.icon className="h-6 w-6" />
                                 </a>
                             ))}
@@ -55,7 +61,7 @@ export default function Footer() {
                            {buddies.map((buddy) => (
                                 <li key={buddy.title}>
                                     <BuddyInfoDialog buddy={buddy}>
-                                        <button className="text-muted-foreground hover:text-secondary transition-colors text-left w-full">
+                                        <button className="text-muted-foreground hover:text-primary transition-colors text-left w-full">
                                             {buddy.title}
                                         </button>
                                     </BuddyInfoDialog>
@@ -71,7 +77,7 @@ export default function Footer() {
                                 return (
                                 <li key={link.name}>
                                     <DialogComponent>
-                                      <button className="text-muted-foreground hover:text-secondary transition-colors">
+                                      <button className="text-muted-foreground hover:text-primary transition-colors">
                                           {link.name}
                                       </button>
                                     </DialogComponent>
@@ -81,8 +87,11 @@ export default function Footer() {
                         </ul>
                     </div>
                 </div>
-                <div className="mt-16 border-t border-border pt-8 text-center text-muted-foreground">
+                <div className="mt-16 border-t border-border pt-8 text-center text-sm text-muted-foreground flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p>&copy; {new Date().getFullYear()} Mentify-AI. All rights reserved.</p>
+                     <ShopDialog>
+                        <Button>Get Your AI Buddies</Button>
+                    </ShopDialog>
                 </div>
             </div>
         </footer>

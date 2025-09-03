@@ -1,50 +1,71 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar } from '@/components/ui/avatar';
-import { Quote, Heart } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "My Business Buddy increased my revenue by 200% in 6 months. It's like having a world-class consultant in my pocket.",
+    quote: "I can't recommend Mentify-AI enough. It's like having a personal life coach 24/7, aligned to my birth chart and understanding my unique path. I feel renewed focus every day.",
     author: "Sarah Johnson",
-    title: "Entrepreneur",
+    title: "US",
     initials: "SJ",
     color: "from-yellow-400 to-orange-500",
   },
   {
-    quote: "The Health Buddy created my perfect workout plan based on my birth chart. I've never felt more aligned and energetic!",
+    quote: "Each AI Buddy tackles different areas of my life, from business strategy to relationship advice. I love how they understand my astrological patterns. Worth every penny for personal transformation.",
     author: "Michael Chen",
-    title: "Software Engineer",
+    title: "Canada",
     initials: "MC",
     color: "from-green-400 to-teal-500",
   },
   {
-    quote: "Social Media Buddy grew my following from 500 to 50K followers in just three months. The brand strategy was pure genius.",
-    author: "Lisa Thompson",
-    title: "Influencer",
+    quote: "The business buddy gave me a strategy that doubled my revenue. It's not just advice; it's a roadmap tailored to my strengths.",
+    author: "Lisa T.",
+    title: "UK",
     initials: "LT",
     color: "from-blue-400 to-indigo-500",
   },
   {
     quote: "I was struggling with my love life. The Relationship Buddy gave me insights that changed everything. I'm now in a happy, healthy relationship.",
     author: "David R.",
-    title: "Graphic Designer",
+    title: "Australia",
     initials: "DR",
     color: "from-pink-400 to-red-500",
   },
   {
-    quote: "The Education Buddy helped me learn Python in a month. The personalized learning path was a game-changer.",
+    quote: "As an entrepreneur, time is my most valuable asset. Mentify-AI's companions help me stay focused, motivated, and aligned with my goals.",
     author: "Emily White",
-    title: "Student",
+    title: "Germany",
     initials: "EW",
     color: "from-purple-400 to-violet-500",
   },
   {
     quote: "Finally, an AI that understands me on a deeper level. The birth chart personalization is not a gimmick, it's profound.",
     author: "Alex G.",
-    title: "Astrology Enthusiast",
+    title: "France",
     initials: "AG",
     color: "from-cyan-400 to-sky-500",
-  }
+  },
+   {
+    quote: "The finance buddy helped me create a solid investment plan. I feel more confident about my financial future than ever before.",
+    author: "Jessica M.",
+    title: "Spain",
+    initials: "JM",
+    color: "from-red-400 to-rose-500",
+  },
+   {
+    quote: "My social media presence has exploded thanks to the Branding Buddy. The content ideas are always fresh and perfectly aligned with my personal brand.",
+    author: "Chris P.",
+    title: "Italy",
+    initials: "CP",
+    color: "from-indigo-400 to-fuchsia-500",
+  },
+   {
+    quote: "The Health & Wellness buddy has been a game-changer for my fitness journey. The personalized workout and diet plans are amazing.",
+    author: "Maria S.",
+    title: "Brazil",
+    initials: "MS",
+    color: "from-lime-400 to-green-500",
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -52,25 +73,19 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-        <div className="flex justify-center mb-4">
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
-                <Heart className="w-10 h-10 text-primary" />
-            </div>
-        </div>
           <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Loved by Thousands
+            Helpers of the month, every month.
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Don't just take our word for it. Here's what our users are saying.
+            With over 40,000 entrepreneurs from more than 100 countries, Mentify-AI is the world's leading provider of personalized AI companions.
           </p>
         </div>
         <div className="mt-16 flow-root">
           <div className="-m-4 p-4">
              <div className="mx-auto max-w-6xl columns-1 gap-8 sm:columns-2 lg:columns-3">
                  {testimonials.map((testimonial, index) => (
-                     <Card key={index} className="relative mb-8 break-inside-avoid rounded-2xl p-6 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-accent/20 glass-card">
-                         <CardContent className="p-0 pt-8">
-                            <Quote className="absolute top-4 left-4 h-6 w-6 text-primary/20" />
+                     <Card key={index} className="relative mb-8 break-inside-avoid rounded-2xl p-6 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/10 glass-card border">
+                         <CardContent className="p-0">
                              <blockquote className="text-muted-foreground">"{testimonial.quote}"</blockquote>
                              <figcaption className="mt-6 flex items-center gap-4">
                                  <Avatar className="h-12 w-12">

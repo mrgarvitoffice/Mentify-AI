@@ -1,94 +1,52 @@
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap } from 'lucide-react';
-import AnimatedParticles from '@/components/ui/animated-particles';
-import { ShopDialog } from '../shop/shop-dialog';
-import Link from 'next/link';
+import { PlayCircle } from 'lucide-react';
 import { PersonalityQuizDialog } from '../shop/personality-quiz-dialog';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative h-screen min-h-[900px] w-full overflow-hidden light-background">
-      <AnimatedParticles count={50} className="opacity-50" />
-      <div className="relative z-10 flex h-full flex-col items-center justify-center pt-20 text-center text-foreground">
-        <div className="container px-4">
-          <h1 className="animate-fade-in-up font-headline text-5xl font-black md:text-6xl lg:text-7xl">
-            Discover <span className="text-gradient bg-gradient-to-r from-primary to-secondary">AI Buddies</span>, Designed Just for You
-          </h1>
-          <p
-            className="mx-auto mt-6 max-w-3xl animate-fade-in-up text-lg text-muted-foreground md:text-xl"
-            style={{ animationDelay: '0.2s' }}
-          >
-            Unlike generic chatbots, our AI Buddies are personalized to your birth chart, making them your truest AI allies.
-          </p>
-
-          <div
-            className="group relative mx-auto mt-10 h-[320px] w-[320px] animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
-          >
-            {/* Orbiter icons */}
-            {[TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap].map((Icon, i) => (
-                 <div
-                    key={i}
-                    className="absolute"
-                    style={{
-                        transform: `rotate(${i * 60}deg) translateX(160px) rotate(-${i * 60}deg)`,
-                    }}
-                >
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background/60 p-2 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/20">
-                       <Icon className="h-8 w-8 text-primary transition-colors group-hover:text-secondary" />
+    <section id="home" className="relative w-full bg-background overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 py-24 sm:py-32 lg:py-40">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="text-center lg:text-left">
+                    <h1 className="font-headline text-5xl lg:text-6xl font-black text-foreground"
+                        style={{ lineHeight: 1.1 }}>
+                        Your companions that never sleep.
+                    </h1>
+                    <p className="mt-6 text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 text-muted-foreground">
+                        Build, grow, and scale your life with a team of AI Buddies.
+                    </p>
+                    <p className="mt-4 text-lg max-w-lg mx-auto lg:mx-0 text-muted-foreground/80">
+                        Mentify-AI. World's first AI companions, personalized for your birth chart. Making personal growth feel like magic.
+                    </p>
+                    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <PersonalityQuizDialog>
+                            <Button size="lg" className="rounded-lg text-lg py-7 px-8">
+                                Discover Your AI Buddy
+                            </Button>
+                        </PersonalityQuizDialog>
+                        <Button variant="outline" size="lg" className="rounded-lg text-lg py-7 px-8" asChild>
+                            <Link href="#how-it-works">
+                                <PlayCircle className="mr-2 h-5 w-5"/>
+                                Watch Demo
+                            </Link>
+                        </Button>
                     </div>
                 </div>
-            ))}
-            {/* Central orb */}
-            <div className="absolute inset-1/4 flex items-center justify-center">
-                 <div className="relative flex h-full w-full animate-pulse-slow items-center justify-center rounded-full bg-accent/20 shadow-2xl shadow-accent/30 backdrop-blur-xl transition-all duration-500 group-hover:bg-accent/30">
-                    <div className="absolute inset-0 rounded-full border-2 border-accent/50 animate-slow-spin-reverse" />
-                    <div className="text-5xl animate-pulse">🔮</div>
-                 </div>
+                <div className="relative flex justify-center items-center">
+                    <div className="absolute w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+                    <Image 
+                        src="https://picsum.photos/600/600"
+                        alt="AI Buddy Interface Mockup"
+                        width={600}
+                        height={600}
+                        className="rounded-2xl shadow-2xl animate-fade-in-up"
+                        data-ai-hint="AI app interface"
+                    />
+                </div>
             </div>
-          </div>
-          
-          <div className="mt-12 w-full animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-             <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
-                 <div className="text-center">
-                     <div className="text-4xl font-bold text-primary animate-number-up">40,000+</div>
-                     <div className="text-sm uppercase tracking-wider text-muted-foreground">Users Worldwide</div>
-                 </div>
-                 <div className="text-center">
-                     <div className="text-4xl font-bold text-primary animate-number-up">6</div>
-                     <div className="text-sm uppercase tracking-wider text-muted-foreground">AI Specialists</div>
-                 </div>
-                 <div className="text-center">
-                     <div className="text-4xl font-bold text-primary animate-number-up">24/7</div>
-                     <div className="text-sm uppercase tracking-wider text-muted-foreground">Available</div>
-                 </div>
-             </div>
-          </div>
-
-          <div
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center animate-fade-in-up"
-            style={{ animationDelay: '0.8s' }}
-          >
-            <PersonalityQuizDialog>
-              <Button
-                className="w-full rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-7 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/40 sm:w-auto"
-              >
-                Discover Your AI Buddy
-              </Button>
-            </PersonalityQuizDialog>
-            <Button
-              variant="outline"
-              className="w-full rounded-full border-2 border-secondary/50 bg-background/50 px-8 py-7 text-lg font-bold text-secondary transition-colors hover:bg-secondary hover:text-secondary-foreground hover:border-secondary sm:w-auto"
-              asChild
-            >
-              <Link href="#how-it-works">
-                <PlayCircle className="mr-2 h-6 w-6" />
-                Watch Demo
-              </Link>
-            </Button>
-          </div>
         </div>
-      </div>
     </section>
   );
 }

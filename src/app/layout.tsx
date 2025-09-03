@@ -1,19 +1,19 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { Poppins, Nunito } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Chatbot from '@/components/chat/chatbot';
 
-const poppins = Poppins({ 
+const inter = Inter({ 
   subsets: ['latin'], 
-  weight: ['800'],
-  variable: '--font-poppins' 
+  weight: ['400', '500', '700', '900'],
+  variable: '--font-inter' 
 });
-const nunito = Nunito({ 
+const playfairDisplay = Playfair_Display({ 
   subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-nunito' 
+  weight: ['900'],
+  variable: '--font-playfair-display' 
 });
 
 export const metadata: Metadata = {
@@ -28,11 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className={`${poppins.variable} ${nunito.variable} font-body bg-background text-foreground antialiased`}>
+      <body className={`${inter.variable} ${playfairDisplay.variable} font-body bg-background text-foreground antialiased`}>
         <ThemeProvider
             attribute="class"
             defaultTheme="light"

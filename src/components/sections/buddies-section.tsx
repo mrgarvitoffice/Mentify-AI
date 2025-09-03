@@ -1,98 +1,96 @@
 
 'use client';
 
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap, Users } from 'lucide-react';
+import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap, Briefcase, Brain, HeartHandshake, LandPlot, MonitorSmartphone, BookOpen } from 'lucide-react';
 import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
 
 const buddies = [
   {
-    icon: 'TrendingUp',
+    icon: Briefcase,
     title: "Business Motivator & Mentor",
-    description: "Inspires, guides, and explains business strategies. Your 24/7 business coach.",
+    description: "Your 24/7 business coach for strategy, motivation, and growth guidance aligned to your entrepreneurial stars.",
+    features: "Strategy Planning • Goal Setting • Market Analysis • Team Building"
   },
   {
-    icon: 'Heart',
+    icon: HeartHandshake,
     title: "Relationship & Social Buddy",
-    description: "Navigate love, friendship, and emotional connections with confidence.",
+    description: "Navigate love, friendship, and social connections with cosmic wisdom tailored to your relational patterns.",
+    features: "Dating Advice • Social Skills • Emotional Support • Communication"
   },
   {
-    icon: 'Wallet',
+    icon: LandPlot,
     title: "Finance & Real Estate Buddy",
-    description: "Your personal guide for investments, savings, and real estate.",
+    description: "Your personal wealth advisor for investments, savings, and property decisions based on your financial stars.",
+    features: "Investment Planning • Portfolio Management • Real Estate • Budgeting"
   },
   {
-    icon: 'ShieldPlus',
+    icon: ShieldPlus,
     title: "Health & Wellness Buddy",
-    description: "Holistic health advisor for diet, fitness, and wellbeing transformation.",
+    description: "Holistic health guidance for body, mind, and spirit aligned to your wellness potential and energy cycles.",
+    features: "Fitness Plans • Nutrition Guidance • Mental Health • Sleep Optimization"
   },
   {
-    icon: 'Share2',
+    icon: MonitorSmartphone,
     title: "Social Media & Branding Buddy",
-    description: "Build your online identity and grow your digital presence.",
+    description: "Build your online presence and personal brand with content strategies aligned to your authentic self.",
+    features: "Content Creation • Brand Strategy • Growth Tactics • Analytics"
   },
   {
-    icon: 'GraduationCap',
+    icon: BookOpen,
     title: "Problem Solver & Education Buddy",
-    description: "Your learning companion for skill development and problem-solving.",
+    description: "Your learning companion for skill development and problem-solving aligned to your intellectual strengths.",
+    features: "Learning Paths • Skill Building • Research • Knowledge Retention"
   },
 ];
 
 const icons: { [key: string]: React.ElementType } = {
-    TrendingUp,
-    Heart,
-    Wallet,
+    Briefcase,
+    HeartHandshake,
+    LandPlot,
     ShieldPlus,
-    Share2,
-    GraduationCap,
+    MonitorSmartphone,
+    BookOpen,
 };
 
 
 export default function BuddiesSection() {
   return (
-    <section id="features" className="bg-background py-24 sm:py-32">
+    <section id="buddies" className="bg-muted/50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-            <div className="flex justify-center mb-4">
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
-                    <Users className="w-10 h-10 text-primary" />
-                </div>
-            </div>
           <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Meet Your 6 AI Specialists
+            Buddies of the month, every month.
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Each Buddy designed to transform a specific area of your life.
+            With over 40,000+ users worldwide, Mentify-AI is the leading provider of personalized AI companions for life transformation.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {buddies.map((buddy) => {
-            const IconComponent = icons[buddy.icon];
+          {buddies.map((buddy, index) => {
+            const IconComponent = buddy.icon;
             return (
                 <Card
                 key={buddy.title}
-                className="group flex flex-col items-center text-center transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl glass-card"
+                className="group flex flex-col transform-gpu rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-background"
                 >
-                <CardHeader className="p-0 mb-6">
-                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/40">
-                    <IconComponent className="h-12 w-12 text-primary" />
+                    <CardContent className="p-0 flex-grow">
+                        <IconComponent className="h-10 w-10 text-primary mb-4" />
+                        <h3 className="text-xl font-bold text-foreground mb-2">{buddy.title}</h3>
+                        <p className="text-base text-muted-foreground mb-4">{buddy.description}</p>
+                        <p className="text-sm font-semibold text-primary">{buddy.features}</p>
+                    </CardContent>
+                    <div className="p-0 mt-6">
+                        <BuddyInfoDialog buddy={{ ...buddy, icon: buddy.icon.displayName || `Icon${index}` }}>
+                            <Button 
+                                variant="outline"
+                                className="w-full rounded-lg"
+                            >
+                                Learn More
+                            </Button>
+                        </BuddyInfoDialog>
                     </div>
-                </CardHeader>
-                <CardContent className="flex-grow pt-0">
-                    <h3 className="text-2xl font-bold text-foreground">{buddy.title}</h3>
-                    <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
-                </CardContent>
-                <CardFooter className="p-0">
-                    <BuddyInfoDialog buddy={buddy}>
-                    <Button 
-                        variant="outline"
-                        className="w-full rounded-full border-2 border-primary/50 bg-transparent px-6 py-3 font-bold text-primary shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/30 hover:bg-primary hover:text-primary-foreground"
-                    >
-                        Learn More
-                    </Button>
-                    </BuddyInfoDialog>
-                </CardFooter>
                 </Card>
             )
           })}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 import { ThemeToggle } from '../ui/theme-toggle';
 import { ShopDialog } from '../shop/shop-dialog';
 
@@ -43,9 +43,7 @@ export default function Header() {
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2 group">
-            <span className={cn('text-2xl font-bold text-primary')}>
-              ✨
-            </span>
+            <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
             <span className={cn('text-2xl font-bold font-headline text-foreground')}>
               Mentify-AI
             </span>
@@ -56,7 +54,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-base font-medium text-muted-foreground transition-colors duration-300 hover:text-primary group"
+                className="relative text-base font-medium text-gray-600 dark:text-gray-300 transition-colors duration-300 hover:text-primary group"
               >
                 {item.name}
                 <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -68,10 +66,9 @@ export default function Header() {
             <ThemeToggle />
             <ShopDialog>
               <Button
-                className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-500 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
+                className="group relative rounded-lg bg-primary px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer"></span>
-                <span className="relative">Shop AI Buddies</span>
+                Get Your AI Buddies
               </Button>
             </ShopDialog>
           </div>
@@ -87,14 +84,16 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        'fixed inset-0 z-50 bg-background/95 backdrop-blur-xl transition-opacity duration-300 md:hidden',
+        'fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl transition-opacity duration-300 md:hidden',
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       )}>
         <div className="container mx-auto flex h-full flex-col p-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-primary">✨</span>
-                <span className="text-2xl font-bold font-headline text-foreground">Mentify-AI</span>
+             <Link href="/" className="flex items-center gap-2 group">
+                <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
+                <span className={cn('text-2xl font-bold font-headline text-foreground')}>
+                Mentify-AI
+                </span>
             </Link>
             <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(false)} className="text-foreground">
                 <X />
@@ -114,9 +113,9 @@ export default function Header() {
             <ShopDialog>
                <Button
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
+                className="mt-8 rounded-lg bg-primary px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
               >
-                Shop AI Buddies
+                Get Your AI Buddies
               </Button>
             </ShopDialog>
           </nav>
