@@ -6,7 +6,7 @@ import { Check, Gem, Crown, Rocket } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import AnimatedParticles from '@/components/ui/animated-particles';
-import { ShopDialog } from '../shop/shop-dialog';
+import Link from 'next/link';
 
 const plans = [
     {
@@ -83,16 +83,18 @@ export default function PricingSection() {
                                     ))}
                                 </ul>
                             </div>
-                            <ShopDialog initialBuddy={plan.initialBuddy}>
-                                <Button className={cn(
+                            <Button 
+                                asChild
+                                className={cn(
                                     "mt-8 w-full rounded-full font-bold py-3 text-lg",
                                     plan.isFeatured 
                                         ? "bg-gradient-to-r from-primary to-yellow-300 text-primary-foreground hover:shadow-primary/40 hover:-translate-y-1 transition-all"
                                         : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                                )}>
+                            )}>
+                                <Link href={`/checkout?buddy=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.price)}`}>
                                     {plan.cta}
-                                </Button>
-                            </ShopDialog>
+                                </Link>
+                            </Button>
                         </div>
                     ))}
                 </div>

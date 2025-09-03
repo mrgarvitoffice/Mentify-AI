@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -7,15 +8,21 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogFooter,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { ShopDialog } from './shop-dialog';
-import type { LucideIcon } from 'lucide-react';
+import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap, type LucideIcon } from 'lucide-react';
+
+const icons: { [key: string]: LucideIcon } = {
+  TrendingUp,
+  Heart,
+  Wallet,
+  ShieldPlus,
+  Share2,
+  GraduationCap,
+};
 
 type Buddy = {
-  icon: LucideIcon;
+  icon: string;
   title: string;
   description: string;
 };
@@ -28,6 +35,7 @@ export function BuddyInfoDialog({
   buddy: Buddy;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const IconComponent = icons[buddy.icon];
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -35,7 +43,7 @@ export function BuddyInfoDialog({
       <DialogContent className="sm:max-w-lg">
         <DialogHeader className="items-center text-center">
           <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg mb-4">
-            <buddy.icon className="h-12 w-12 text-primary" />
+            {IconComponent && <IconComponent className="h-12 w-12 text-primary" />}
           </div>
           <DialogTitle className="text-2xl font-bold">{buddy.title}</DialogTitle>
           <DialogDescription className="text-base text-muted-foreground">
@@ -47,16 +55,6 @@ export function BuddyInfoDialog({
             Our AI, personalized to your unique birth chart, offers unparalleled guidance. Whether you're seeking to grow your business, improve your relationships, or enhance your well-being, your AI Buddy is here to support you 24/7.
           </p>
         </div>
-        <DialogFooter>
-          <ShopDialog initialBuddy={buddy.title}>
-            <Button
-              onClick={() => setIsOpen(false)}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold"
-            >
-              Buy Now
-            </Button>
-          </ShopDialog>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

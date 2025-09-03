@@ -1,6 +1,19 @@
-import Link from 'next/link';
+
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import AnimatedParticles from '../ui/animated-particles';
+import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
+import { FaqDialog } from '../info-dialogs/faq-dialog';
+import { PrivacyPolicyDialog } from '../info-dialogs/privacy-policy-dialog';
+import { TermsOfServiceDialog } from '../info-dialogs/terms-of-service-dialog';
+import { ContactUsDialog } from '../info-dialogs/contact-us-dialog';
+
+const buddies = [
+  { icon: "TrendingUp", title: "Business Motivator & Mentor", description: "Inspires, guides, and explains business strategies. Your 24/7 business coach." },
+  { icon: "Heart", title: "Relationship & Social Buddy", description: "Navigate love, friendship, and emotional connections with confidence." },
+  { icon: "Wallet", title: "Finance & Real Estate Buddy", description: "Your personal guide for investments, savings, and real estate." },
+  { icon: "ShieldPlus", title: "Health & Wellness Buddy", description: "Holistic health advisor for diet, fitness, and wellbeing transformation." },
+  { icon: "Share2", title: "Social Media & Branding Buddy", description: "Build your online identity and grow your digital presence." },
+  { icon: "GraduationCap", title: "Problem Solver & Education Buddy", description: "Your learning companion for skill development and problem-solving." },
+];
 
 export default function Footer() {
     const socialLinks = [
@@ -10,26 +23,15 @@ export default function Footer() {
         { icon: Linkedin, href: '#' },
     ];
 
-    const footerLinks = {
-        'AI Buddies': [
-            { name: 'Business Mentor', href: '#' },
-            { name: 'Relationship Buddy', href: '#' },
-            { name: 'Finance Buddy', href: '#' },
-            { name: 'Health Buddy', href: '#' },
-            { name: 'Social Media Buddy', href: '#' },
-            { name: 'Education Buddy', href: '#' },
-        ],
-        'Support': [
-            { name: 'FAQ', href: '#' },
-            { name: 'Contact Us', href: '#' },
-            { name: 'Privacy Policy', href: '#' },
-            { name: 'Terms of Service', href: '#' },
-        ],
-    };
+    const supportLinks = [
+      { name: 'FAQ', component: FaqDialog },
+      { name: 'Contact Us', component: ContactUsDialog },
+      { name: 'Privacy Policy', component: PrivacyPolicyDialog },
+      { name: 'Terms of Service', component: TermsOfServiceDialog },
+  ];
 
     return (
         <footer className="relative bg-card/50 text-white overflow-hidden">
-            <AnimatedParticles count={50} className="absolute inset-0 opacity-20" />
             <div className="relative container mx-auto px-6 py-16">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
                     <div className="lg:col-span-2">
@@ -41,18 +43,22 @@ export default function Footer() {
                         </p>
                         <div className="mt-6 flex gap-4">
                             {socialLinks.map((link, i) => (
-                                <Link key={i} href={link.href} className="text-muted-foreground hover:text-secondary transition-colors">
+                                <a key={i} href={link.href} className="text-muted-foreground hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">
                                     <link.icon className="h-6 w-6" />
-                                </Link>
+                                </a>
                             ))}
                         </div>
                     </div>
                     <div>
                         <h4 className="font-semibold tracking-wider uppercase text-foreground">AI Buddies</h4>
                         <ul className="mt-4 space-y-2">
-                            {footerLinks['AI Buddies'].map((link) => (
-                                <li key={link.name}>
-                                    <Link href={link.href} className="text-muted-foreground hover:text-secondary transition-colors">{link.name}</Link>
+                           {buddies.map((buddy) => (
+                                <li key={buddy.title}>
+                                    <BuddyInfoDialog buddy={buddy}>
+                                        <button className="text-muted-foreground hover:text-secondary transition-colors text-left w-full">
+                                            {buddy.title}
+                                        </button>
+                                    </BuddyInfoDialog>
                                 </li>
                             ))}
                         </ul>
@@ -60,11 +66,18 @@ export default function Footer() {
                     <div>
                         <h4 className="font-semibold tracking-wider uppercase text-foreground">Support</h4>
                         <ul className="mt-4 space-y-2">
-                            {footerLinks['Support'].map((link) => (
+                            {supportLinks.map((link) => {
+                                const DialogComponent = link.component;
+                                return (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-muted-foreground hover:text-secondary transition-colors">{link.name}</Link>
+                                    <DialogComponent>
+                                      <button className="text-muted-foreground hover:text-secondary transition-colors">
+                                          {link.name}
+                                      </button>
+                                    </DialogComponent>
                                 </li>
-                            ))}
+                                )
+                            })}
                         </ul>
                     </div>
                 </div>
