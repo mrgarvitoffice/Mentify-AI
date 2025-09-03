@@ -80,12 +80,12 @@ function ShopDialogContent({ children, initialBuddy }: { children: React.ReactNo
     const searchParams = useSearchParams();
     const refId = searchParams.get('ref');
     
-    const [selectedBuddy, setSelectedBuddy] = useState<string | null>(initialBuddy || null);
+    const [selectedBuddy, setSelectedBuddy] = useState<string | null>(initialBuddy || buddies[0].title);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        if (isOpen && initialBuddy) {
-            setSelectedBuddy(initialBuddy);
+        if (isOpen) {
+          setSelectedBuddy(initialBuddy || buddies[0].title);
         }
     }, [isOpen, initialBuddy]);
 
@@ -105,8 +105,8 @@ function ShopDialogContent({ children, initialBuddy }: { children: React.ReactNo
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild onClick={() => setIsOpen(true)}>{children}</DialogTrigger>
-          <DialogContent className="sm:max-w-2xl p-0 bg-background/90 backdrop-blur-lg border-2 border-primary/20">
-            <DialogHeader className="p-6 pb-4 text-center items-center">
+          <DialogContent className="sm:max-w-2xl p-0 glass-card animate-dialog-in">
+            <DialogHeader className="p-6 pb-4 text-center items-center bg-gradient-to-br from-primary/10 to-transparent">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2 animate-pulse">
                     <Sparkles className="w-8 h-8 text-primary" />
                 </div>

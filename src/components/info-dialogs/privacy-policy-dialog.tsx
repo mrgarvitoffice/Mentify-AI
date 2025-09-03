@@ -10,6 +10,7 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { ShieldCheck } from 'lucide-react';
 
 export function PrivacyPolicyDialog({
   children,
@@ -21,9 +22,12 @@ export function PrivacyPolicyDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-2xl">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">Privacy Policy</DialogTitle>
+      <DialogContent className="sm:max-w-2xl glass-card animate-dialog-in">
+        <DialogHeader className="items-center text-center">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2 animate-pulse">
+                <ShieldCheck className="w-8 h-8 text-primary" />
+            </div>
+            <DialogTitle className="text-2xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary">Privacy Policy</DialogTitle>
           <DialogDescription>
             Last updated: {new Date().toLocaleDateString()}
           </DialogDescription>

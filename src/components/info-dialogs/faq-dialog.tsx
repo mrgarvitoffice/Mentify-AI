@@ -11,6 +11,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { HelpCircle } from 'lucide-react';
 
 const faqs = [
     {
@@ -49,19 +50,22 @@ export function FaqDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-2xl">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">Frequently Asked Questions</DialogTitle>
-          <DialogDescription>
-            Find answers to common questions about Mentify-AI.
-          </DialogDescription>
+      <DialogContent className="sm:max-w-2xl glass-card animate-dialog-in">
+        <DialogHeader className="items-center text-center">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2 animate-pulse">
+                <HelpCircle className="w-8 h-8 text-primary" />
+            </div>
+            <DialogTitle className="text-2xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary">Frequently Asked Questions</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+                Find answers to common questions about Mentify-AI.
+            </DialogDescription>
         </DialogHeader>
         <div className="py-4 max-h-[60vh] overflow-y-auto pr-4">
             <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                        <AccordionTrigger>{faq.question}</AccordionTrigger>
-                        <AccordionContent>
+                        <AccordionTrigger className="hover:text-primary">{faq.question}</AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground">
                             {faq.answer}
                         </AccordionContent>
                     </AccordionItem>

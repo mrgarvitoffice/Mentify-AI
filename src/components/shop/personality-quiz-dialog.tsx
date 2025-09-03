@@ -86,9 +86,14 @@ export function PersonalityQuizDialog({ children }: { children: React.ReactNode 
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild onClick={() => { setIsOpen(true); handleReset(); }}>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-xl p-0 bg-background/90 backdrop-blur-lg border-2 border-primary/20 cosmic-nebula">
+    <Dialog open={isOpen} onOpenChange={(open) => {
+        setIsOpen(open);
+        if (!open) {
+            handleReset();
+        }
+    }}>
+      <DialogTrigger asChild onClick={() => setIsOpen(true)}>{children}</DialogTrigger>
+      <DialogContent className="sm:max-w-xl p-0 cosmic-nebula glass-card animate-dialog-in">
         <DialogHeader className="p-6 text-center">
           <Sparkles className="w-12 h-12 mx-auto text-primary animate-pulse" />
           <DialogTitle className="text-2xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary">
@@ -100,7 +105,7 @@ export function PersonalityQuizDialog({ children }: { children: React.ReactNode 
         </DialogHeader>
 
         <div className="px-6 py-4 space-y-6">
-          <Progress value={progress} className="w-full" />
+          <Progress value={progress} className="w-full h-2 bg-primary/20" />
           
           {currentStep < questions.length ? (
             <div className="min-h-[250px]">
@@ -112,7 +117,7 @@ export function PersonalityQuizDialog({ children }: { children: React.ReactNode 
                   <Button
                     key={option}
                     variant="outline"
-                    className="h-auto py-3 whitespace-normal"
+                    className="h-auto py-3 whitespace-normal hover:bg-primary/10 hover:border-primary transition-all duration-300"
                     onClick={() => handleAnswer(option)}
                   >
                     {option}
@@ -132,7 +137,7 @@ export function PersonalityQuizDialog({ children }: { children: React.ReactNode 
                  <div className="animate-fade-in-up">
                     <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
                     <h3 className="mt-4 text-xl font-bold">We recommend the...</h3>
-                    <h2 className="text-3xl font-bold text-primary my-2">{result.recommendedBuddy}</h2>
+                    <h2 className="text-3xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary my-2">{result.recommendedBuddy}</h2>
                     <p className="text-muted-foreground">{result.reasoning}</p>
                  </div>
               )}
@@ -147,7 +152,7 @@ export function PersonalityQuizDialog({ children }: { children: React.ReactNode 
                     Retake Quiz
                 </Button>
                 <ShopDialog initialBuddy={result.recommendedBuddy}>
-                    <Button className="w-full group relative rounded-md bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40">
+                    <Button className="w-full group relative rounded-md bg-gradient-to-r from-primary to-yellow-500 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40">
                          <span className="relative">Shop Buddies</span>
                     </Button>
                 </ShopDialog>
