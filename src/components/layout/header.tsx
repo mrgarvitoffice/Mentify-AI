@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from '../ui/theme-toggle';
+import { ShopDialog } from '../shop/shop-dialog';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,15 +66,14 @@ export default function Header() {
           
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
-            <Button
-              asChild
-              className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-500 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
-            >
-              <Link href="#">
+            <ShopDialog>
+              <Button
+                className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-500 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
+              >
                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer"></span>
                 <span className="relative">Shop AI Buddies</span>
-              </Link>
-            </Button>
+              </Button>
+            </ShopDialog>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
@@ -111,12 +111,13 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-             <Button
-              asChild
-              className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
-            >
-              <Link href="#">Shop AI Buddies</Link>
-            </Button>
+            <ShopDialog>
+               <Button
+                className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
+              >
+                Shop AI Buddies
+              </Button>
+            </ShopDialog>
           </nav>
         </div>
       </div>
