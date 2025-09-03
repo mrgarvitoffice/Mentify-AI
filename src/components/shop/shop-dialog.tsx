@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -66,12 +67,12 @@ const buddies = [
 ];
 
 const colorThemes: { [key: string]: { bg: string, border: string, shadow: string } } = {
-    gold: { bg: 'bg-yellow-400/10', border: 'border-yellow-400', shadow: 'shadow-yellow-400/30' },
-    rose: { bg: 'bg-rose-400/10', border: 'border-rose-400', shadow: 'shadow-rose-400/30' },
-    emerald: { bg: 'bg-emerald-400/10', border: 'border-emerald-400', shadow: 'shadow-emerald-400/30' },
-    green: { bg: 'bg-green-400/10', border: 'border-green-400', shadow: 'shadow-green-400/30' },
-    blue: { bg: 'bg-blue-400/10', border: 'border-blue-400', shadow: 'shadow-blue-400/30' },
-    purple: { bg: 'bg-purple-400/10', border: 'border-purple-400', shadow: 'shadow-purple-400/30' },
+    gold: { bg: 'bg-yellow-500/10', border: 'border-yellow-500', shadow: 'shadow-yellow-500/30' },
+    rose: { bg: 'bg-rose-500/10', border: 'border-rose-500', shadow: 'shadow-rose-500/30' },
+    emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500', shadow: 'shadow-emerald-500/30' },
+    green: { bg: 'bg-green-500/10', border: 'border-green-500', shadow: 'shadow-green-500/30' },
+    blue: { bg: 'bg-blue-500/10', border: 'border-blue-500', shadow: 'shadow-blue-500/30' },
+    purple: { bg: 'bg-purple-500/10', border: 'border-purple-500', shadow: 'shadow-purple-500/30' },
 };
 
 export function ShopDialog({ children }: { children: React.ReactNode }) {
@@ -91,9 +92,11 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
           <DialogTrigger asChild>{children}</DialogTrigger>
           <DialogContent className="sm:max-w-4xl p-0 bg-transparent border-none shadow-none">
             <div className="relative bg-background/80 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden animate-dialog-in">
-              <DialogHeader className="p-8 text-center">
-                <DialogTitle className="flex items-center justify-center gap-3 text-4xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary animate-fade-in-up">
-                  <ShoppingCart />
+              <DialogHeader className="p-8 text-center flex flex-col items-center">
+                <div className="p-3 rounded-full bg-primary/10 mb-4 animate-pulse">
+                    <ShoppingCart className="w-10 h-10 text-primary" />
+                </div>
+                <DialogTitle className="text-4xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary animate-fade-in-up">
                   Choose Your AI Companion
                 </DialogTitle>
                 <DialogDescription className="text-muted-foreground text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -156,3 +159,4 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
         </Dialog>
     );
 }
+
