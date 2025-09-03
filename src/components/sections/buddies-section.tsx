@@ -8,36 +8,46 @@ import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
 
 const buddies = [
   {
-    icon: TrendingUp,
+    icon: 'TrendingUp',
     title: "Business Motivator & Mentor",
     description: "Inspires, guides, and explains business strategies. Your 24/7 business coach.",
   },
   {
-    icon: Heart,
+    icon: 'Heart',
     title: "Relationship & Social Buddy",
     description: "Navigate love, friendship, and emotional connections with confidence.",
   },
   {
-    icon: Wallet,
+    icon: 'Wallet',
     title: "Finance & Real Estate Buddy",
     description: "Your personal guide for investments, savings, and real estate.",
   },
   {
-    icon: ShieldPlus,
+    icon: 'ShieldPlus',
     title: "Health & Wellness Buddy",
     description: "Holistic health advisor for diet, fitness, and wellbeing transformation.",
   },
   {
-    icon: Share2,
+    icon: 'Share2',
     title: "Social Media & Branding Buddy",
     description: "Build your online identity and grow your digital presence.",
   },
   {
-    icon: GraduationCap,
+    icon: 'GraduationCap',
     title: "Problem Solver & Education Buddy",
     description: "Your learning companion for skill development and problem-solving.",
   },
 ];
+
+const icons: { [key: string]: React.ElementType } = {
+    TrendingUp,
+    Heart,
+    Wallet,
+    ShieldPlus,
+    Share2,
+    GraduationCap,
+};
+
 
 export default function BuddiesSection() {
   return (
@@ -57,32 +67,35 @@ export default function BuddiesSection() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {buddies.map((buddy) => (
-            <Card
-              key={buddy.title}
-              className="group flex flex-col items-center text-center transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl glass-card"
-            >
-              <CardHeader className="p-0 mb-6">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/40">
-                  <buddy.icon className="h-12 w-12 text-primary" />
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow pt-0">
-                <h3 className="text-2xl font-bold text-foreground">{buddy.title}</h3>
-                <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
-              </CardContent>
-              <CardFooter className="p-0">
-                <BuddyInfoDialog buddy={buddy}>
-                  <Button 
-                    variant="outline"
-                    className="w-full rounded-full border-2 border-primary/50 bg-transparent px-6 py-3 font-bold text-primary shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/30 hover:bg-primary hover:text-primary-foreground"
-                  >
-                    Learn More
-                  </Button>
-                </BuddyInfoDialog>
-              </CardFooter>
-            </Card>
-          ))}
+          {buddies.map((buddy) => {
+            const IconComponent = icons[buddy.icon];
+            return (
+                <Card
+                key={buddy.title}
+                className="group flex flex-col items-center text-center transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl glass-card"
+                >
+                <CardHeader className="p-0 mb-6">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/40">
+                    <IconComponent className="h-12 w-12 text-primary" />
+                    </div>
+                </CardHeader>
+                <CardContent className="flex-grow pt-0">
+                    <h3 className="text-2xl font-bold text-foreground">{buddy.title}</h3>
+                    <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
+                </CardContent>
+                <CardFooter className="p-0">
+                    <BuddyInfoDialog buddy={buddy}>
+                    <Button 
+                        variant="outline"
+                        className="w-full rounded-full border-2 border-primary/50 bg-transparent px-6 py-3 font-bold text-primary shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/30 hover:bg-primary hover:text-primary-foreground"
+                    >
+                        Learn More
+                    </Button>
+                    </BuddyInfoDialog>
+                </CardFooter>
+                </Card>
+            )
+          })}
         </div>
       </div>
     </section>
