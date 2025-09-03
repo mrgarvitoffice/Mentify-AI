@@ -4,17 +4,15 @@ import AnimatedParticles from '@/components/ui/animated-particles';
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative h-screen min-h-[900px] w-full overflow-hidden cosmic-nebula">
-      <AnimatedParticles count={100} className="opacity-50" />
+    <section id="home" className="relative h-screen min-h-[900px] w-full overflow-hidden light-background">
+      <AnimatedParticles count={50} className="opacity-50" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center pt-20 text-center text-foreground">
         <div className="container px-4">
           <h1 className="animate-fade-in-up font-headline text-5xl font-black md:text-6xl lg:text-7xl">
-            <span className="text-gradient bg-gradient-to-tr from-primary via-white to-primary">
-              AI Companions Aligned to Your Soul
-            </span>
+            Discover <span className="text-gradient bg-gradient-to-r from-primary to-secondary">AI Buddies</span>, Designed Just for You
           </h1>
           <p
-            className="mx-auto mt-6 max-w-3xl animate-fade-in-up text-lg text-white/80 md:text-xl"
+            className="mx-auto mt-6 max-w-3xl animate-fade-in-up text-lg text-muted-foreground md:text-xl"
             style={{ animationDelay: '0.2s' }}
           >
             Unlike generic chatbots, our AI Buddies are personalized to your birth chart, making them your truest AI allies.
@@ -33,14 +31,14 @@ export default function HeroSection() {
                         transform: `rotate(${i * 60}deg) translateX(160px) rotate(-${i * 60}deg)`,
                     }}
                 >
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-card/60 p-2 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/30">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background/60 p-2 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/20">
                        <Icon className="h-8 w-8 text-primary transition-colors group-hover:text-secondary" />
                     </div>
                 </div>
             ))}
             {/* Central orb */}
             <div className="absolute inset-1/4 flex items-center justify-center">
-                 <div className="relative flex h-full w-full animate-pulse-slow items-center justify-center rounded-full bg-accent/20 shadow-2xl shadow-accent/40 backdrop-blur-xl transition-all duration-500 group-hover:bg-accent/30">
+                 <div className="relative flex h-full w-full animate-pulse-slow items-center justify-center rounded-full bg-accent/20 shadow-2xl shadow-accent/30 backdrop-blur-xl transition-all duration-500 group-hover:bg-accent/30">
                     <div className="absolute inset-0 rounded-full border-2 border-accent/50 animate-slow-spin-reverse" />
                     <div className="text-5xl animate-pulse">🔮</div>
                  </div>
@@ -69,7 +67,7 @@ export default function HeroSection() {
             style={{ animationDelay: '0.8s' }}
           >
             <Button
-              className="w-full rounded-full bg-gradient-to-r from-primary to-yellow-300 px-8 py-7 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/40 sm:w-auto"
+              className="w-full rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-7 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-2 hover:shadow-primary/40 sm:w-auto"
             >
               Discover Your AI Buddy
             </Button>

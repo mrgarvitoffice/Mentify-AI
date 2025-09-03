@@ -37,12 +37,12 @@ export default function Header() {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300',
-          isScrolled ? 'bg-background/80 shadow-lg shadow-accent/10 backdrop-blur-lg' : 'bg-transparent'
+          isScrolled ? 'bg-background/80 shadow-sm backdrop-blur-lg' : 'bg-transparent'
         )}
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2 group">
-            <span className={cn('text-2xl font-bold text-primary animate-pulse')}>
+            <span className={cn('text-2xl font-bold text-primary')}>
               ✨
             </span>
             <span className={cn('text-2xl font-bold font-headline text-foreground')}>
@@ -55,10 +55,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-base font-medium text-muted-foreground transition-colors duration-300 hover:text-secondary group"
+                className="relative text-base font-medium text-muted-foreground transition-colors duration-300 hover:text-primary group"
               >
                 {item.name}
-                <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </nav>
@@ -67,7 +67,7 @@ export default function Header() {
             <ThemeToggle />
             <Button
               asChild
-              className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-300 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
+              className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-500 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
             >
               <Link href="#">
                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer"></span>
@@ -93,7 +93,7 @@ export default function Header() {
         <div className="container mx-auto flex h-full flex-col p-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-primary animate-pulse">✨</span>
+                <span className="text-2xl font-bold text-primary">✨</span>
                 <span className="text-2xl font-bold font-headline text-foreground">Mentify-AI</span>
             </Link>
             <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(false)} className="text-foreground">
@@ -105,7 +105,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-2xl font-medium text-muted-foreground transition-colors duration-300 hover:text-secondary"
+                className="text-2xl font-medium text-muted-foreground transition-colors duration-300 hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -113,7 +113,7 @@ export default function Header() {
             ))}
              <Button
               asChild
-              className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-300 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
+              className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
             >
               <Link href="#">Shop AI Buddies</Link>
             </Button>

@@ -2,49 +2,44 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 
 const buddies = [
   {
     icon: TrendingUp,
     title: "Business Motivator & Mentor",
-    description: "Inspires, guides, and explains business strategies. Your 24/7 business coach and motivational partner.",
-    features: "Strategy Planning • Goal Setting • Market Analysis • Team Building",
-    borderColor: "border-yellow-400/50"
+    description: "Inspires, guides, and explains business strategies. Your 24/7 business coach.",
+    badgeColor: "bg-yellow-100 text-yellow-800 border-yellow-200"
   },
   {
     icon: Heart,
     title: "Relationship & Social Buddy",
-    description: "Navigate love, friendship, and emotional connections with confidence and wisdom.",
-    features: "Dating Advice • Social Skills • Emotional Support • Communication",
-    borderColor: "border-pink-400/50"
+    description: "Navigate love, friendship, and emotional connections with confidence.",
+    badgeColor: "bg-pink-100 text-pink-800 border-pink-200"
   },
   {
     icon: Wallet,
     title: "Finance & Real Estate Buddy",
-    description: "Your personal guide for investments, savings, and real estate opportunities.",
-    features: "Investment Planning • Portfolio Management • Real Estate • Budgeting",
-    borderColor: "border-green-400/50"
+    description: "Your personal guide for investments, savings, and real estate.",
+    badgeColor: "bg-green-100 text-green-800 border-green-200"
   },
   {
     icon: ShieldPlus,
     title: "Health & Wellness Buddy",
-    description: "Holistic health advisor for diet, fitness, and complete wellbeing transformation.",
-    features: "Fitness Plans • Nutrition Guidance • Mental Health • Sleep Optimization",
-    borderColor: "border-teal-400/50"
+    description: "Holistic health advisor for diet, fitness, and wellbeing transformation.",
+    badgeColor: "bg-teal-100 text-teal-800 border-teal-200"
   },
   {
     icon: Share2,
     title: "Social Media & Branding Buddy",
-    description: "Build your online identity, create engaging content, and grow your digital presence.",
-    features: "Content Creation • Brand Strategy • Growth Tactics • Analytics",
-    borderColor: "border-blue-400/50"
+    description: "Build your online identity and grow your digital presence.",
+    badgeColor: "bg-blue-100 text-blue-800 border-blue-200"
   },
   {
     icon: GraduationCap,
     title: "Problem Solver & Education Buddy",
-    description: "Your learning companion for education, skill development, and problem-solving.",
-    features: "Learning Paths • Skill Building • Research • Knowledge Retention",
-    borderColor: "border-purple-400/50"
+    description: "Your learning companion for skill development and problem-solving.",
+    badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
   },
 ];
 
@@ -57,26 +52,19 @@ export default function BuddiesSection() {
             Meet Your 6 AI Specialists
           </h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Each Buddy designed to transform a specific area of your life
+            Each Buddy designed to transform a specific area of your life.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {buddies.map((buddy) => (
             <Card
               key={buddy.title}
-              className={cn(
-                "group flex flex-col transform-gpu rounded-3xl p-8 transition-all duration-400 ease-in-out hover:-translate-y-2 hover:shadow-2xl",
-                "glass-card hover:shadow-accent/20",
-                `border-2 ${buddy.borderColor} hover:${buddy.borderColor.replace('50','80')}`
-              )}
+              className="group flex flex-col transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="flex flex-1 flex-col items-center text-center">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/50 to-secondary/50 text-5xl text-primary-foreground shadow-lg">
-                  <buddy.icon className="h-12 w-12 text-primary" />
-                </div>
+              <div className="flex-grow">
+                <Badge className={cn("absolute top-4 right-4 border", buddy.badgeColor)}>{buddy.icon && <buddy.icon className="h-4 w-4 mr-2" />}New</Badge>
                 <h3 className="mt-6 text-2xl font-bold text-foreground">{buddy.title}</h3>
-                <p className="mt-4 text-base text-muted-foreground flex-grow">{buddy.description}</p>
-                <p className="mt-6 font-semibold text-secondary text-sm">{buddy.features}</p>
+                <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
               </div>
               <Button 
                 variant="outline"
