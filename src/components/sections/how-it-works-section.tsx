@@ -60,13 +60,13 @@ export default function HowItWorksSection() {
                 </div>
                 <div className="mt-20 grid grid-cols-1 gap-16 md:grid-cols-3">
                     {steps.map((step) => (
-                        <div key={step.number} className="text-center">
-                            <div className="relative flex justify-center items-center">
-                                <span className="font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5">
+                        <div key={step.number} className="flex flex-col items-center text-center">
+                            <div className="relative flex justify-center items-center h-40 w-40">
+                                <span className="absolute font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5 opacity-50">
                                     {step.number}
                                 </span>
-                                <div className="absolute">
-                                    <step.icon className="h-20 w-20 text-primary animate-pulse-slow" />
+                                <div className="absolute flex items-center justify-center h-24 w-24 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20">
+                                    <step.icon className="h-12 w-12 text-primary animate-pulse-slow" />
                                 </div>
                             </div>
                             <h3 className="mt-6 text-2xl font-bold">{step.title}</h3>

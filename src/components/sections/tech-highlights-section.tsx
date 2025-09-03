@@ -38,8 +38,8 @@ export default function TechHighlightsSection() {
                 <div className="mt-16 grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-8 sm:gap-y-16">
                     {techFeatures.map((feature) => (
                         <div key={feature.title} className="flex flex-col items-center text-center">
-                           <div className="flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-primary-foreground shadow-lg shadow-accent/20 animate-pulse-slow">
-                              <feature.icon className="h-10 w-10 text-primary" />
+                           <div className="flex items-center justify-center h-24 w-24 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-primary-foreground shadow-lg shadow-accent/20 animate-pulse-slow">
+                              <feature.icon className="h-12 w-12 text-primary" />
                            </div>
                            <h3 className="mt-5 text-lg font-semibold text-foreground">{feature.title}</h3>
                            <p className="mt-2 text-base text-muted-foreground">{feature.description}</p>

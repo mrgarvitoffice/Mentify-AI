@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, Gem, Crown, Rocket } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import AnimatedParticles from '@/components/ui/animated-particles';
 
 const plans = [
     {
+        icon: Gem,
         name: "Single Buddy",
         price: "$300",
         frequency: "/year",
@@ -15,6 +16,7 @@ const plans = [
         cta: "Get Started"
     },
     {
+        icon: Crown,
         name: "6 Buddies Bundle",
         price: "$1,800",
         frequency: "/year",
@@ -24,6 +26,7 @@ const plans = [
         cta: "Choose Bundle"
     },
     {
+        icon: Rocket,
         name: "Premium + Personal Creation",
         price: "$3,800",
         frequency: "/year",
@@ -46,19 +49,20 @@ export default function PricingSection() {
                 <div className="isolate mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
                     {plans.map((plan) => (
                         <div key={plan.name} className={cn(
-                            "relative flex flex-col rounded-3xl p-8 transition-transform duration-300",
+                            "relative flex flex-col items-center text-center rounded-3xl p-8 transition-transform duration-300",
                             plan.isFeatured ? "lg:scale-110 ring-2 ring-primary z-10 shadow-2xl shadow-primary/30" : "hover:scale-105",
                             "glass-card"
                         )}>
                             {plan.isFeatured && <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground font-bold">Most Popular</Badge>}
                             <div className="flex-1">
+                                <plan.icon className="h-12 w-12 text-primary mx-auto mb-6" />
                                 <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                                <p className="mt-4 flex items-baseline gap-x-2">
+                                <p className="mt-4 flex items-baseline justify-center gap-x-2">
                                     <span className="text-5xl font-bold tracking-tight">{plan.price}</span>
                                     <span className="text-muted-foreground">{plan.frequency}</span>
                                 </p>
                                 <p className="mt-6 text-muted-foreground">{plan.description}</p>
-                                <ul role="list" className="mt-8 space-y-3 text-sm leading-6">
+                                <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-left">
                                     {plan.features.map((feature) => (
                                         <li key={feature} className="flex gap-x-3">
                                             <Check className="h-6 w-5 flex-none text-primary" aria-hidden="true" />

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import AnimatedParticles from '@/components/ui/animated-particles';
+import { Star } from 'lucide-react';
 
 export default function CtaSection() {
     return (
@@ -15,6 +16,7 @@ export default function CtaSection() {
             </div>
             <AnimatedParticles count={50} className="absolute inset-0 z-10 opacity-50" />
             <div className="relative z-20 mx-auto max-w-2xl text-center px-4">
+                <Star className="mx-auto h-12 w-12 text-primary animate-pulse mb-4" />
                 <h2 className="font-headline text-5xl font-black text-maroon sm:text-6xl animate-fade-in-up">
                     <span className="text-gradient bg-gradient-to-r from-maroon to-primary bg-200% animate-gradient-shimmer">
                         Transform Your Life Today

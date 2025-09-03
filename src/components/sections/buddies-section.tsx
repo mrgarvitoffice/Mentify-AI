@@ -1,7 +1,6 @@
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 
 const buddies = [
@@ -9,37 +8,37 @@ const buddies = [
     icon: TrendingUp,
     title: "Business Motivator & Mentor",
     description: "Inspires, guides, and explains business strategies. Your 24/7 business coach.",
-    badgeColor: "bg-yellow-100 text-yellow-800 border-yellow-200"
+    badge: "New",
   },
   {
     icon: Heart,
     title: "Relationship & Social Buddy",
     description: "Navigate love, friendship, and emotional connections with confidence.",
-    badgeColor: "bg-pink-100 text-pink-800 border-pink-200"
+    badge: "Popular",
   },
   {
     icon: Wallet,
     title: "Finance & Real Estate Buddy",
     description: "Your personal guide for investments, savings, and real estate.",
-    badgeColor: "bg-green-100 text-green-800 border-green-200"
+    badge: "New",
   },
   {
     icon: ShieldPlus,
     title: "Health & Wellness Buddy",
     description: "Holistic health advisor for diet, fitness, and wellbeing transformation.",
-    badgeColor: "bg-teal-100 text-teal-800 border-teal-200"
+    badge: "New",
   },
   {
     icon: Share2,
     title: "Social Media & Branding Buddy",
     description: "Build your online identity and grow your digital presence.",
-    badgeColor: "bg-blue-100 text-blue-800 border-blue-200"
+    badge: "Popular",
   },
   {
     icon: GraduationCap,
     title: "Problem Solver & Education Buddy",
     description: "Your learning companion for skill development and problem-solving.",
-    badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+    badge: "New",
   },
 ];
 
@@ -59,19 +58,25 @@ export default function BuddiesSection() {
           {buddies.map((buddy) => (
             <Card
               key={buddy.title}
-              className="group flex flex-col transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              className="group flex flex-col items-center text-center transform-gpu rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl glass-card"
             >
-              <div className="flex-grow">
-                <Badge className={cn("absolute top-4 right-4 border", buddy.badgeColor)}>{buddy.icon && <buddy.icon className="h-4 w-4 mr-2" />}New</Badge>
-                <h3 className="mt-6 text-2xl font-bold text-foreground">{buddy.title}</h3>
+              <CardHeader className="p-0">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/40">
+                  <buddy.icon className="h-12 w-12 text-primary" />
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow pt-6">
+                <h3 className="text-2xl font-bold text-foreground">{buddy.title}</h3>
                 <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
-              </div>
-              <Button 
-                variant="outline"
-                className="mt-8 rounded-full border-2 border-primary/50 bg-transparent px-6 py-3 font-bold text-primary shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/30 hover:bg-primary hover:text-primary-foreground"
-              >
-                Learn More
-              </Button>
+              </CardContent>
+              <CardFooter className="p-0">
+                <Button 
+                  variant="outline"
+                  className="w-full rounded-full border-2 border-primary/50 bg-transparent px-6 py-3 font-bold text-primary shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/30 hover:bg-primary hover:text-primary-foreground"
+                >
+                  Learn More
+                </Button>
+              </CardFooter>
             </Card>
           ))}
         </div>
