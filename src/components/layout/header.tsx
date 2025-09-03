@@ -12,16 +12,17 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const show = window.scrollY > 10;
+      if (show !== isScrolled) {
+        setIsScrolled(show);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
+    document.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isScrolled]);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -35,14 +36,12 @@ export default function Header() {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300',
-          isScrolled
-            ? 'bg-background/80 shadow-lg shadow-primary/10 [backdrop-filter:blur(12px)]'
-            : 'bg-transparent'
+          isScrolled ? 'bg-background/80 shadow-lg shadow-accent/10 backdrop-blur-lg' : 'bg-transparent'
         )}
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2 group">
-            <span className={cn('animate-shimmer text-2xl font-bold text-primary')}>
+            <span className={cn('text-2xl font-bold text-primary animate-pulse')}>
               ✨
             </span>
             <span className={cn('text-2xl font-bold font-headline text-foreground')}>
@@ -55,13 +54,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={cn(
-                  'text-base font-medium transition-all duration-300 hover:text-primary relative group',
-                   'text-foreground'
-                )}
+                className="relative text-base font-medium text-muted-foreground transition-colors duration-300 hover:text-secondary group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </nav>
@@ -69,10 +65,10 @@ export default function Header() {
           <div className="hidden md:block">
             <Button
               asChild
-              className="group relative rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
+              className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-300 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
             >
               <Link href="#">
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-secondary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer-slow"></span>
+                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer"></span>
                 <span className="relative">Shop AI Buddies</span>
               </Link>
             </Button>
@@ -88,25 +84,25 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        'fixed inset-0 z-50 bg-background/90 [backdrop-filter:blur(10px)] transition-opacity duration-300 md:hidden',
+        'fixed inset-0 z-50 bg-background/95 backdrop-blur-xl transition-opacity duration-300 md:hidden',
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       )}>
         <div className="container mx-auto flex h-full flex-col p-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center gap-2">
-                <span className="animate-shimmer text-2xl font-bold text-primary">✨</span>
+                <span className="text-2xl font-bold text-primary animate-pulse">✨</span>
                 <span className="text-2xl font-bold font-headline text-foreground">Mentify-AI</span>
             </Link>
             <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(false)} className="text-foreground">
                 <X />
             </Button>
           </div>
-          <nav className="mt-10 flex flex-col items-center gap-8">
+          <nav className="mt-16 flex flex-col items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-2xl font-medium text-foreground transition-colors duration-300 hover:text-primary"
+                className="text-2xl font-medium text-muted-foreground transition-colors duration-300 hover:text-secondary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -114,7 +110,7 @@ export default function Header() {
             ))}
              <Button
               asChild
-              className="mt-8 rounded-full bg-gradient-to-r from-primary to-accent px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
+              className="mt-8 rounded-full bg-gradient-to-r from-primary to-yellow-300 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg"
             >
               <Link href="#">Shop AI Buddies</Link>
             </Button>

@@ -4,47 +4,65 @@
 
 @layer base {
   :root {
-    --background: 30 50% 98%; /* ethereal white-ish */
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 51 100% 50%; /* premium gold */
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 246 76% 60%; /* sky blue */
-    --secondary-foreground: 210 40% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 266 58% 65%; /* cosmic purple */
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+    
+    --card: 240 10% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 4%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 46 100% 68%; /* Electric Gold */
+    --primary-foreground: 240 10% 4%;
+    
+    --secondary: 175 87% 65%; /* Neon Cyan */
+    --secondary-foreground: 240 10% 4%;
+    
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+    
+    --accent: 258 100% 65%; /* Cosmic Purple */
     --accent-foreground: 210 40% 98%;
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 51 100% 50%;
-    --radius: 0.5rem;
+    
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 46 100% 68%;
+    
+    --radius: 0.75rem;
   }
+
   .dark {
-    --background: 228 12% 6%; /* deep space black */
+    --background: 240 10% 4%;
     --foreground: 210 40% 98%;
-    --card: 228 12% 9%;
+    
+    --card: 240 10% 9%;
     --card-foreground: 210 40% 98%;
-    --popover: 228 12% 6%;
+
+    --popover: 240 10% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 51 100% 70%; /* electric gold */
-    --primary-foreground: 228 12% 6%;
-    --secondary: 172 80% 60%; /* teal */
-    --secondary-foreground: 228 12% 6%;
-    --muted: 228 12% 9%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 338 100% 76%; /* blush pink */
-    --accent-foreground: 228 12% 6%;
-    --destructive: 0 62.8% 30.6%;
+    
+    --primary: 46 100% 68%; /* Electric Gold */
+    --primary-foreground: 240 10% 4%;
+    
+    --secondary: 175 87% 65%; /* Neon Cyan */
+    --secondary-foreground: 240 10% 4%;
+    
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+    
+    --accent: 258 100% 65%; /* Cosmic Purple */
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 228 12% 12%;
-    --input: 228 12% 12%;
-    --ring: 51 100% 70%;
+    
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 46 100% 68%;
   }
 }
 
@@ -63,5 +81,15 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
+  }
+
+  .cosmic-nebula {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 120%, hsl(var(--accent) / 0.15), transparent),
+      linear-gradient(160deg, hsl(var(--background)) 50%, hsl(var(--accent) / 0.1) 100%);
+  }
+
+  .glass-card {
+      @apply bg-card/60 backdrop-blur-lg border border-white/10;
   }
 }

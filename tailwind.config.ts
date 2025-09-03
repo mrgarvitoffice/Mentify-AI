@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        headline: ['var(--font-inter)', 'sans-serif'],
-        body: ['var(--font-sora)', 'sans-serif'],
+        headline: ['var(--font-space-grotesk)', 'sans-serif'],
+        body: ['var(--font-manrope)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -107,9 +107,9 @@ export default {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
         },
-        pulse: {
+        'pulse-slow': {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-          '50%': { transform: 'scale(1.05)', opacity: '0.7' },
+          '50%': { transform: 'scale(1.05)', opacity: '0.9' },
         },
       },
       animation: {
@@ -118,10 +118,9 @@ export default {
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
         'slow-spin': 'slow-spin 40s linear infinite',
         'slow-spin-reverse': 'slow-spin-reverse 40s linear infinite',
-        'shimmer-slow': 'shimmer 10s ease infinite',
-        shimmer: 'shimmer 3s ease infinite',
-        float: 'float 15s infinite ease-in-out',
-        pulse: 'pulse 3s infinite ease-in-out',
+        'shimmer': 'shimmer 5s ease infinite',
+        'float': 'float 15s infinite ease-in-out',
+        'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
       },
       backgroundSize: {
         '200%': '200% 200%',

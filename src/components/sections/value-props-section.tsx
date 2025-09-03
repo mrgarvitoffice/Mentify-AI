@@ -25,26 +25,26 @@ const valueProps = [
 
 export default function ValuePropsSection() {
   return (
-    <section className="bg-gradient-to-b from-white to-purple-50 py-24 sm:py-32">
+    <section className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Uniquely Yours
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">
             Experience the features that make Mentify-AI unlike any other platform.
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-4 md:gap-x-8">
           {valueProps.map((prop) => (
-            <div key={prop.title} className="text-center">
+            <div key={prop.title} className="text-center p-8 rounded-3xl glass-card hover:border-accent transition-colors">
               <div className="flex justify-center items-center h-24">
-                <div className="flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-yellow-300 to-orange-400 text-white shadow-lg transition-transform duration-300 hover:scale-110 hover:animate-pulse">
+                <div className="flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-accent to-secondary text-white shadow-lg shadow-accent/20 transition-transform duration-300 hover:scale-110 hover:animate-pulse">
                   <prop.icon className="h-10 w-10" />
                 </div>
               </div>
-              <h3 className="mt-6 text-xl font-bold text-gray-900">{prop.title}</h3>
-              <p className="mt-4 text-gray-600">{prop.description}</p>
+              <h3 className="mt-6 text-xl font-bold text-foreground">{prop.title}</h3>
+              <p className="mt-4 text-muted-foreground">{prop.description}</p>
             </div>
           ))}
         </div>

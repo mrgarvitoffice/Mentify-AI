@@ -51,8 +51,8 @@ const steps = [
 
 export default function HowItWorksSection() {
     return (
-        <section id="how-it-works" className="relative bg-background text-foreground py-24 sm:py-32 overflow-hidden">
-            <AnimatedParticles count={200} className="opacity-50" />
+        <section id="how-it-works" className="relative cosmic-nebula text-foreground py-24 sm:py-32 overflow-hidden">
+            <AnimatedParticles count={50} className="opacity-30" />
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">How It Works</h2>
@@ -66,7 +66,7 @@ export default function HowItWorksSection() {
                                     {step.number}
                                 </span>
                                 <div className="absolute">
-                                    <step.icon className="h-20 w-20 text-primary animate-pulse" />
+                                    <step.icon className="h-20 w-20 text-primary animate-pulse-slow" />
                                 </div>
                             </div>
                             <h3 className="mt-6 text-2xl font-bold">{step.title}</h3>

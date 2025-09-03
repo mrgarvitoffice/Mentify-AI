@@ -25,24 +25,24 @@ const techFeatures = [
 
 export default function TechHighlightsSection() {
     return (
-        <section className="bg-gray-50 py-24 sm:py-32">
+        <section className="cosmic-nebula py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                    <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                         Powered by Future-Proof Tech
                     </h2>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">
+                    <p className="mt-6 text-lg leading-8 text-muted-foreground">
                         We use the latest advancements in AI to deliver an unparalleled experience.
                     </p>
                 </div>
                 <div className="mt-16 grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-8 sm:gap-y-16">
                     {techFeatures.map((feature) => (
                         <div key={feature.title} className="flex flex-col items-center text-center">
-                           <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-primary text-primary-foreground shadow-lg">
-                              <feature.icon className="h-8 w-8" />
+                           <div className="flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-primary-foreground shadow-lg shadow-accent/20 animate-pulse-slow">
+                              <feature.icon className="h-10 w-10 text-primary" />
                            </div>
-                           <h3 className="mt-5 text-lg font-semibold text-gray-900">{feature.title}</h3>
-                           <p className="mt-2 text-base text-gray-600">{feature.description}</p>
+                           <h3 className="mt-5 text-lg font-semibold text-foreground">{feature.title}</h3>
+                           <p className="mt-2 text-base text-muted-foreground">{feature.description}</p>
                         </div>
                     ))}
                 </div>
