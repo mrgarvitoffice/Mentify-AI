@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from '../ui/theme-toggle';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +63,8 @@ export default function Header() {
             ))}
           </nav>
           
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button
               asChild
               className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-300 px-6 py-3 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
@@ -74,7 +76,8 @@ export default function Header() {
             </Button>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <Button size="icon" variant="ghost" onClick={() => setIsMenuOpen(true)} className='text-foreground'>
               <Menu />
             </Button>
