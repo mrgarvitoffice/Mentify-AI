@@ -4,7 +4,7 @@
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap, Users } from 'lucide-react';
-import { ShopDialog } from '../shop/shop-dialog';
+import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
 
 const buddies = [
   {
@@ -72,14 +72,14 @@ export default function BuddiesSection() {
                 <p className="mt-4 text-base text-muted-foreground">{buddy.description}</p>
               </CardContent>
               <CardFooter className="p-0">
-                <ShopDialog initialBuddy={buddy.title}>
+                <BuddyInfoDialog buddy={buddy}>
                   <Button 
                     variant="outline"
                     className="w-full rounded-full border-2 border-primary/50 bg-transparent px-6 py-3 font-bold text-primary shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/30 hover:bg-primary hover:text-primary-foreground"
                   >
-                    Buy Now
+                    Learn More
                   </Button>
-                </ShopDialog>
+                </BuddyInfoDialog>
               </CardFooter>
             </Card>
           ))}

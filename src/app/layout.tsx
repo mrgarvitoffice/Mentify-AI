@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Poppins, Nunito } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import Chatbot from '@/components/chat/chatbot';
 
 const poppins = Poppins({ 
   subsets: ['latin'], 
@@ -39,6 +40,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
           {children}
+          <Chatbot />
           <Toaster />
         </ThemeProvider>
       </body>
