@@ -40,6 +40,7 @@ export default {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        maroon: 'hsl(var(--maroon))',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
@@ -103,6 +104,10 @@ export default {
           '0%, 100%': { 'background-position': '0% 50%' },
           '50%': { 'background-position': '100% 50%' },
         },
+        'gradient-shimmer': {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
@@ -124,6 +129,7 @@ export default {
         'slow-spin': 'slow-spin 40s linear infinite',
         'slow-spin-reverse': 'slow-spin-reverse 40s linear infinite',
         'shimmer': 'shimmer 5s ease infinite',
+        'gradient-shimmer': 'gradient-shimmer 6s ease-in-out infinite',
         'float': 'float 15s infinite ease-in-out',
         'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
         'gradient-blob': 'gradient-blob 8s ease-in-out infinite',

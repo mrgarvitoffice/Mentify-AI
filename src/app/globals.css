@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 8% 98%; /* #FAFAFB */
+    --background: 40 33% 96%; /* #FDF5E6 - Light Beige */
     --foreground: 240 2% 11%; /* #1C1C1E */
 
     --card: 0 0% 100%;
@@ -13,17 +13,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 2% 11%;
 
-    --primary: 44 100% 48%; /* #F5B700 */
+    --primary: 44 100% 48%; /* #F5B700 - Royal Gold */
     --primary-foreground: 240 2% 11%;
 
-    --secondary: 217 100% 61%; /* #3A8DFF */
+    --secondary: 217 100% 61%; /* #3A8DFF - Sky Blue */
     --secondary-foreground: 0 0% 100%;
     
     --muted: 240 5% 96%;
     --muted-foreground: 240 4% 46%;
 
-    --accent: 261 100% 71%; /* #A66CFF */
+    --accent: 261 100% 71%; /* #A66CFF - Lavender */
     --accent-foreground: 240 2% 11%;
+
+    --maroon: 0 100% 25%; /* #800000 */
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -57,6 +59,8 @@
     --accent: 261 100% 78%; /* Lighter Lavender */
     --accent-foreground: 240 5% 95%;
 
+    --maroon: 0 100% 60%;
+
     --destructive: 0 63% 31%;
     --destructive-foreground: 240 5% 95%;
 
@@ -82,11 +86,25 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
   }
+  
+  .beige-gradient {
+    background: linear-gradient(135deg, rgba(253,245,230,0.95), rgba(255,255,255,0.8));
+  }
+
+  .dark .beige-gradient {
+    background: linear-gradient(135deg, hsl(var(--background) / 0.95), hsl(var(--background) / 0.8));
+  }
 
   .cosmic-nebula {
     background:
       radial-gradient(ellipse 80% 50% at 50% 120%, hsl(var(--accent) / 0.15), transparent),
       linear-gradient(160deg, hsl(var(--background)) 50%, hsl(var(--accent) / 0.1) 100%);
+  }
+
+  .dark .cosmic-nebula {
+     background:
+      radial-gradient(ellipse 80% 50% at 50% 120%, hsl(var(--accent) / 0.2), transparent),
+      linear-gradient(160deg, hsl(var(--background)) 50%, hsl(var(--accent) / 0.15) 100%);
   }
 
   .light-background {
