@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        headline: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-poppins)', 'sans-serif'],
         body: ['var(--font-nunito)', 'sans-serif'],
       },
       colors: {
@@ -111,6 +111,11 @@ export default {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.05)', opacity: '0.9' },
         },
+        'gradient-blob': {
+          '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -121,6 +126,7 @@ export default {
         'shimmer': 'shimmer 5s ease infinite',
         'float': 'float 15s infinite ease-in-out',
         'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
+        'gradient-blob': 'gradient-blob 8s ease-in-out infinite',
       },
       backgroundSize: {
         '200%': '200% 200%',
