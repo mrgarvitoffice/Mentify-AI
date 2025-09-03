@@ -91,7 +91,7 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>{children}</DialogTrigger>
-          <DialogContent className="sm:max-w-md p-0 bg-background/90 backdrop-blur-lg border-2 border-primary/20">
+          <DialogContent className="sm:max-w-2xl p-0 bg-background/90 backdrop-blur-lg border-2 border-primary/20">
             <DialogHeader className="p-6 pb-4 text-center items-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2 animate-pulse">
                     <Sparkles className="w-8 h-8 text-primary" />
@@ -104,8 +104,8 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
               </DialogDescription>
             </DialogHeader>
 
-            <ScrollArea className="h-72">
-              <div className="space-y-4 p-6 pt-0">
+            <ScrollArea className="h-72 px-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {buddies.map((buddy) => {
                   const isSelected = selectedBuddy === buddy.title;
                   const theme = colorThemes[buddy.color];
