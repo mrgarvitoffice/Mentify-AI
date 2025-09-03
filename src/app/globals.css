@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 40 33% 96%; /* #FDF5E6 - Light Beige */
-    --foreground: 240 2% 11%; /* #1C1C1E */
+    --background: 216 67% 98%; /* #f6f8fc - Ice Blue */
+    --foreground: 218 33% 15%; /* #1a2332 - Navy Charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 2% 11%;
+    --card: 217 60% 95%; /* #ebf1f9 - Powder Blue */
+    --card-foreground: 218 33% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 2% 11%;
+    --popover: 217 60% 95%;
+    --popover-foreground: 218 33% 15%;
 
-    --primary: 44 100% 48%; /* #F5B700 - Royal Gold */
-    --primary-foreground: 240 2% 11%;
+    --primary: 217 91% 60%; /* #3b82f6 - Azure Blue */
+    --primary-foreground: 216 67% 98%;
 
-    --secondary: 217 100% 61%; /* #3A8DFF - Sky Blue */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 45 96% 56%; /* #fbbf24 - Solar Gold */
+    --secondary-foreground: 218 33% 15%;
     
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 215 52% 91%; /* #dde8f4 - Sky Mist */
+    --muted-foreground: 218 33% 35%; /* Darker Navy Charcoal for muted text */
 
-    --accent: 261 100% 71%; /* #A66CFF - Lavender */
+    --accent: 261 100% 71%; /* #A66CFF - Lavender (Kept from previous for some elements) */
     --accent-foreground: 240 2% 11%;
 
     --maroon: 0 100% 25%; /* #800000 */
@@ -30,9 +30,9 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 44 100% 48%;
+    --border: 215 52% 91%;
+    --input: 217 60% 95%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
   }
@@ -96,9 +96,7 @@
   }
 
   .cosmic-nebula {
-    background:
-      radial-gradient(ellipse 80% 50% at 50% 120%, hsl(var(--accent) / 0.15), transparent),
-      linear-gradient(160deg, hsl(var(--background)) 50%, hsl(var(--accent) / 0.1) 100%);
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
   }
 
   .dark .cosmic-nebula {
@@ -112,8 +110,7 @@
   }
 
   .glass-card {
-    @apply bg-white/50 backdrop-blur-xl border border-white/20 shadow-lg shadow-black/5;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    @apply bg-card/60 backdrop-blur-lg border-white/10;
   }
   
   .dark .glass-card {
