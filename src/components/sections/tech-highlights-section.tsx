@@ -28,6 +28,11 @@ export default function TechHighlightsSection() {
         <section className="cosmic-nebula py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
+                    <div className="flex justify-center mb-4">
+                        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+                            <BrainCircuit className="w-10 h-10 text-primary" />
+                        </div>
+                    </div>
                     <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                         Powered by Future-Proof Tech
                     </h2>

@@ -43,18 +43,23 @@ export default function PricingSection() {
             <AnimatedParticles count={50} className="opacity-20" />
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
+                    <div className="flex justify-center mb-4">
+                        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+                            <Rocket className="w-10 h-10 text-primary" />
+                        </div>
+                    </div>
                     <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Choose Your AI Companion Plan</h2>
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">Flexible plans that grow with you. Start your journey today.</p>
                 </div>
                 <div className="isolate mt-16 grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
                     {plans.map((plan) => (
                         <div key={plan.name} className={cn(
-                            "relative flex flex-col items-center text-center rounded-3xl p-8 transition-transform duration-300",
+                            "relative flex flex-col rounded-3xl p-8 transition-transform duration-300",
                             plan.isFeatured ? "lg:scale-110 ring-2 ring-primary z-10 shadow-2xl shadow-primary/30" : "hover:scale-105",
                             "glass-card"
                         )}>
                             {plan.isFeatured && <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground font-bold">Most Popular</Badge>}
-                            <div className="flex-1">
+                            <div className="flex-1 text-center">
                                 <plan.icon className="h-12 w-12 text-primary mx-auto mb-6" />
                                 <h3 className="text-2xl font-semibold">{plan.name}</h3>
                                 <p className="mt-4 flex items-baseline justify-center gap-x-2">

@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap } from 'lucide-react';
+import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap, Users } from 'lucide-react';
 
 const buddies = [
   {
@@ -40,6 +40,11 @@ export default function BuddiesSection() {
     <section id="features" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+            <div className="flex justify-center mb-4">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+                    <Users className="w-10 h-10 text-primary" />
+                </div>
+            </div>
           <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Meet Your 6 AI Specialists
           </h2>

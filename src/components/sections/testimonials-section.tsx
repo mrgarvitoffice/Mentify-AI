@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar } from '@/components/ui/avatar';
-import { Quote } from 'lucide-react';
+import { Quote, Heart } from 'lucide-react';
 
 const testimonials = [
   {
@@ -52,7 +52,11 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <Quote className="mx-auto h-12 w-12 text-primary/30 mb-4" />
+        <div className="flex justify-center mb-4">
+            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+                <Heart className="w-10 h-10 text-primary" />
+            </div>
+        </div>
           <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Loved by Thousands
           </h2>
@@ -66,6 +70,7 @@ export default function TestimonialsSection() {
                  {testimonials.map((testimonial, index) => (
                      <Card key={index} className="relative mb-8 break-inside-avoid rounded-2xl p-6 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-accent/20 glass-card">
                          <CardContent className="p-0 pt-8">
+                            <Quote className="absolute top-4 left-4 h-6 w-6 text-primary/20" />
                              <blockquote className="text-muted-foreground">"{testimonial.quote}"</blockquote>
                              <figcaption className="mt-6 flex items-center gap-4">
                                  <Avatar className="h-12 w-12">

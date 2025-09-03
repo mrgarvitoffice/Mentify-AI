@@ -1,4 +1,4 @@
-import { Orbit, MessageSquareText } from 'lucide-react';
+import { Orbit, MessageSquareText, Settings } from 'lucide-react';
 import AnimatedParticles from '@/components/ui/animated-particles';
 
 const ZodiacIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -55,6 +55,11 @@ export default function HowItWorksSection() {
             <AnimatedParticles count={50} className="opacity-30" />
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
+                    <div className="flex justify-center mb-4">
+                        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+                            <Settings className="w-10 h-10 text-primary" />
+                        </div>
+                    </div>
                     <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">How It Works</h2>
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">A simple three-step journey to your personalized AI companion.</p>
                 </div>

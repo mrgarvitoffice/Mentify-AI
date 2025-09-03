@@ -16,7 +16,11 @@ export default function CtaSection() {
             </div>
             <AnimatedParticles count={50} className="absolute inset-0 z-10 opacity-50" />
             <div className="relative z-20 mx-auto max-w-2xl text-center px-4">
-                <Star className="mx-auto h-12 w-12 text-primary animate-pulse mb-4" />
+                <div className="flex justify-center mb-4">
+                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+                        <Star className="w-10 h-10 text-primary" />
+                    </div>
+                </div>
                 <h2 className="font-headline text-5xl font-black text-maroon sm:text-6xl animate-fade-in-up">
                     <span className="text-gradient bg-gradient-to-r from-maroon to-primary bg-200% animate-gradient-shimmer">
                         Transform Your Life Today
