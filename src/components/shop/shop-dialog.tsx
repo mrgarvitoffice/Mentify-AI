@@ -4,15 +4,15 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-  DialogTrigger,
-  DialogClose,
-} from '@/components/ui/dialog';
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import {
   TrendingUp,
@@ -23,8 +23,10 @@ import {
   GraduationCap,
   ShoppingCart,
   CheckCircle2,
+  Sparkles,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const buddies = [
   {
@@ -65,13 +67,13 @@ const buddies = [
   },
 ];
 
-const colorThemes: { [key: string]: { bg: string, border: string, shadow: string } } = {
-    gold: { bg: 'bg-yellow-500/10', border: 'border-yellow-500', shadow: 'shadow-yellow-500/30' },
-    rose: { bg: 'bg-rose-500/10', border: 'border-rose-500', shadow: 'shadow-rose-500/30' },
-    emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500', shadow: 'shadow-emerald-500/30' },
-    green: { bg: 'bg-green-500/10', border: 'border-green-500', shadow: 'shadow-green-500/30' },
-    blue: { bg: 'bg-blue-500/10', border: 'border-blue-500', shadow: 'shadow-blue-500/30' },
-    purple: { bg: 'bg-purple-500/10', border: 'border-purple-500', shadow: 'shadow-purple-500/30' },
+const colorThemes: { [key: string]: { bg: string, border: string, text: string } } = {
+    gold: { bg: 'bg-yellow-400/10 dark:bg-yellow-800/10', border: 'border-yellow-500/50', text: 'text-yellow-500' },
+    rose: { bg: 'bg-rose-400/10 dark:bg-rose-800/10', border: 'border-rose-500/50', text: 'text-rose-500' },
+    emerald: { bg: 'bg-emerald-400/10 dark:bg-emerald-800/10', border: 'border-emerald-500/50', text: 'text-emerald-500' },
+    green: { bg: 'bg-green-400/10 dark:bg-green-800/10', border: 'border-green-500/50', text: 'text-green-500' },
+    blue: { bg: 'bg-blue-400/10 dark:bg-blue-800/10', border: 'border-blue-500/50', text: 'text-blue-500' },
+    purple: { bg: 'bg-purple-400/10 dark:bg-purple-800/10', border: 'border-purple-500/50', text: 'text-purple-500' },
 };
 
 export function ShopDialog({ children }: { children: React.ReactNode }) {
@@ -87,74 +89,75 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>{children}</DialogTrigger>
-          <DialogContent className="sm:max-w-2xl p-0 bg-transparent border-none shadow-none">
-            <div className="relative bg-background/80 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden animate-dialog-in">
-              <DialogHeader className="p-8 text-center flex flex-col items-center">
-                <div className="p-3 rounded-full bg-primary/10 mb-4 animate-pulse">
-                    <ShoppingCart className="w-10 h-10 text-primary" />
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>{children}</SheetTrigger>
+          <SheetContent className="flex flex-col p-0 bg-background/90 backdrop-blur-lg border-l-2 border-primary/20">
+            <SheetHeader className="p-6 pb-4 text-center">
+                <div className="flex justify-center items-center gap-2 mb-2">
+                    <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+                    <SheetTitle className="text-3xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary">
+                        Choose Your AI Companion
+                    </SheetTitle>
                 </div>
-                <DialogTitle className="text-4xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary animate-fade-in-up">
-                  Choose Your AI Companion
-                </DialogTitle>
-                <DialogDescription className="text-muted-foreground text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  Select your personalized AI Buddy aligned to your soul.
-                </DialogDescription>
-              </DialogHeader>
+              <SheetDescription className="text-muted-foreground">
+                Select your personalized AI Buddy aligned to your soul.
+              </SheetDescription>
+            </SheetHeader>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-h-[60vh] overflow-y-auto">
-                {buddies.map((buddy, index) => {
+            <ScrollArea className="flex-grow">
+              <div className="space-y-4 p-6">
+                {buddies.map((buddy) => {
                   const isSelected = selectedBuddy === buddy.title;
                   const theme = colorThemes[buddy.color];
                   return (
                     <div
                       key={buddy.title}
                       className={cn(
-                        'relative p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer animate-fade-in-up',
-                        isSelected ? `${theme.border} ring-4 ring-primary/50` : 'border-border/50 hover:border-primary/50',
+                        'relative p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center gap-4',
+                        isSelected ? `${theme.border} ring-2 ring-primary` : 'border-border/20 hover:border-primary/50',
                         theme.bg
                       )}
                       onClick={() => setSelectedBuddy(buddy.title)}
-                      style={{ animationDelay: `${0.3 + index * 0.1}s` }}
                     >
-                      {isSelected && (
-                         <div className="absolute top-3 right-3 text-primary animate-pulse">
-                            <CheckCircle2 size={24} />
+                       {isSelected && (
+                         <div className="absolute top-2 right-2 text-primary animate-pulse">
+                            <CheckCircle2 size={20} />
                          </div>
                       )}
-                      <div className="flex flex-col items-center text-center">
-                        <div className={`p-4 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 mb-4`}>
-                          <buddy.icon className="w-10 h-10 text-primary" />
-                        </div>
-                        <h4 className="font-bold text-lg text-foreground">{buddy.title}</h4>
-                        <p className="text-sm text-muted-foreground mt-1">{buddy.description}</p>
+                      <div className={cn('p-3 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80', theme.text)}>
+                        <buddy.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-md text-foreground">{buddy.title}</h4>
+                        <p className="text-sm text-muted-foreground">{buddy.description}</p>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              
-              <DialogFooter className="p-8 bg-background/50 backdrop-blur-sm sticky bottom-0">
-                  <DialogClose asChild>
-                    <Button type="button" variant="ghost" className="rounded-full px-6 py-3">
-                        Maybe Later
+            </ScrollArea>
+            
+            <SheetFooter className="p-6 bg-background/80 backdrop-blur-sm border-t border-border/20 sticky bottom-0">
+                <div className='w-full space-y-4'>
+                    <Button
+                        onClick={handleBuyNow}
+                        disabled={!selectedBuddy}
+                        className="w-full group relative rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40 disabled:bg-muted disabled:shadow-none disabled:hover:translate-y-0"
+                    >
+                        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer"></span>
+                        <span className="relative flex items-center justify-center gap-2 w-full">
+                            <ShoppingCart className="w-5 h-5" />
+                            {selectedBuddy ? `Buy ${selectedBuddy.split(' ')[0]} Buddy` : 'Select a Buddy'}
+                        </span>
                     </Button>
-                  </DialogClose>
-                  <Button
-                    onClick={handleBuyNow}
-                    disabled={!selectedBuddy}
-                    className="group relative rounded-full bg-gradient-to-r from-primary to-yellow-500 px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40 disabled:bg-muted disabled:shadow-none disabled:hover:translate-y-0"
-                  >
-                    <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-shimmer"></span>
-                    <span className="relative flex items-center gap-2">
-                        <ShoppingCart className="w-5 h-5" />
-                        {selectedBuddy ? `Buy ${selectedBuddy.split(' ')[0]} Buddy` : 'Select a Buddy'}
-                    </span>
-                  </Button>
-              </DialogFooter>
-            </div>
-          </DialogContent>
-        </Dialog>
+                    <SheetClose asChild>
+                        <Button type="button" variant="ghost" className="w-full rounded-full">
+                            Maybe Later
+                        </Button>
+                    </SheetClose>
+                </div>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
     );
 }
