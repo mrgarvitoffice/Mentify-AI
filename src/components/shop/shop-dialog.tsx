@@ -11,7 +11,6 @@ import {
   DialogDescription,
   DialogFooter,
   DialogTrigger,
-  DialogClose,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
@@ -150,11 +149,6 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
                             {selectedBuddy ? `Buy ${selectedBuddy.split(' ')[0]} Buddy` : 'Select a Buddy'}
                         </span>
                     </Button>
-                    <DialogClose asChild>
-                        <Button type="button" variant="ghost" className="w-full rounded-full">
-                            Maybe Later
-                        </Button>
-                    </DialogClose>
                 </div>
             </DialogFooter>
           </DialogContent>
