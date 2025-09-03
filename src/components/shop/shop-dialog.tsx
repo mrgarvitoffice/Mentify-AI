@@ -4,15 +4,15 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetFooter,
-  SheetTrigger,
-  SheetClose,
-} from '@/components/ui/sheet';
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogTrigger,
+  DialogClose,
+} from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
   TrendingUp,
@@ -89,23 +89,23 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>{children}</SheetTrigger>
-          <SheetContent className="flex flex-col p-0 bg-background/90 backdrop-blur-lg border-l-2 border-primary/20">
-            <SheetHeader className="p-6 pb-4 text-center">
-                <div className="flex justify-center items-center gap-2 mb-2">
-                    <Sparkles className="w-8 h-8 text-primary animate-pulse" />
-                    <SheetTitle className="text-3xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary">
-                        Choose Your AI Companion
-                    </SheetTitle>
+        <Dialog open={isOpen} onOpenChange={setIsOpen}>
+          <DialogTrigger asChild>{children}</DialogTrigger>
+          <DialogContent className="sm:max-w-md p-0 bg-background/90 backdrop-blur-lg border-2 border-primary/20">
+            <DialogHeader className="p-6 pb-4 text-center items-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2 animate-pulse">
+                    <Sparkles className="w-8 h-8 text-primary" />
                 </div>
-              <SheetDescription className="text-muted-foreground">
+                <DialogTitle className="text-2xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary">
+                    Choose Your AI Companion
+                </DialogTitle>
+              <DialogDescription className="text-muted-foreground">
                 Select your personalized AI Buddy aligned to your soul.
-              </SheetDescription>
-            </SheetHeader>
+              </DialogDescription>
+            </DialogHeader>
 
-            <ScrollArea className="flex-grow">
-              <div className="space-y-4 p-6">
+            <ScrollArea className="h-72">
+              <div className="space-y-4 p-6 pt-0">
                 {buddies.map((buddy) => {
                   const isSelected = selectedBuddy === buddy.title;
                   const theme = colorThemes[buddy.color];
@@ -137,7 +137,7 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
               </div>
             </ScrollArea>
             
-            <SheetFooter className="p-6 bg-background/80 backdrop-blur-sm border-t border-border/20 sticky bottom-0">
+            <DialogFooter className="p-6 bg-background/80 backdrop-blur-sm border-t border-border/20">
                 <div className='w-full space-y-4'>
                     <Button
                         onClick={handleBuyNow}
@@ -150,14 +150,14 @@ export function ShopDialog({ children }: { children: React.ReactNode }) {
                             {selectedBuddy ? `Buy ${selectedBuddy.split(' ')[0]} Buddy` : 'Select a Buddy'}
                         </span>
                     </Button>
-                    <SheetClose asChild>
+                    <DialogClose asChild>
                         <Button type="button" variant="ghost" className="w-full rounded-full">
                             Maybe Later
                         </Button>
-                    </SheetClose>
+                    </DialogClose>
                 </div>
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
     );
 }
