@@ -66,7 +66,7 @@ export default function Header() {
       </SheetTrigger>
       <SheetContent side="left" className="w-full max-w-sm glass-card p-6 flex flex-col">
         <SheetHeader className="text-left">
-          <SheetTitle asChild>
+           <SheetTitle asChild>
             <Link href="/" className="flex items-center gap-2 group mb-4" onClick={() => setMobileMenuOpen(false)}>
                 <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
                 <span className={cn('text-2xl font-bold font-headline text-foreground')}>
@@ -74,7 +74,7 @@ export default function Header() {
                 </span>
             </Link>
           </SheetTitle>
-          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         </SheetHeader>
         <nav className="flex-grow">
             <div className="flex flex-col gap-4 text-lg font-medium mt-4">
@@ -149,6 +149,9 @@ export default function Header() {
                     </nav>
                     
                     <div className="hidden md:flex items-center gap-4">
+                        <Button variant="ghost" asChild>
+                           <Link href="/login">Login</Link>
+                        </Button>
                         <ThemeToggle />
                         <ShopDialog>
                         <Button
