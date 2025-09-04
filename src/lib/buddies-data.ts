@@ -1,5 +1,5 @@
 
-import { Briefcase, HeartHandshake, LandPlot, MonitorSmartphone, BookOpen, ShieldPlus, type LucideIcon, CheckCircle2, Zap, Target, BarChart, Users, Palette, Search, Bot, BrainCircuit, Orbit, MessageSquareText, Star, Quote, TrendingUp, Wallet, GraduationCap, Share2 } from 'lucide-react';
+import { Briefcase, HeartHandshake, LandPlot, MonitorSmartphone, BookOpen, ShieldPlus, type LucideIcon, CheckCircle2, Zap, Target, BarChart, Users, Palette, Search, Bot, BrainCircuit, Orbit, MessageSquareText, Star, Quote, TrendingUp, Wallet, GraduationCap, Share2, Wind, HeartPulse, Activity, Coffee, Moon, Sun, Award, Brain, Lightbulb, Heart } from 'lucide-react';
 
 export type Feature = {
   icon: LucideIcon;
@@ -30,7 +30,6 @@ export type Buddy = {
   strengths: string[];
   dataAiHint: string;
   heroImage: string;
-  // New fields for unique page designs
   pageStyle?: 'cinematic' | 'interactive' | 'luxury' | 'editorial' | 'grid' | 'functional';
   longDescription: string;
   secondaryFeatures: Feature[];
@@ -79,7 +78,7 @@ export const buddies: Buddy[] = [
     pageStyle: 'interactive',
     longDescription: 'The Relationship & Social Buddy is your personal guide to mastering the art of connection. By understanding your unique communication style and emotional needs, it provides the wisdom and confidence to build deep, meaningful relationships in love, friendship, and your social life.',
     features: [
-      { icon: HeartHandshake, title: "Communication Coaching", description: "Learn to express yourself effectively and understand others' needs with personalized communication tips and role-playing scenarios." },
+      { icon: Heart, title: "Communication Coaching", description: "Learn to express yourself effectively and understand others' needs with personalized communication tips and role-playing scenarios." },
       { icon: Users, title: "Social Circle Expansion", description: "Get strategies and confidence-building exercises for meeting new people and forming meaningful friendships." },
       { icon: Zap, title: "Conflict Resolution", description: "Receive guidance on navigating disagreements and difficult conversations in a healthy, constructive way." },
       { icon: CheckCircle2, title: "Empathy Development", description: "Deepen your ability to connect with others on an emotional level through guided exercises and perspective-shifting insights." }
@@ -141,12 +140,15 @@ export const buddies: Buddy[] = [
     pageStyle: 'editorial',
     longDescription: 'The Health & Wellness Buddy is your dedicated partner in achieving a vibrant, balanced life. It goes beyond generic advice, offering holistic wellness plans for fitness, nutrition, and mental clarity that are synced with your body’s unique energy cycles, helping you feel your best every single day.',
     features: [
-      { icon: ShieldPlus, title: "Holistic Wellness Plans", description: "Get integrated plans covering fitness, nutrition, and mental health, all synced with your body's unique astrological rhythms." },
-      { icon: Zap, title: "Energy & Stress Management", description: "Learn techniques to boost your natural energy levels and manage stress effectively with mindfulness and breathing exercises." },
-      { icon: Target, title: "Personalized Fitness Routines", description: "Receive workout plans that are tailored to your fitness level, goals, and even your daily energy based on planetary transits." },
-      { icon: CheckCircle2, title: "Mindful Eating Guidance", description: "Develop a healthier relationship with food through mindful eating practices and nutrition advice that suits your constitution." }
+      { icon: Sun, title: "Morning Routine", description: "Start your day with purpose. Guided meditation, gentle stretches, and a personalized breakfast plan." },
+      { icon: Activity, title: "Afternoon Boost", description: "Beat the slump with a dynamic workout, a healthy snack suggestion, and a motivational push." },
+      { icon: Coffee, title: "Evening Wind-Down", description: "Transition to rest with a calming soundscape, a light dinner recipe, and a digital detox reminder." },
+      { icon: Moon, title: "Nighttime Ritual", description: "Prepare for deep sleep with breathing exercises, a gratitude journal prompt, and optimal sleep-time suggestions." }
     ],
-    secondaryFeatures: [],
+    secondaryFeatures: [
+        { icon: HeartPulse, title: "Bio-Rhythm Sync", description: "Align your activities with your natural energy peaks and troughs for maximum effectiveness." },
+        { icon: Wind, title: "Mindful Breathing", description: "Access a library of breathing exercises to reduce stress and increase focus anytime, anywhere." }
+    ],
      howItWorks: [
       { icon: Bot, title: "Set Your Wellness Goals", description: "Define what health means to you, from fitness milestones to mental clarity and stress reduction." },
       { icon: BrainCircuit, title: "AI Syncs with Your Body's Clock", description: "The buddy uses your birth chart to understand your natural energy cycles and physical constitution." },
@@ -174,7 +176,10 @@ export const buddies: Buddy[] = [
       { icon: Users, title: "Audience Growth Tactics", description: "Learn proven strategies for growing your following on social media and building a loyal, engaged community." },
       { icon: BarChart, title: "Performance Analytics", description: "Track your growth and understand your audience better with simplified analytics and actionable insights." }
     ],
-    secondaryFeatures: [],
+    secondaryFeatures: [
+        { icon: Award, title: "Brand Kit Generator", description: "Create a cohesive brand identity with AI-generated logos, color palettes, and font pairings." },
+        { icon: TrendingUp, title: "Trend Spotting", description: "Get ahead of viral trends with real-time alerts and content recommendations tailored to your niche." }
+    ],
      howItWorks: [
       { icon: Bot, title: "Define Your Brand Identity", description: "Tell your buddy about your niche, your target audience, and the message you want to convey." },
       { icon: BrainCircuit, title: "AI Finds Your Unique Angle", description: "The buddy analyzes your chart to find the most authentic way for you to express yourself and connect with others." },
@@ -202,7 +207,10 @@ export const buddies: Buddy[] = [
         { icon: Target, title: "Knowledge Retention", description: "Use scientifically-backed techniques like spaced repetition and active recall, delivered by your buddy to ensure you never forget what you learn." },
         { icon: Zap, title: "Accelerated Skill Acquisition", description: "Receive curated resources, summaries, and practice exercises to help you learn new skills in record time." }
     ],
-    secondaryFeatures: [],
+    secondaryFeatures: [
+        { icon: Brain, title: "Critical Thinking Drills", description: "Sharpen your analytical skills with daily logic puzzles and thinking exercises." },
+        { icon: Lightbulb, title: "Idea Generation Matrix", description: "Overcome creative blocks with structured brainstorming and idea-generation frameworks." }
+    ],
     howItWorks: [
       { icon: Bot, title: "Choose Your Subject or Problem", description: "Whether it's learning a new language or solving a complex work challenge, define your objective." },
       { icon: BrainCircuit, title: "AI Assesses Your Learning Style", description: "Your buddy analyzes your astrological chart to understand how you best absorb and process information." },
@@ -215,3 +223,5 @@ export const buddies: Buddy[] = [
     strengths: ["Skill Acquisition", "Complex Problem-Solving", "Personalized Learning Paths", "Sales Training", "Critical Thinking", "Research Assistance", "Exam Preparation", "Knowledge Synthesis"],
   },
 ];
+
+    
