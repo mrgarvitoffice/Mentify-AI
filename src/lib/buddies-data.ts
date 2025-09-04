@@ -1,5 +1,5 @@
 
-import { Briefcase, HeartHandshake, LandPlot, MonitorSmartphone, BookOpen, ShieldPlus, type LucideIcon, CheckCircle2, Zap, Target, BarChart, Users, Palette, Search, Bot, BrainCircuit, Orbit, MessageSquareText, Star, Quote } from 'lucide-react';
+import { Briefcase, HeartHandshake, LandPlot, MonitorSmartphone, BookOpen, ShieldPlus, type LucideIcon, CheckCircle2, Zap, Target, BarChart, Users, Palette, Search, Bot, BrainCircuit, Orbit, MessageSquareText, Star, Quote, TrendingUp, Wallet, GraduationCap, Share2 } from 'lucide-react';
 
 export type Feature = {
   icon: LucideIcon;
@@ -30,6 +30,10 @@ export type Buddy = {
   strengths: string[];
   dataAiHint: string;
   heroImage: string;
+  // New fields for unique page designs
+  pageStyle?: 'cinematic' | 'interactive' | 'luxury' | 'editorial' | 'grid' | 'functional';
+  longDescription: string;
+  secondaryFeatures: Feature[];
 };
 
 export const buddies: Buddy[] = [
@@ -39,13 +43,19 @@ export const buddies: Buddy[] = [
     title: "Business Motivator & Mentor",
     description: "Your 24/7 business coach for strategy, motivation, and growth guidance aligned to your entrepreneurial stars.",
     tagline: "Your AI co-founder for building, scaling, and conquering your market.",
-    heroImage: "https://picsum.photos/seed/business/800/800",
+    heroImage: "https://picsum.photos/seed/business/1200/800",
     dataAiHint: "business dashboard chart",
+    pageStyle: 'cinematic',
+    longDescription: 'The Business Motivator & Mentor is more than an assistant; it’s your AI co-founder. Built on advanced strategic models and personalized to your unique success blueprint, this buddy provides actionable insights, market analysis, and the daily motivation needed to turn your vision into a thriving enterprise.',
     features: [
       { icon: Target, title: "Goal-Oriented Strategies", description: "Receive actionable business plans and strategies tailored to your specific objectives and market conditions, ensuring you're always on the right path to success." },
       { icon: BarChart, title: "Market & Trend Analysis", description: "Stay ahead of the curve with AI-powered analysis of market trends, competitive landscapes, and consumer behavior to make informed decisions." },
       { icon: Users, title: "Leadership & Team Building", description: "Develop your leadership skills with guidance on team motivation, communication, and building a high-performance company culture." },
       { icon: Zap, title: "Productivity Hacks", description: "Get personalized productivity techniques and workflow optimizations to maximize your efficiency and focus on what truly matters." }
+    ],
+    secondaryFeatures: [
+        { icon: TrendingUp, title: "Sales Funnel Optimization", description: "Analyze and improve your sales process from lead generation to conversion." },
+        { icon: Wallet, title: "Financial Forecasting", description: "Get data-driven projections to make smarter budgeting and investment decisions." },
     ],
     howItWorks: [
       { icon: Bot, title: "Define Your Business Goals", description: "Tell your buddy about your business, your industry, and what you want to achieve. The more context, the better the strategy." },
@@ -64,15 +74,21 @@ export const buddies: Buddy[] = [
     title: "Relationship & Social Buddy",
     description: "Navigate love, friendship, and social connections with cosmic wisdom tailored to your relational patterns.",
     tagline: "Your guide to deeper connections and a more fulfilling social life.",
-    heroImage: "https://picsum.photos/seed/love/800/800",
+    heroImage: "https://picsum.photos/seed/love/1200/800",
     dataAiHint: "happy couple",
+    pageStyle: 'interactive',
+    longDescription: 'The Relationship & Social Buddy is your personal guide to mastering the art of connection. By understanding your unique communication style and emotional needs, it provides the wisdom and confidence to build deep, meaningful relationships in love, friendship, and your social life.',
     features: [
       { icon: HeartHandshake, title: "Communication Coaching", description: "Learn to express yourself effectively and understand others' needs with personalized communication tips and role-playing scenarios." },
       { icon: Users, title: "Social Circle Expansion", description: "Get strategies and confidence-building exercises for meeting new people and forming meaningful friendships." },
       { icon: Zap, title: "Conflict Resolution", description: "Receive guidance on navigating disagreements and difficult conversations in a healthy, constructive way." },
       { icon: CheckCircle2, title: "Empathy Development", description: "Deepen your ability to connect with others on an emotional level through guided exercises and perspective-shifting insights." }
     ],
-     howItWorks: [
+     secondaryFeatures: [
+        { icon: Star, title: "Dating Profile Assist", description: "Get tips on creating a dating profile that truly reflects your personality." },
+        { icon: Quote, title: "Conversation Starters", description: "Never be at a loss for words with context-aware conversation prompts." },
+    ],
+    howItWorks: [
       { icon: Bot, title: "Share Your Social Goals", description: "Whether it's finding a partner or making new friends, explain your relationship goals to your AI companion." },
       { icon: BrainCircuit, title: "AI Understands Your Patterns", description: "The buddy analyzes your astrological communication and attachment styles to offer tailored advice." },
       { icon: MessageSquareText, title: "Get Daily Interaction Tips", description: "Receive daily challenges, conversation starters, and insights to help you build confidence and connect." }
@@ -89,13 +105,19 @@ export const buddies: Buddy[] = [
     title: "Finance & Real Estate Buddy",
     description: "Your personal wealth advisor for investments, savings, and property decisions based on your financial stars.",
     tagline: "Master your money and build generational wealth with an AI that gets you.",
-    heroImage: "https://picsum.photos/seed/finance/800/800",
+    heroImage: "https://picsum.photos/seed/finance/1200/800",
     dataAiHint: "real estate",
+    pageStyle: 'luxury',
+    longDescription: 'The Finance & Real Estate Buddy brings clarity and confidence to your financial life. It demystifies wealth creation by providing personalized investment strategies, real estate insights, and debt management plans, all while fostering a mindset of abundance and long-term security.',
     features: [
         { icon: BarChart, title: "Personalized Investment Plans", description: "Receive investment strategies tailored to your risk tolerance, financial goals, and astrologically-timed opportunities." },
         { icon: LandPlot, title: "Real Estate Insights", description: "Analyze property markets and get guidance on buying, selling, or investing in real estate with AI-powered data." },
         { icon: Target, title: "Debt Reduction Strategies", description: "Create a customized plan to tackle debt effectively, with motivational support to keep you on track towards financial freedom." },
         { icon: Star, title: "Wealth Growth Mindset", description: "Develop a positive and strategic mindset around money, wealth, and abundance through daily affirmations and insights." }
+    ],
+    secondaryFeatures: [
+        { icon: Wallet, title: "Budgeting Automation", description: "Link your accounts to get automated budgeting help and spending analysis." },
+        { icon: ShieldPlus, title: "Retirement Planning", description: "Visualize your retirement goals and get a step-by-step plan to achieve them." },
     ],
      howItWorks: [
       { icon: Bot, title: "Input Your Financial Picture", description: "Securely provide your financial goals, from saving for a home to planning retirement." },
@@ -114,14 +136,17 @@ export const buddies: Buddy[] = [
     title: "Health & Wellness Buddy",
     description: "Holistic health guidance for body, mind, and spirit aligned to your wellness potential and energy cycles.",
     tagline: "Your AI partner for achieving total well-being, inside and out.",
-    heroImage: "https://picsum.photos/seed/health/800/800",
+    heroImage: "https://picsum.photos/seed/health/1200/800",
     dataAiHint: "person meditating",
+    pageStyle: 'editorial',
+    longDescription: 'The Health & Wellness Buddy is your dedicated partner in achieving a vibrant, balanced life. It goes beyond generic advice, offering holistic wellness plans for fitness, nutrition, and mental clarity that are synced with your body’s unique energy cycles, helping you feel your best every single day.',
     features: [
       { icon: ShieldPlus, title: "Holistic Wellness Plans", description: "Get integrated plans covering fitness, nutrition, and mental health, all synced with your body's unique astrological rhythms." },
       { icon: Zap, title: "Energy & Stress Management", description: "Learn techniques to boost your natural energy levels and manage stress effectively with mindfulness and breathing exercises." },
       { icon: Target, title: "Personalized Fitness Routines", description: "Receive workout plans that are tailored to your fitness level, goals, and even your daily energy based on planetary transits." },
       { icon: CheckCircle2, title: "Mindful Eating Guidance", description: "Develop a healthier relationship with food through mindful eating practices and nutrition advice that suits your constitution." }
     ],
+    secondaryFeatures: [],
      howItWorks: [
       { icon: Bot, title: "Set Your Wellness Goals", description: "Define what health means to you, from fitness milestones to mental clarity and stress reduction." },
       { icon: BrainCircuit, title: "AI Syncs with Your Body's Clock", description: "The buddy uses your birth chart to understand your natural energy cycles and physical constitution." },
@@ -139,14 +164,17 @@ export const buddies: Buddy[] = [
     title: "Social Media & Branding Buddy",
     description: "Build your online presence and personal brand with content strategies aligned to your authentic self.",
     tagline: "Your personal AI publicist for building an unforgettable brand.",
-    heroImage: "https://picsum.photos/seed/branding/800/800",
+    heroImage: "https://picsum.photos/seed/branding/1200/800",
     dataAiHint: "social media interface",
+    pageStyle: 'grid',
+    longDescription: 'The Social Media & Branding Buddy is your secret weapon for digital influence. It helps you craft a powerful, authentic brand that captivates your audience. From viral content strategies to audience growth tactics, this buddy provides the tools to build a thriving online presence.',
     features: [
       { icon: Palette, title: "Authentic Brand Voice", description: "Develop a powerful and authentic brand voice that resonates with your target audience and reflects your core values." },
       { icon: Zap, title: "Viral Content Strategies", description: "Get AI-generated content ideas, trend analyses, and posting schedules designed to maximize your reach and engagement." },
       { icon: Users, title: "Audience Growth Tactics", description: "Learn proven strategies for growing your following on social media and building a loyal, engaged community." },
       { icon: BarChart, title: "Performance Analytics", description: "Track your growth and understand your audience better with simplified analytics and actionable insights." }
     ],
+    secondaryFeatures: [],
      howItWorks: [
       { icon: Bot, title: "Define Your Brand Identity", description: "Tell your buddy about your niche, your target audience, and the message you want to convey." },
       { icon: BrainCircuit, title: "AI Finds Your Unique Angle", description: "The buddy analyzes your chart to find the most authentic way for you to express yourself and connect with others." },
@@ -164,14 +192,17 @@ export const buddies: Buddy[] = [
     title: "Problem Solver & Education Buddy",
     description: "Your learning companion for skill development and problem-solving aligned to your intellectual strengths.",
     tagline: "Learn anything faster and solve any problem smarter with your AI tutor.",
-    heroImage: "https://picsum.photos/seed/education/800/800",
+    heroImage: "https://picsum.photos/seed/education/1200/800",
     dataAiHint: "person studying",
+    pageStyle: 'functional',
+    longDescription: 'The Problem Solver & Education Buddy is your personal AI tutor for accelerated learning and creative problem-solving. It creates personalized learning paths that adapt to your unique cognitive style, helping you master any skill or overcome any challenge with confidence and clarity.',
     features: [
         { icon: BrainCircuit, title: "Personalized Learning Paths", description: "Master any skill with a customized curriculum that adapts to your learning style and pace, based on your cognitive profile." },
         { icon: Search, title: "Complex Problem Solving", description: "Break down complex problems into manageable steps and get creative, AI-driven solutions you hadn't considered." },
         { icon: Target, title: "Knowledge Retention", description: "Use scientifically-backed techniques like spaced repetition and active recall, delivered by your buddy to ensure you never forget what you learn." },
         { icon: Zap, title: "Accelerated Skill Acquisition", description: "Receive curated resources, summaries, and practice exercises to help you learn new skills in record time." }
     ],
+    secondaryFeatures: [],
     howItWorks: [
       { icon: Bot, title: "Choose Your Subject or Problem", description: "Whether it's learning a new language or solving a complex work challenge, define your objective." },
       { icon: BrainCircuit, title: "AI Assesses Your Learning Style", description: "Your buddy analyzes your astrological chart to understand how you best absorb and process information." },
