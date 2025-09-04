@@ -137,5 +137,3 @@ export default function BrandingBuddyPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
-
-    

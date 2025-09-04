@@ -48,7 +48,7 @@ export default function FinanceBuddyPage({ buddy }: { buddy: Buddy }) {
                         {buddy.features.map((feature) => {
                             const Icon = iconMap[feature.icon];
                              return (
-                                <Card key={feature.title} variant="glass" className="p-6 group hover:border-primary/30 transition-all">
+                                <Card key={feature.title} className="p-6 group hover:border-primary/30 transition-all glass-card">
                                     <CardHeader className="p-0">
                                         <div className="mb-4 bg-primary/10 text-primary rounded-lg p-3 w-fit">
                                             <Icon className="h-8 w-8" />
@@ -112,5 +112,3 @@ export default function FinanceBuddyPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
-
-    

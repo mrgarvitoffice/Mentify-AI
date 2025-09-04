@@ -129,5 +129,3 @@ export default function HealthBuddyPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
-
-    
