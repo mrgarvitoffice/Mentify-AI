@@ -77,18 +77,8 @@ export function PersonalityQuiz() {
   };
 
   return (
-    <Card className="max-w-2xl mx-auto p-6 sm:p-8 lg:p-12 glass-card animate-dialog-in">
+    <Card className="max-w-2xl mx-auto p-6 sm:p-8 lg:p-12 glass-card animate-dialog-in border-none shadow-none bg-transparent">
         <CardContent className="p-0">
-            <div className="text-center mb-8">
-                <Sparkles className="w-12 h-12 mx-auto text-primary animate-pulse" />
-                <h2 className="text-3xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary mt-2">
-                    Find Your Perfect AI Buddy
-                </h2>
-                <p className="text-muted-foreground">
-                    Answer a few questions to get a personalized recommendation.
-                </p>
-            </div>
-
             <div className="space-y-6">
                 <Progress value={progress} className="w-full h-2 bg-primary/20" />
                 
