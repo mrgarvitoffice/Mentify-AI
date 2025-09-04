@@ -7,6 +7,7 @@ import ValuePropsSection from '@/components/sections/value-props-section';
 import TechHighlightsSection from '@/components/sections/tech-highlights-section';
 import CtaSection from '@/components/sections/cta-section';
 import TestimonialsSection from '@/components/sections/testimonials-section';
+import HowItWorksSection from '@/components/sections/how-it-works-section';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <BuddiesSection />
         <ValuePropsSection />
+        <HowItWorksSection />
         <TechHighlightsSection />
         <TestimonialsSection />
         <CtaSection />
