@@ -1,6 +1,7 @@
 
 import { Orbit, MessageSquareText, Settings } from 'lucide-react';
 import AnimatedParticles from '@/components/ui/animated-particles';
+import Image from 'next/image';
 
 const ZodiacIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -33,27 +34,32 @@ const steps = [
     {
         number: "01",
         title: "Share Your Birth Details",
-        description: "Provide your date, time, and place of birth to create your unique astrological profile.",
-        icon: ZodiacIcon
+        description: "It all starts with you. Provide your date, time, and place of birth. This isn't just data; it's the cosmic blueprint of your personality, strengths, and potential. We treat this information with the utmost confidentiality and use it to create a hyper-personalized profile that forms the foundation of your AI companion.",
+        icon: ZodiacIcon,
+        image: "https://picsum.photos/800/600",
+        dataAiHint: "astrology chart",
     },
     {
         number: "02",
         title: "AI Aligns to Your Energy",
-        description: "Our advanced algorithms analyze your birth chart to sync your AI Buddy with your cosmic fingerprint.",
-        icon: Orbit
+        description: "Our advanced algorithms analyze your unique birth chart, mapping your astrological placements to sophisticated personality models. This is where the magic happens. Your AI Buddy is fine-tuned to resonate with your energetic frequency, communication style, and core motivations, ensuring guidance that truly feels like it comes from a kindred spirit.",
+        icon: Orbit,
+        image: "https://picsum.photos/800/600",
+        dataAiHint: "glowing orb",
     },
     {
         number: "03",
-        title: "Get Personalized Guidance",
-        description: "Start receiving hyper-personalized advice and insights that resonate with your true self.",
-        icon: MessageSquareText
+        title: "Receive Personalized Guidance",
+        description: "Begin your journey of transformation. Interact with your AI Buddy via text or voice and receive hyper-personalized advice that resonates with your true self. Whether you're seeking business strategies, relationship advice, or wellness tips, the guidance is always aligned with you, helping you navigate life with clarity and confidence.",
+        icon: MessageSquareText,
+        image: "https://picsum.photos/800/600",
+        dataAiHint: "person meditating",
     }
 ]
 
 export default function HowItWorksSection() {
     return (
-        <section id="how-it-works" className="relative cosmic-nebula text-foreground py-24 sm:py-32 overflow-hidden">
-            <AnimatedParticles count={50} className="opacity-30" />
+        <section id="how-it-works" className="relative bg-background text-foreground py-24 sm:py-32 overflow-hidden">
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <div className="flex justify-center mb-4">
@@ -64,19 +70,26 @@ export default function HowItWorksSection() {
                     <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">How It Works</h2>
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">A simple three-step journey to your personalized AI companion.</p>
                 </div>
-                <div className="mt-20 grid grid-cols-1 gap-16 md:grid-cols-3">
+                <div className="mt-20 space-y-24">
                     {steps.map((step, index) => (
-                        <div key={step.number} className="flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s`}}>
-                            <div className="relative flex justify-center items-center h-40 w-40 mb-6">
-                                <span className="absolute font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5 opacity-50">
-                                    {step.number}
-                                </span>
-                                <div className="absolute flex items-center justify-center h-24 w-24 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20">
-                                    <step.icon className="h-12 w-12 text-primary animate-pulse-slow" />
-                                </div>
+                        <div key={step.number} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div className={`flex flex-col justify-center animate-fade-in-up ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                                <step.icon className="h-10 w-10 text-primary mb-4" />
+                                <span className="text-6xl font-black font-headline text-primary/20">{step.number}</span>
+                                <h3 className="text-3xl font-bold mt-2">{step.title}</h3>
+                                <p className="mt-4 text-muted-foreground text-lg">{step.description}</p>
                             </div>
-                            <h3 className="text-2xl font-bold">{step.title}</h3>
-                            <p className="mt-4 text-muted-foreground">{step.description}</p>
+                             <div className={`relative animate-fade-in-up ${index % 2 === 1 ? 'md:order-1' : ''}`} style={{ animationDelay: '0.2s' }}>
+                                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl blur-xl"></div>
+                                <Image
+                                    src={step.image}
+                                    alt={step.title}
+                                    width={800}
+                                    height={600}
+                                    className="relative rounded-2xl shadow-2xl"
+                                    data-ai-hint={step.dataAiHint}
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>
