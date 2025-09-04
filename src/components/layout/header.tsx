@@ -18,6 +18,8 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { buddies } from '@/lib/buddies-data';
@@ -62,6 +64,9 @@ export default function Header() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-full max-w-sm glass-card p-6">
+        <SheetHeader className="sr-only">
+          <SheetTitle>Navigation Menu</SheetTitle>
+        </SheetHeader>
         <nav className="flex h-full flex-col">
             <Link href="/" className="flex items-center gap-2 group mb-8">
                 <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
