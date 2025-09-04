@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:wght@900&display=swap');
 
 @tailwind base;
@@ -9,10 +10,10 @@
     --background: 210 17% 97%; /* #F5F7FA */
     --foreground: 220 10% 12%; /* #1E1E24 */
 
-    --card: 0 0% 100%;
+    --card: 210 17% 97%;
     --card-foreground: 220 10% 12%;
 
-    --popover: 0 0% 100%;
+    --popover: 210 17% 97%;
     --popover-foreground: 220 10% 12%;
 
     --primary: 223 100% 58%; /* #2979FF */
@@ -24,8 +25,8 @@
     --muted: 218 27% 95%; /* #EEF1F5 */
     --muted-foreground: 220 4% 45%; /* #6E6E78 */
 
-    --accent: 35 92% 57%; /* Kept for compatibility, can be adjusted */
-    --accent-foreground: 240 6% 20%;
+    --accent: 223 100% 95%;
+    --accent-foreground: 223 100% 40%;
     
     --destructive: 1 72% 56%; /* #E53935 */
     --destructive-foreground: 0 0% 98%;
