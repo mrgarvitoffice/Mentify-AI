@@ -30,38 +30,18 @@ const playfairDisplay = Playfair_Display({
 //     'Unlike generic chatbots, our AI Buddies are personalized to your date, time, and place of birth, making them your truest AI companions.',
 // };
 
-function DesktopLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </>
-  );
-}
-
-function MobileLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <main className="flex-1 pb-20">{children}</main>
-      <BottomNavBar />
-    </>
-  );
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const isMobile = useIsMobile();
-  const [mounted, setMounted] = useState(false);
+   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const Layout = isMobile ? MobileLayout : DesktopLayout;
 
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
@@ -81,9 +61,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col">
-            {mounted ? <Layout>{children}</Layout> : null}
-          </div>
+          {mounted && (
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">
+                {children}
+              </main>
+              {isMobile ? <BottomNavBar /> : <Footer />}
+            </div>
+          )}
           <Chatbot />
           <Toaster />
         </ThemeProvider>
