@@ -7,6 +7,16 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Star } from 'lucide-react';
 import Link from 'next/link';
+import BuddyFeaturesSection from '@/components/sections/buddy-features-section';
+import BuddyHowItWorksSection from '@/components/sections/buddy-how-it-works-section';
+import BuddyTestimonialsSection from '@/components/sections/buddy-testimonials-section';
+import BuddyCtaSection from '@/components/sections/buddy-cta-section';
+
+export async function generateStaticParams() {
+  return buddies.map((buddy) => ({
+    slug: buddy.slug,
+  }));
+}
 
 export default function BuddyPage({ params }: { params: { slug: string } }) {
   const buddy = buddies.find((b) => b.slug === params.slug);
@@ -33,7 +43,7 @@ export default function BuddyPage({ params }: { params: { slug: string } }) {
                   {buddy.title}
                 </h1>
                 <p className="mt-6 text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 text-muted-foreground">
-                  {buddy.description}
+                  {buddy.tagline}
                 </p>
                  <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <Button size="lg" className="rounded-lg text-lg py-7 px-8" asChild>
@@ -46,7 +56,7 @@ export default function BuddyPage({ params }: { params: { slug: string } }) {
               <div className="relative flex justify-center items-center animate-fade-in-up" style={{animationDelay: '0.3s'}}>
                  <div className="absolute w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
                  <Image
-                    src={`https://picsum.photos/600/600?random=${buddy.slug}`}
+                    src={buddy.heroImage}
                     alt={`${buddy.title} Mockup`}
                     width={600}
                     height={600}
@@ -58,34 +68,11 @@ export default function BuddyPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-24 sm:py-32 bg-muted/50">
-            <div className="container mx-auto px-6 lg:px-8">
-                 <div className="mx-auto max-w-2xl text-center">
-                    <div className="flex justify-center mb-4">
-                        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
-                            <Star className="w-10 h-10 text-primary" />
-                        </div>
-                    </div>
-                  <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                    Key Capabilities
-                  </h2>
-                  <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                    Discover how the {buddy.title} can help you achieve your goals.
-                  </p>
-                </div>
-                <div className="mt-16 max-w-4xl mx-auto">
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                        {buddy.strengths.map((strength) => (
-                            <li key={strength} className="flex items-center gap-3 p-4 rounded-lg hover:bg-background/80 transition-colors">
-                                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                                <span className="text-lg text-muted-foreground">{strength}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <BuddyFeaturesSection buddy={buddy} />
+        <BuddyHowItWorksSection buddy={buddy} />
+        <BuddyTestimonialsSection buddy={buddy} />
+        <BuddyCtaSection buddy={buddy} />
+
       </main>
       <Footer />
     </div>
