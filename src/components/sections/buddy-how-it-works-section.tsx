@@ -23,7 +23,7 @@ export default function BuddyHowItWorksSection({ buddy }: { buddy: Buddy }) {
                         {buddy.howItWorks.map((step, index) => {
                             const isEven = index % 2 === 0;
                             return (
-                                <div key={step.title} className="md:grid md:grid-cols-2 md:gap-8 items-center">
+                                <div key={step.title} className="md:grid md:grid-cols-2 md:gap-8 items-center my-8">
                                     <div className={`flex items-center gap-4 ${isEven ? 'md:pr-8' : 'md:pl-8 md:col-start-2'}`}>
                                         <div className="relative">
                                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground ring-8 ring-background">

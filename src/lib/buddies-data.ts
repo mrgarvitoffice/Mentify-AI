@@ -14,7 +14,6 @@ export type HowItWorksStep = {
 };
 
 export type Testimonial = {
-    icon: LucideIcon;
     quote: string;
     author: string;
 };
@@ -54,8 +53,8 @@ export const buddies: Buddy[] = [
       { icon: MessageSquareText, title: "Receive Actionable Roadmaps", description: "Get step-by-step plans, motivational messages, and strategic advice delivered daily to keep you on track." }
     ],
     testimonials: [
-        { icon: Quote, author: "John D., Startup Founder", quote: "The Business Buddy gave me a Q3 strategy that led to our first profitable quarter. It's like having a seasoned CEO in my pocket." },
-        { icon: Quote, author: "Maria K., Agency Owner", quote: "I was stuck in a growth plateau. My buddy helped me identify a new market segment that has become our primary revenue driver." }
+        { author: "John D., Startup Founder", quote: "The Business Buddy gave me a Q3 strategy that led to our first profitable quarter. It's like having a seasoned CEO in my pocket." },
+        { author: "Maria K., Agency Owner", quote: "I was stuck in a growth plateau. My buddy helped me identify a new market segment that has become our primary revenue driver." }
     ],
     strengths: ["Strategic Planning", "Sales Coaching", "Motivation Boost", "Business Plan Explanations", "Market Analysis", "Team Leadership", "Product Development", "Financial Forecasting"],
   },
@@ -79,8 +78,8 @@ export const buddies: Buddy[] = [
       { icon: MessageSquareText, title: "Get Daily Interaction Tips", description: "Receive daily challenges, conversation starters, and insights to help you build confidence and connect." }
     ],
     testimonials: [
-        { icon: Quote, author: "Sarah J., Recently Engaged", quote: "I struggled with dating for years. The Relationship Buddy helped me understand my own patterns and I finally met my amazing fiancé." },
-        { icon: Quote, author: "Mike T., New in Town", quote: "Moving to a new city was lonely. This buddy gave me the confidence and tools to build a great group of friends from scratch." }
+        { author: "Sarah J., Recently Engaged", quote: "I struggled with dating for years. The Relationship Buddy helped me understand my own patterns and I finally met my amazing fiancé." },
+        { author: "Mike T., New in Town", quote: "Moving to a new city was lonely. This buddy gave me the confidence and tools to build a great group of friends from scratch." }
     ],
     strengths: ["Communication Skills", "Empathy Development", "Dating & Friendship Advice", "Conflict Resolution", "Social Confidence", "Active Listening", "Building Trust", "Understanding Needs"],
   },
@@ -104,8 +103,8 @@ export const buddies: Buddy[] = [
       { icon: MessageSquareText, title: "Receive Smart Money Alerts", description: "Get notifications for investment opportunities, savings milestones, and market shifts tailored to you." }
     ],
     testimonials: [
-        { icon: Quote, author: "David L., Homeowner", quote: "I never thought I could afford a house. The Finance Buddy created a savings plan that made it possible in just two years." },
-        { icon: Quote, author: "Emily R., Investor", quote: "My portfolio is up 35% since I started using the investment insights from my buddy. It's an incredible tool." }
+        { author: "David L., Homeowner", quote: "I never thought I could afford a house. The Finance Buddy created a savings plan that made it possible in just two years." },
+        { author: "Emily R., Investor", quote: "My portfolio is up 35% since I started using the investment insights from my buddy. It's an incredible tool." }
     ],
     strengths: ["Investment Insights", "Savings Strategies", "Real Estate Market Analysis", "Budgeting Help", "Debt Reduction", "Retirement Planning", "Portfolio Diversification", "Wealth Growth"],
   },
@@ -129,8 +128,8 @@ export const buddies: Buddy[] = [
       { icon: MessageSquareText, title: "Get Daily Wellness Nudges", description: "Receive reminders, workout ideas, and mindful check-ins to help you build healthy habits effortlessly." }
     ],
     testimonials: [
-        { icon: Quote, author: "Jessica P., Fitness Enthusiast", quote: "I broke through my fitness plateau by following the astrologically-timed workout suggestions. I've never felt stronger." },
-        { icon: Quote, author: "Tom H., Corporate Professional", quote: "The stress management exercises have been a lifesaver. I feel more calm and focused at work than ever before." }
+        { author: "Jessica P., Fitness Enthusiast", quote: "I broke through my fitness plateau by following the astrologically-timed workout suggestions. I've never felt stronger." },
+        { author: "Tom H., Corporate Professional", quote: "The stress management exercises have been a lifesaver. I feel more calm and focused at work than ever before." }
     ],
     strengths: ["Custom Fitness Plans", "Holistic Diet Advice", "Mindfulness Practices", "Wellness Tracking", "Stress Management", "Sleep Improvement", "Energy Boosting", "Mental Resilience"],
   },
@@ -154,8 +153,8 @@ export const buddies: Buddy[] = [
       { icon: MessageSquareText, title: "Receive Your Content Calendar", description: "Get a daily and weekly plan with content ideas, optimal posting times, and engagement strategies." }
     ],
     testimonials: [
-        { icon: Quote, author: "Chloe W., Content Creator", quote: "My TikTok following has tripled in two months. The content ideas are pure gold and feel so true to me." },
-        { icon: Quote, author: "Ben S., Small Business Owner", quote: "I finally have a clear brand strategy. The buddy helped me create a consistent voice that my customers love." }
+        { author: "Chloe W., Content Creator", quote: "My TikTok following has tripled in two months. The content ideas are pure gold and feel so true to me." },
+        { author: "Ben S., Small Business Owner", quote: "I finally have a clear brand strategy. The buddy helped me create a consistent voice that my customers love." }
     ],
     strengths: ["Content Creation", "Brand Voice Development", "Audience Growth Strategies", "Viral Trend Analysis", "Platform Optimization", "Engagement Tactics", "Personal Branding", "Monetization"],
   },
@@ -179,8 +178,8 @@ export const buddies: Buddy[] = [
       { icon: MessageSquareText, title: "Get Your Custom Lesson Plan", description: "Receive daily micro-lessons, quizzes, and problem-solving exercises tailored to your unique mind." }
     ],
     testimonials: [
-        { icon: Quote, author: "Ana G., University Student", quote: "I aced my finals using the custom study guides from the Education Buddy. It's the best study partner I've ever had." },
-        { icon: Quote, author: "Mark R., Software Developer", quote: "I was able to learn Python in a month for a new project at work. The personalized learning path was a game-changer." }
+        { author: "Ana G., University Student", quote: "I aced my finals using the custom study guides from the Education Buddy. It's the best study partner I've ever had." },
+        { author: "Mark R., Software Developer", quote: "I was able to learn Python in a month for a new project at work. The personalized learning path was a game-changer." }
     ],
     strengths: ["Skill Acquisition", "Complex Problem-Solving", "Personalized Learning Paths", "Sales Training", "Critical Thinking", "Research Assistance", "Exam Preparation", "Knowledge Synthesis"],
   },

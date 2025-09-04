@@ -14,7 +14,7 @@ export default function BuddyFeaturesSection({ buddy }: { buddy: Buddy }) {
                         Unlock your potential with a suite of powerful, personalized tools.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-10">
                     {buddy.features.map((feature) => {
                         const IconComponent = feature.icon;
                         return (

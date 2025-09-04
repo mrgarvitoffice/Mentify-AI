@@ -5,7 +5,6 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, Star } from 'lucide-react';
 import Link from 'next/link';
 import BuddyFeaturesSection from '@/components/sections/buddy-features-section';
 import BuddyHowItWorksSection from '@/components/sections/buddy-how-it-works-section';
