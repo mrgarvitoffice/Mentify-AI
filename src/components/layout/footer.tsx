@@ -4,20 +4,10 @@ import { FaqDialog } from '../info-dialogs/faq-dialog';
 import { PrivacyPolicyDialog } from '../info-dialogs/privacy-policy-dialog';
 import { TermsOfServiceDialog } from '../info-dialogs/terms-of-service-dialog';
 import { ContactUsDialog } from '../info-dialogs/contact-us-dialog';
-import { ShopDialog } from '../shop/shop-dialog';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
-
-const buddies = [
-    { icon: "Briefcase", title: "Business Motivator & Mentor", description: "Inspires, guides, and explains business strategies. Your 24/7 business coach." },
-    { icon: "HeartHandshake", title: "Relationship & Social Buddy", description: "Navigate love, friendship, and emotional connections with confidence." },
-    { icon: "LandPlot", title: "Finance & Real Estate Buddy", description: "Your personal guide for investments, savings, and real estate." },
-    { icon: "ShieldPlus", title: "Health & Wellness Buddy", description: "Holistic health advisor for diet, fitness, and wellbeing transformation." },
-    { icon: "MonitorSmartphone", title: "Social Media & Branding Buddy", description: "Build your online identity and grow your digital presence." },
-    { icon: "BookOpen", title: "Problem Solver & Education Buddy", description: "Your learning companion for skill development and problem-solving." },
-];
+import { buddies } from '@/lib/buddies-data';
 
 const supportLinks = [
     { name: 'FAQ', component: FaqDialog },
@@ -50,11 +40,9 @@ export default function Footer() {
                         <ul className="mt-4 space-y-3">
                            {buddies.map((buddy) => (
                                 <li key={buddy.title}>
-                                    <BuddyInfoDialog buddy={buddy}>
-                                        <button className="text-muted-foreground hover:text-primary transition-colors text-left w-full text-sm">
-                                            {buddy.title}
-                                        </button>
-                                    </BuddyInfoDialog>
+                                    <Link href={`/buddies/${buddy.slug}`} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                                        {buddy.title}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

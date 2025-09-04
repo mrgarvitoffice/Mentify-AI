@@ -3,56 +3,8 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Heart, Wallet, ShieldPlus, Share2, GraduationCap, Briefcase, Brain, HeartHandshake, LandPlot, MonitorSmartphone, BookOpen } from 'lucide-react';
-import { BuddyInfoDialog } from '../shop/buddy-info-dialog';
-
-const buddies = [
-  {
-    icon: Briefcase,
-    title: "Business Motivator & Mentor",
-    description: "Your 24/7 business coach for strategy, motivation, and growth guidance aligned to your entrepreneurial stars.",
-    features: "Strategy Planning • Goal Setting • Market Analysis • Team Building"
-  },
-  {
-    icon: HeartHandshake,
-    title: "Relationship & Social Buddy",
-    description: "Navigate love, friendship, and social connections with cosmic wisdom tailored to your relational patterns.",
-    features: "Dating Advice • Social Skills • Emotional Support • Communication"
-  },
-  {
-    icon: LandPlot,
-    title: "Finance & Real Estate Buddy",
-    description: "Your personal wealth advisor for investments, savings, and property decisions based on your financial stars.",
-    features: "Investment Planning • Portfolio Management • Real Estate • Budgeting"
-  },
-  {
-    icon: ShieldPlus,
-    title: "Health & Wellness Buddy",
-    description: "Holistic health guidance for body, mind, and spirit aligned to your wellness potential and energy cycles.",
-    features: "Fitness Plans • Nutrition Guidance • Mental Health • Sleep Optimization"
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Social Media & Branding Buddy",
-    description: "Build your online presence and personal brand with content strategies aligned to your authentic self.",
-    features: "Content Creation • Brand Strategy • Growth Tactics • Analytics"
-  },
-  {
-    icon: BookOpen,
-    title: "Problem Solver & Education Buddy",
-    description: "Your learning companion for skill development and problem-solving aligned to your intellectual strengths.",
-    features: "Learning Paths • Skill Building • Research • Knowledge Retention"
-  },
-];
-
-const icons: { [key: string]: React.ElementType } = {
-    Briefcase,
-    HeartHandshake,
-    LandPlot,
-    ShieldPlus,
-    MonitorSmartphone,
-    BookOpen,
-};
+import Link from 'next/link';
+import { buddies } from '@/lib/buddies-data';
 
 
 export default function BuddiesSection() {
@@ -82,14 +34,13 @@ export default function BuddiesSection() {
                         <p className="text-sm font-semibold text-primary">{buddy.features}</p>
                     </CardContent>
                     <div className="p-0 mt-6">
-                        <BuddyInfoDialog buddy={{ ...buddy, icon: buddy.icon.displayName || `Icon${index}` }}>
-                            <Button 
-                                variant="outline"
-                                className="w-full rounded-lg"
-                            >
-                                Learn More
-                            </Button>
-                        </BuddyInfoDialog>
+                        <Button 
+                            variant="outline"
+                            className="w-full rounded-lg"
+                            asChild
+                        >
+                          <Link href={`/buddies/${buddy.slug}`}>Learn More</Link>
+                        </Button>
                     </div>
                 </Card>
             )
