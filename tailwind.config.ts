@@ -76,6 +76,10 @@ export default {
             '0%': { opacity: '0', transform: 'translateY(10px)' },
             '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        'dialog-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
         'slide-up': {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0)' },
@@ -84,13 +88,35 @@ export default {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.05)', opacity: '0.9' },
         },
+        'float': {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-20px)' },
+        },
+        'gradient-shimmer': {
+            '0%': { backgroundPosition: '0% 50%' },
+            '50%': { backgroundPosition: '100% 50%' },
+            '100%': { backgroundPosition: '0% 50%' },
+        },
+        'gradient-blob': {
+            '0%, 100%': { transform: 'translate(0, 0) scale(1)', opacity: '0.5' },
+            '25%': { transform: 'translate(20px, -30px) scale(1.1)', opacity: '0.6' },
+            '50%': { transform: 'translate(-20px, 30px) scale(0.9)', opacity: '0.7' },
+            '75%': { transform: 'translate(30px, 20px) scale(1.2)', opacity: '0.6' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+        'dialog-in': 'dialog-in 0.3s ease-out forwards',
         'slide-up': 'slide-up 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
         'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
+        'float': 'float 20s infinite ease-in-out',
+        'gradient-shimmer': 'gradient-shimmer 5s infinite ease-in-out',
+        'gradient-blob': 'gradient-blob 15s infinite ease-in-out',
+      },
+      backgroundSize: {
+        '200%': '200% 200%',
       },
     },
   },

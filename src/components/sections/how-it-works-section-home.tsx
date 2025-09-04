@@ -52,7 +52,7 @@ const steps = [
 
 export default function HowItWorksSectionHome() {
     return (
-        <section id="how-it-works" className="relative bg-muted/50 text-foreground py-24 sm:py-32 overflow-hidden">
+        <section id="how-it-works" className="relative cosmic-nebula text-foreground py-24 sm:py-32 overflow-hidden">
             <AnimatedParticles count={50} className="opacity-30" />
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
