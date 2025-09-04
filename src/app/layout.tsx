@@ -61,15 +61,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {mounted && (
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">
-                {children}
-              </main>
-              {isMobile ? <BottomNavBar /> : <Footer />}
-            </div>
-          )}
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            {isMobile ? <BottomNavBar /> : <Footer />}
+          </div>
           <Chatbot />
           <Toaster />
         </ThemeProvider>
