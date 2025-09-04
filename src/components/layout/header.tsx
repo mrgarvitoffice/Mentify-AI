@@ -14,10 +14,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +48,10 @@ export default function Header() {
       { name: 'Help Center', href: '/help'},
       { name: 'What is an AI Helper?', href: '/what-is-ai-helper'},
   ]
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>
