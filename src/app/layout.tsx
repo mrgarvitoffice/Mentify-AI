@@ -12,6 +12,7 @@ import Footer from '@/components/layout/footer';
 import BottomNavBar from '@/components/layout/bottom-nav';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useEffect, useState } from 'react';
+import LoginPage from './login/page';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,14 +37,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const isMobile = useIsMobile();
-   const [mounted, setMounted] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticating, setIsAuthenticating] = useState(true);
 
   useEffect(() => {
-    setMounted(true);
+    // This effect runs only on the client side
+    const authStatus = sessionStorage.getItem('isAuthenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+    }
+    setIsAuthenticating(false);
   }, []);
 
-  if (!mounted) {
-    return null;
+  const handleLogin = () => {
+    sessionStorage.setItem('isAuthenticated', 'true');
+    setIsAuthenticated(true);
+  };
+  
+  const handleLogout = () => {
+    sessionStorage.removeItem('isAuthenticated');
+    setIsAuthenticated(false);
   }
 
   return (
@@ -64,13 +77,20 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">
-              {children}
-            </main>
-            {isMobile ? <BottomNavBar /> : <Footer />}
-          </div>
+          {isAuthenticating ? (
+             <div className="flex items-center justify-center min-h-screen">Loading...</div>
+          ) : !isAuthenticated ? (
+            <LoginPage onLogin={handleLogin} />
+          ) : (
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">
+                {children}
+              </main>
+              {isMobile ? <BottomNavBar /> : <Footer />}
+            </div>
+          )}
+          
           <Chatbot />
           <Toaster />
         </ThemeProvider>
