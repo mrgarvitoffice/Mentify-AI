@@ -103,6 +103,9 @@ export default {
             '50%': { transform: 'translate(-20px, 30px) scale(0.9)', opacity: '0.7' },
             '75%': { transform: 'translate(30px, 20px) scale(1.2)', opacity: '0.6' },
         },
+        'border-spin': {
+            '100%': { transform: 'rotate(360deg)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -114,6 +117,7 @@ export default {
         'float': 'float 20s infinite ease-in-out',
         'gradient-shimmer': 'gradient-shimmer 5s infinite ease-in-out',
         'gradient-blob': 'gradient-blob 15s infinite ease-in-out',
+        'border-spin': 'border-spin 7s linear infinite',
       },
       backgroundSize: {
         '200%': '200% 200%',
