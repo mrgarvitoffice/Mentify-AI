@@ -15,17 +15,20 @@ export default function HeroSection() {
         <div className="container mx-auto px-4 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="text-center lg:text-left">
-                    <h1 className="font-headline text-5xl lg:text-6xl font-black text-foreground"
-                        style={{ lineHeight: 1.1 }}>
+                    <h1 className="font-headline text-5xl lg:text-6xl font-black text-foreground animate-fade-in-up"
+                        style={{ lineHeight: 1.1, animationDelay: '0.1s' }}>
                         Your companions that never sleep.
                     </h1>
-                    <p className="mt-6 text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 text-muted-foreground">
+                    <p className="mt-6 text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 text-muted-foreground animate-fade-in-up"
+                        style={{ animationDelay: '0.2s' }}>
                         Build, grow, and scale your life with a team of AI Buddies.
                     </p>
-                    <p className="mt-4 text-lg max-w-lg mx-auto lg:mx-0 text-muted-foreground/80">
+                    <p className="mt-4 text-lg max-w-lg mx-auto lg:mx-0 text-muted-foreground/80 animate-fade-in-up"
+                        style={{ animationDelay: '0.3s' }}>
                         Mentify-AI. World's first AI companions, personalized for your birth chart. Making personal growth feel like magic.
                     </p>
-                    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up"
+                        style={{ animationDelay: '0.4s' }}>
                         <PersonalityQuizDialog>
                             <Button size="lg" className="rounded-lg text-lg py-7 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 transition-all hover:-translate-y-1">
                                 Discover Your AI Buddy
@@ -46,6 +49,7 @@ export default function HeroSection() {
                         height={600}
                         className="rounded-2xl shadow-2xl animate-fade-in-up"
                         data-ai-hint="AI app interface"
+                        style={{ animationDelay: '0.2s' }}
                     />
                 </div>
             </div>

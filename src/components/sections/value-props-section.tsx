@@ -1,3 +1,4 @@
+
 import { Sparkles, Clock, MicVocal, BrainCircuit, Star } from 'lucide-react';
 
 const valueProps = [
@@ -41,8 +42,9 @@ export default function ValuePropsSection() {
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-4 md:gap-x-8">
-          {valueProps.map((prop) => (
-            <div key={prop.title} className="flex flex-col items-center text-center p-8 rounded-3xl glass-card hover:border-accent transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20 dark:hover:shadow-accent/10 hover:-translate-y-2">
+          {valueProps.map((prop, index) => (
+            <div key={prop.title} className="flex flex-col items-center text-center p-8 rounded-3xl glass-card hover:border-accent transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20 dark:hover:shadow-accent/10 hover:-translate-y-2 animate-dialog-in"
+                 style={{ animationDelay: `${index * 100}ms`}}>
               <div className="flex justify-center items-center h-24 w-24 rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:scale-110 hover:animate-pulse mb-6">
                 <prop.icon className="h-12 w-12" />
               </div>
