@@ -1,9 +1,11 @@
 
+'use client';
 import type { Buddy } from '@/lib/buddies-data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowUpRight, Check } from 'lucide-react';
+import { iconMap } from '@/lib/buddies-data';
 
 export default function FinanceBuddyPage({ buddy }: { buddy: Buddy }) {
     return (
@@ -44,7 +46,7 @@ export default function FinanceBuddyPage({ buddy }: { buddy: Buddy }) {
                     </div>
                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                         {buddy.features.map((feature) => {
-                            const Icon = feature.icon;
+                            const Icon = iconMap[feature.icon];
                              return (
                                 <Card key={feature.title} variant="glass" className="p-6 group hover:border-primary/30 transition-all">
                                     <CardHeader className="p-0">
@@ -110,3 +112,5 @@ export default function FinanceBuddyPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
+
+    

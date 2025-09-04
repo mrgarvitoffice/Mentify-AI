@@ -1,11 +1,14 @@
 
+'use client';
 import type { Buddy } from '@/lib/buddies-data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { iconMap } from '@/lib/buddies-data';
 
 export default function HealthBuddyPage({ buddy }: { buddy: Buddy }) {
     const timelineItems = buddy.features; // Assuming features represent the timeline
+    const HeroIcon = iconMap[buddy.icon]
 
     return (
         <>
@@ -15,7 +18,7 @@ export default function HealthBuddyPage({ buddy }: { buddy: Buddy }) {
                 <div className="container mx-auto px-6 lg:px-8 text-center">
                     <div className="max-w-4xl mx-auto">
                         <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-slow">
-                           <buddy.icon className="w-12 h-12 text-primary" />
+                           <HeroIcon className="w-12 h-12 text-primary" />
                         </div>
                         <p className="font-semibold text-primary">A Holistic Approach to Wellness</p>
                         <h1 className="font-headline text-5xl sm:text-6xl lg:text-7xl font-black text-foreground mt-4" style={{ lineHeight: 1.1 }}>
@@ -48,7 +51,7 @@ export default function HealthBuddyPage({ buddy }: { buddy: Buddy }) {
                         {/* The vertical line */}
                         <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-border" aria-hidden="true"></div>
                         {timelineItems.map((item, index) => {
-                            const Icon = item.icon;
+                            const Icon = iconMap[item.icon];
                             const isLeft = index % 2 === 0;
                             return (
                                 <div key={item.title} className="relative mb-12">
@@ -84,7 +87,7 @@ export default function HealthBuddyPage({ buddy }: { buddy: Buddy }) {
                     </div>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                         {buddy.secondaryFeatures.map((feature) => {
-                             const Icon = feature.icon;
+                             const Icon = iconMap[feature.icon];
                              return (
                                 <Card key={feature.title} className="p-6 text-center group hover:border-primary/30 transition-all bg-background/50 hover:bg-background">
                                     <CardHeader className="p-0 items-center">

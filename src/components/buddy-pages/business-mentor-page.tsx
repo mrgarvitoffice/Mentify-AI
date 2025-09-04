@@ -1,8 +1,10 @@
 
+'use client';
 import type { Buddy } from '@/lib/buddies-data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
+import { iconMap } from '@/lib/buddies-data';
 
 export default function BusinessMentorPage({ buddy }: { buddy: Buddy }) {
     return (
@@ -64,7 +66,7 @@ export default function BusinessMentorPage({ buddy }: { buddy: Buddy }) {
                         </div>
                         <div className="grid grid-cols-1 gap-10">
                             {buddy.secondaryFeatures.map((feature) => {
-                                const Icon = feature.icon;
+                                const Icon = iconMap[feature.icon];
                                 return (
                                 <div key={feature.title} className="relative pl-16">
                                     <dt className="text-lg font-semibold leading-7 text-foreground">
@@ -105,3 +107,5 @@ export default function BusinessMentorPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
+
+    

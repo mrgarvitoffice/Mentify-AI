@@ -1,9 +1,11 @@
+
 'use client';
 
 import type { Buddy } from '@/lib/buddies-data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { iconMap } from '@/lib/buddies-data';
 
 export default function EducationBuddyPage({ buddy }: { buddy: Buddy }) {
     return (
@@ -47,7 +49,7 @@ export default function EducationBuddyPage({ buddy }: { buddy: Buddy }) {
                          <div className="absolute left-4 top-0 h-full w-px bg-border" aria-hidden="true"></div>
                          <div className="relative flex flex-col gap-8">
                             {buddy.features.map((feature, index) => {
-                                const Icon = feature.icon;
+                                const Icon = iconMap[feature.icon];
                                 return (
                                  <div key={feature.title} className="relative pl-12">
                                      <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground ring-8 ring-background">
@@ -80,7 +82,7 @@ export default function EducationBuddyPage({ buddy }: { buddy: Buddy }) {
                         <div className="rounded-lg border bg-background p-4 shadow-lg">
                            <Accordion type="single" collapsible className="w-full">
                                 {buddy.secondaryFeatures.map((feature, index) => {
-                                    const Icon = feature.icon
+                                    const Icon = iconMap[feature.icon]
                                     return (
                                      <AccordionItem key={feature.title} value={`item-${index}`}>
                                          <AccordionTrigger className="hover:text-primary font-semibold text-lg">
@@ -128,3 +130,5 @@ export default function EducationBuddyPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
+
+    

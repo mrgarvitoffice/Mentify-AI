@@ -1,10 +1,12 @@
 
+'use client';
 import type { Buddy } from '@/lib/buddies-data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
+import { iconMap } from '@/lib/buddies-data';
 
 export default function BrandingBuddyPage({ buddy }: { buddy: Buddy }) {
     return (
@@ -52,7 +54,7 @@ export default function BrandingBuddyPage({ buddy }: { buddy: Buddy }) {
                     </div>
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                         {buddy.features.map((feature, index) => {
-                            const Icon = feature.icon;
+                            const Icon = iconMap[feature.icon];
                              return (
                                 <Card key={feature.title} className="p-6 group hover:-translate-y-2 transition-transform duration-300">
                                      <div className="mb-4 bg-primary/10 text-primary rounded-lg p-3 w-fit">
@@ -83,7 +85,7 @@ export default function BrandingBuddyPage({ buddy }: { buddy: Buddy }) {
                            <h3 className="text-3xl font-bold">From Generic to Genius</h3>
                            <p className="text-muted-foreground">Our AI analyzes your unique energy to craft a brand identity that's not just beautiful, but also authentic and magnetic. We'll help you with everything from logos and color palettes to your core messaging.</p>
                            {buddy.secondaryFeatures.map((feature) => {
-                                const Icon = feature.icon;
+                                const Icon = iconMap[feature.icon];
                                 return (
                                 <div key={feature.title} className="flex items-start gap-4">
                                      <div className="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">

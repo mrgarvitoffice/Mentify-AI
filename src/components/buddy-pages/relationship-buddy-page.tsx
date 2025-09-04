@@ -1,9 +1,11 @@
 
+'use client';
 import type { Buddy } from '@/lib/buddies-data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
+import { iconMap } from '@/lib/buddies-data';
 
 export default function RelationshipBuddyPage({ buddy }: { buddy: Buddy }) {
     return (
@@ -47,7 +49,7 @@ export default function RelationshipBuddyPage({ buddy }: { buddy: Buddy }) {
             <section className="py-20 sm:py-28 bg-muted/50">
                 <div className="container mx-auto px-6 lg:px-8 space-y-24">
                 {buddy.features.map((feature, index) => {
-                    const Icon = feature.icon;
+                    const Icon = iconMap[feature.icon];
                     const isReversed = index % 2 !== 0;
                     return (
                         <div key={feature.title} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -124,3 +126,5 @@ export default function RelationshipBuddyPage({ buddy }: { buddy: Buddy }) {
         </>
     );
 }
+
+    

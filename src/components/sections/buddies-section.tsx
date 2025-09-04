@@ -4,7 +4,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { buddies } from '@/lib/buddies-data';
+import { buddies, iconMap } from '@/lib/buddies-data';
 import { ArrowRight } from 'lucide-react';
 
 
@@ -22,7 +22,7 @@ export default function BuddiesSection() {
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {buddies.map((buddy) => {
-            const IconComponent = buddy.icon;
+            const IconComponent = iconMap[buddy.icon];
             return (
                 <Card
                   key={buddy.title}
@@ -37,12 +37,15 @@ export default function BuddiesSection() {
                     </div>
                     <p className="text-base text-muted-foreground flex-grow mb-6">{buddy.description}</p>
                     <ul className="space-y-2 text-sm text-muted-foreground mb-8">
-                       {buddy.features.slice(0, 2).map(feature => (
-                         <li key={feature.title} className="flex items-center gap-2">
-                           <feature.icon className="h-4 w-4 text-primary" />
-                           <span>{feature.title}</span>
-                         </li>
-                       ))}
+                       {buddy.features.slice(0, 2).map(feature => {
+                        const FeatureIcon = iconMap[feature.icon];
+                         return (
+                           <li key={feature.title} className="flex items-center gap-2">
+                             <FeatureIcon className="h-4 w-4 text-primary" />
+                             <span>{feature.title}</span>
+                           </li>
+                         );
+                       })}
                     </ul>
                   </CardContent>
                   <div className="p-0 mt-auto">
@@ -64,3 +67,5 @@ export default function BuddiesSection() {
     </section>
   );
 }
+
+    
