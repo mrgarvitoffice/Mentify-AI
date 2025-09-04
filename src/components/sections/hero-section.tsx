@@ -28,7 +28,7 @@ export default function HeroSection() {
                             </Button>
                         </PersonalityQuizDialog>
                         <Button variant="outline" size="lg" className="rounded-lg text-lg py-7 px-8" asChild>
-                            <Link href="#how-it-works">
+                            <Link href="/how-it-works">
                                 <PlayCircle className="mr-2 h-5 w-5"/>
                                 Watch Demo
                             </Link>
@@ -38,7 +38,7 @@ export default function HeroSection() {
                 <div className="relative flex justify-center items-center">
                     <div className="absolute w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
                     <Image 
-                        src="https://picsum.photos/600/600"
+                        src="https://picsum.photos/seed/hero/600/600"
                         alt="AI Buddy Interface Mockup"
                         width={600}
                         height={600}

@@ -52,7 +52,7 @@ const steps = [
 
 export default function HowItWorksSectionHome() {
     return (
-        <section id="how-it-works" className="relative cosmic-nebula text-foreground py-24 sm:py-32 overflow-hidden">
+        <section id="how-it-works" className="relative bg-muted/30 text-foreground py-24 sm:py-32 overflow-hidden">
             <AnimatedParticles count={50} className="opacity-30" />
             <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
@@ -68,9 +68,9 @@ export default function HowItWorksSectionHome() {
                     {steps.map((step) => (
                         <div key={step.number} className="flex flex-col items-center text-center">
                             <div className="relative flex justify-center items-center h-40 w-40 mb-6">
-                                <span className="absolute font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5 opacity-50">{step.number}</span>
-                                <div className="absolute flex items-center justify-center h-24 w-24 rounded-full bg-gradient-to-br from-accent/80 to-secondary/80 text-white shadow-lg shadow-accent/20">
-                                    <step.icon className="h-12 w-12 text-primary animate-pulse-slow" />
+                                <span className="absolute font-headline text-9xl font-black text-primary/10 opacity-50">{step.number}</span>
+                                <div className="absolute flex items-center justify-center h-24 w-24 rounded-full bg-background shadow-lg">
+                                    <step.icon className="h-12 w-12 text-primary" />
                                 </div>
                             </div>
                             <h3 className="text-2xl font-bold">{step.title}</h3>
