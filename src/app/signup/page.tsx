@@ -6,19 +6,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { UserPlus, Chrome } from 'lucide-react';
+import { UserPlus, Chrome, LogIn } from 'lucide-react';
 import Link from 'next/link';
-import Footer from '@/components/layout/footer';
-import Header from '@/components/layout/header';
 
-export default function SignupPage() {
+export default function SignupPage({ onLogin }: { onLogin: () => void }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header />
       <main className="flex-1 flex items-center justify-center cosmic-nebula p-4">
         <Card className="w-full max-w-md animate-dialog-in glass-card">
           <CardHeader className="text-center">
@@ -58,7 +55,7 @@ export default function SignupPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Button className="w-full" type="submit">
+            <Button className="w-full" type="submit" onClick={onLogin}>
               <UserPlus className="mr-2" /> Create Account
             </Button>
             <div className="relative">
@@ -69,19 +66,18 @@ export default function SignupPage() {
                 <span className="bg-background px-2 text-muted-foreground">Or sign up with</span>
               </div>
             </div>
-            <Button variant="outline" className="w-full" type="button">
+            <Button variant="outline" className="w-full" type="button" onClick={onLogin}>
               <Chrome className="mr-2" /> Sign Up with Google
             </Button>
             <div className="mt-4 text-center text-sm">
               Already have an account?{' '}
-              <Link href="/login" className="underline text-primary">
+              <Link href="#" onClick={(e) => { e.preventDefault(); onLogin(); }} className="underline text-primary">
                 Login
               </Link>
             </div>
           </CardContent>
         </Card>
       </main>
-      <Footer />
     </div>
   );
 }

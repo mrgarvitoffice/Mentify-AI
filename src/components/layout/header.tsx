@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/sheet"
 import { buddies } from '@/lib/buddies-data';
 
-export default function Header() {
+export default function Header({ onLogout }: { onLogout: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -115,7 +115,7 @@ export default function Header() {
 
             {isMobile ? (
                  <div className="flex items-center gap-2">
-                    <ThemeToggle />
+                    <ThemeToggle onLogout={onLogout} />
                     <MobileMenu />
                  </div>
             ) : (
@@ -149,7 +149,7 @@ export default function Header() {
                     </nav>
                     
                     <div className="hidden md:flex items-center gap-4">
-                        <ThemeToggle />
+                        <ThemeToggle onLogout={onLogout} />
                         <ShopDialog>
                         <Button
                             className="group relative rounded-lg bg-primary px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"

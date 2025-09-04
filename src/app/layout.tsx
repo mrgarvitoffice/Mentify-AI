@@ -83,7 +83,7 @@ export default function RootLayout({
             <LoginPage onLogin={handleLogin} />
           ) : (
             <div className="flex min-h-screen flex-col">
-              <Header />
+              <Header onLogout={handleLogout} />
               <main className="flex-1">
                 {children}
               </main>
