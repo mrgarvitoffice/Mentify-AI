@@ -27,6 +27,7 @@ import { buddies } from '@/lib/buddies-data';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,40 +58,41 @@ export default function Header() {
   ]
 
   const MobileMenu = () => (
-    <Sheet>
+    <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
       <SheetTrigger asChild>
         <Button size="icon" variant="ghost" className='text-foreground'>
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-full max-w-sm glass-card p-6">
-        <SheetHeader className="sr-only">
-          <SheetTitle>Navigation Menu</SheetTitle>
-        </SheetHeader>
-        <nav className="flex h-full flex-col">
-            <Link href="/" className="flex items-center gap-2 group mb-8">
+      <SheetContent side="left" className="w-full max-w-sm glass-card p-6 flex flex-col">
+        <SheetHeader className="text-left">
+          <SheetTitle asChild>
+            <Link href="/" className="flex items-center gap-2 group mb-4" onClick={() => setMobileMenuOpen(false)}>
                 <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
                 <span className={cn('text-2xl font-bold font-headline text-foreground')}>
                 Mentify-AI
                 </span>
             </Link>
-            <div className="flex flex-col gap-4 text-lg font-medium">
+          </SheetTitle>
+        </SheetHeader>
+        <nav className="flex-grow">
+            <div className="flex flex-col gap-4 text-lg font-medium mt-4">
                  {[...navItems, ...resourceItems].map((item) => (
-                    <Link key={item.name} href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
+                    <Link key={item.name} href={item.href} className="text-muted-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
                         {item.name}
                     </Link>
                 ))}
             </div>
-             <div className="mt-auto">
-                <ShopDialog>
-                    <Button
-                        className="w-full group relative rounded-lg bg-primary px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
-                    >
-                        Get Your AI Buddies
-                    </Button>
-                </ShopDialog>
-            </div>
         </nav>
+        <div className="mt-auto">
+            <ShopDialog>
+                <Button
+                    className="w-full group relative rounded-lg bg-primary px-6 py-3 font-bold text-primary-foreground shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-primary/40"
+                >
+                    Get Your AI Buddies
+                </Button>
+            </ShopDialog>
+        </div>
       </SheetContent>
     </Sheet>
   );

@@ -21,7 +21,7 @@ export default function BottomNavBar() {
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t bg-background/80 backdrop-blur-lg md:hidden">
       <div className="mx-auto grid h-20 max-w-lg grid-cols-5 items-center px-2">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = pathname === item.href || (item.href === '/#buddies' && pathname.startsWith('/buddies'));
           return (
             <Link key={item.href} href={item.href} className="group flex flex-col items-center justify-center text-center p-2 rounded-lg">
                <div className="relative">
