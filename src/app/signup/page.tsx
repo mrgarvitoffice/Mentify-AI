@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { UserPlus, Chrome, LogIn } from 'lucide-react';
 import Link from 'next/link';
 
-export default function SignupPage({ onLogin }: { onLogin: () => void }) {
+export default function SignupPage({ onLogin, onTogglePage }: { onLogin: () => void, onTogglePage: () => void }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -71,7 +71,7 @@ export default function SignupPage({ onLogin }: { onLogin: () => void }) {
             </Button>
             <div className="mt-4 text-center text-sm">
               Already have an account?{' '}
-              <Link href="#" onClick={(e) => { e.preventDefault(); onLogin(); }} className="underline text-primary">
+              <Link href="#" onClick={(e) => { e.preventDefault(); onTogglePage(); }} className="underline text-primary">
                 Login
               </Link>
             </div>

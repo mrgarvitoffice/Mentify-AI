@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Ghost, LogIn, Mail, UserPlus, Chrome } from 'lucide-react';
 import Link from 'next/link';
 
-export default function LoginPage({ onLogin }: { onLogin: () => void }) {
+export default function LoginPage({ onLogin, onTogglePage }: { onLogin: () => void, onTogglePage: () => void }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <main className="flex-1 flex items-center justify-center cosmic-nebula p-4">
@@ -55,7 +55,7 @@ export default function LoginPage({ onLogin }: { onLogin: () => void }) {
             </Button>
             <div className="mt-4 text-center text-sm">
               Don't have an account?{' '}
-              <Link href="/signup" className="underline text-primary">
+              <Link href="#" onClick={(e) => { e.preventDefault(); onTogglePage(); }} className="underline text-primary">
                 Sign up
               </Link>
             </div>

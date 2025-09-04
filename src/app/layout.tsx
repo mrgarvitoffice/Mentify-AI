@@ -13,6 +13,7 @@ import BottomNavBar from '@/components/layout/bottom-nav';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useEffect, useState } from 'react';
 import LoginPage from './login/page';
+import SignupPage from './signup/page';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -39,6 +40,7 @@ export default function RootLayout({
   const isMobile = useIsMobile();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const [showLoginPage, setShowLoginPage] = useState(true);
 
   useEffect(() => {
     // This effect runs only on the client side
@@ -58,6 +60,10 @@ export default function RootLayout({
     sessionStorage.removeItem('isAuthenticated');
     setIsAuthenticated(false);
   }
+
+  const toggleAuthPage = () => {
+    setShowLoginPage(!showLoginPage);
+  };
 
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
@@ -80,7 +86,11 @@ export default function RootLayout({
           {isAuthenticating ? (
              <div className="flex items-center justify-center min-h-screen">Loading...</div>
           ) : !isAuthenticated ? (
-            <LoginPage onLogin={handleLogin} />
+            showLoginPage ? (
+              <LoginPage onLogin={handleLogin} onTogglePage={toggleAuthPage} />
+            ) : (
+              <SignupPage onLogin={handleLogin} onTogglePage={toggleAuthPage} />
+            )
           ) : (
             <div className="flex min-h-screen flex-col">
               <Header onLogout={handleLogout} />
