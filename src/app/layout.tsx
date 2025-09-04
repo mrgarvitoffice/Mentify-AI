@@ -42,6 +42,9 @@ export default function RootLayout({
     setMounted(true);
   }, []);
 
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>

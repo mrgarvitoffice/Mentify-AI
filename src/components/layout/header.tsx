@@ -149,9 +149,6 @@ export default function Header() {
                     </nav>
                     
                     <div className="hidden md:flex items-center gap-4">
-                        <Button variant="ghost" asChild>
-                           <Link href="/login">Login</Link>
-                        </Button>
                         <ThemeToggle />
                         <ShopDialog>
                         <Button
