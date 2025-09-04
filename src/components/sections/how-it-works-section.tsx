@@ -1,3 +1,4 @@
+
 import { Orbit, MessageSquareText, Settings } from 'lucide-react';
 import AnimatedParticles from '@/components/ui/animated-particles';
 
@@ -64,8 +65,8 @@ export default function HowItWorksSection() {
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">A simple three-step journey to your personalized AI companion.</p>
                 </div>
                 <div className="mt-20 grid grid-cols-1 gap-16 md:grid-cols-3">
-                    {steps.map((step) => (
-                        <div key={step.number} className="flex flex-col items-center text-center">
+                    {steps.map((step, index) => (
+                        <div key={step.number} className="flex flex-col items-center text-center animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s`}}>
                             <div className="relative flex justify-center items-center h-40 w-40 mb-6">
                                 <span className="absolute font-headline text-9xl font-black text-gradient bg-gradient-to-br from-foreground/10 to-foreground/5 opacity-50">
                                     {step.number}

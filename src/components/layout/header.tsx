@@ -5,9 +5,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, ChevronDown } from 'lucide-react';
 import { ThemeToggle } from '../ui/theme-toggle';
 import { ShopDialog } from '../shop/shop-dialog';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,9 +36,16 @@ export default function Header() {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'How It Works', href: '/#how-it-works' },
-    { name: 'Testimonials', href: '/testimonials' },
+    { name: 'How It Works', href: '/how-it-works' },
   ];
+  
+  const resourceItems = [
+      { name: 'Blog', href: '/blog'},
+      { name: 'Case Studies', href: '/case-studies'},
+      { name: 'FAQ', href: '/faq'},
+      { name: 'Help Center', href: '/help'},
+      { name: 'What is an AI Helper?', href: '/what-is-ai-helper'},
+  ]
 
   return (
     <>
@@ -61,6 +74,21 @@ export default function Header() {
                 <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
+             <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="relative text-base font-medium text-muted-foreground transition-colors duration-300 hover:text-primary group">
+                  Resources <ChevronDown className="w-4 h-4 ml-1" />
+                   <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {resourceItems.map((item) => (
+                    <DropdownMenuItem key={item.name} asChild>
+                        <Link href={item.href}>{item.name}</Link>
+                    </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
           
           <div className="hidden md:flex items-center gap-4">
@@ -111,6 +139,20 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+             <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-2xl font-medium text-muted-foreground transition-colors duration-300 hover:text-primary group">
+                  Resources <ChevronDown className="w-5 h-5 ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {resourceItems.map((item) => (
+                    <DropdownMenuItem key={item.name} asChild>
+                        <Link href={item.href}>{item.name}</Link>
+                    </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <ShopDialog>
                <Button
                 onClick={() => setIsMenuOpen(false)}
