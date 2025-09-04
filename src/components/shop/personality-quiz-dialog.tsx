@@ -18,7 +18,7 @@ export function PersonalityQuizDialog({ children }: { children: React.ReactNode 
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-2xl p-0 cosmic-nebula glass-card animate-dialog-in border-0">
+      <DialogContent className="sm:max-w-2xl p-0 glass-card animate-dialog-in border-0">
           <DialogHeader className="text-center items-center pt-8">
             <Sparkles className="w-12 h-12 mx-auto text-primary animate-pulse" />
             <DialogTitle className="text-3xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary mt-2">
