@@ -26,7 +26,7 @@ export default function BuddiesSection() {
             return (
                 <Card
                   key={buddy.title}
-                  className="group flex flex-col rounded-2xl bg-background/60 p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2"
+                  className="group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 glass-card hover:border-primary/30"
                 >
                   <CardContent className="flex flex-col p-0 flex-grow">
                     <div className="mb-6 flex items-center gap-4">
@@ -67,5 +67,3 @@ export default function BuddiesSection() {
     </section>
   );
 }
-
-    

@@ -7,66 +7,66 @@
 @layer base {
   :root {
     --background: 0 0% 100%; /* #FFFFFF */
-    --foreground: 240 6% 20%; /* #333333 */
+    --foreground: 240 3% 11%; /* #1C1C1E */
 
     --card: 0 0% 100%;
-    --card-foreground: 240 6% 20%;
+    --card-foreground: 240 3% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 6% 20%;
+    --popover-foreground: 240 3% 11%;
 
-    --primary: 217 71% 54%; /* #4A90E2 */
+    --primary: 223 100% 58%; /* #2979FF */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 168 76% 61%; /* #50E3C2 */
-    --secondary-foreground: 240 6% 20%;
+    --secondary: 145 100% 39%; /* #00C853 */
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 240 5% 96%; /* Light Gray */
-    --muted-foreground: 240 4% 40%; /* #666666 */
+    --muted: 240 8% 97%; /* #F7F7F9 */
+    --muted-foreground: 240 5% 38%; /* #5A5A66 */
 
-    --accent: 35 92% 57%; /* #F5A623 */
+    --accent: 35 92% 57%; /* Kept for compatibility, can be adjusted */
     --accent-foreground: 240 6% 20%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 217 71% 54%;
+    --border: 240 4% 90%; /* #E5E5EC */
+    --input: 240 4% 90%;
+    --ring: 223 100% 58%;
 
-    --maroon: 0 100% 25%; /* #800000 - Kept from previous, can be removed if unused */
+    --maroon: 0 100% 25%;
   }
 
   .dark {
-    --background: 0 0% 7%; /* #121212 */
-    --foreground: 0 0% 88%; /* #E0E0E0 */
+    --background: 240 13% 4%; /* #0A0A0F */
+    --foreground: 240 5% 96%; /* #F5F5F7 */
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 88%;
+    --card: 240 9% 11%;
+    --card-foreground: 240 5% 96%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 88%;
+    --popover: 240 9% 11%;
+    --popover-foreground: 240 5% 96%;
 
-    --primary: 210 100% 56%; /* #1E90FF */
-    --primary-foreground: 0 0% 100%;
+    --primary: 187 100% 50%; /* #00E5FF */
+    --primary-foreground: 240 13% 4%;
     
-    --secondary: 180 100% 40%; /* #00CED1 */
+    --secondary: 255 100% 65%; /* #7C4DFF */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 4% 12%;
-    --muted-foreground: 0 0% 63%; /* #A0A0A0 */
+    --muted: 240 9% 11%; /* #1C1C22 */
+    --muted-foreground: 240 4% 68%; /* #A6A6B2 */
 
-    --accent: 9 100% 64%; /* #FF6347 */
+    --accent: 9 100% 64%; /* Kept for compatibility */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 240 4% 12%;
-    --input: 240 4% 12%;
-    --ring: 210 100% 56%;
+    --border: 240 9% 25%; /* Transparent strokes are handled in components */
+    --input: 240 9% 11%;
+    --ring: 187 100% 50%;
 
-    --maroon: 0 67% 44%; /* #B22222 */
+    --maroon: 0 67% 44%;
   }
 }
 
@@ -87,6 +87,16 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
   }
+  
+  .cosmic-nebula {
+    @apply relative overflow-hidden bg-background;
+  }
+
+  .cosmic-nebula::before {
+    content: '';
+    @apply absolute -left-1/2 -top-1/2 -z-10 h-[200%] w-[200%] animate-[gradient-blob_30s_ease-in-out_infinite] bg-gradient-to-tr from-background via-blue-500/10 to-purple-500/10 dark:from-background dark:via-blue-900/20 dark:to-purple-900/20;
+  }
+
 
   .glass-card {
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
