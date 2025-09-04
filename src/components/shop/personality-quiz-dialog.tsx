@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Dialog,
   DialogContent,
@@ -15,15 +15,9 @@ import { Sparkles } from 'lucide-react';
 
 
 export function PersonalityQuizDialog({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-  
-  const trigger = React.isValidElement(children)
-    ? React.cloneElement(children, { onClick: () => setIsOpen(true) } as React.HTMLAttributes<HTMLElement>)
-    : null;
-
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
+    <Dialog>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-2xl p-0 cosmic-nebula glass-card animate-dialog-in border-0">
           <DialogHeader className="text-center items-center pt-8">
             <Sparkles className="w-12 h-12 mx-auto text-primary animate-pulse" />
