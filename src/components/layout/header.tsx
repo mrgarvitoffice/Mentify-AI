@@ -74,6 +74,7 @@ export default function Header() {
                 </span>
             </Link>
           </SheetTitle>
+          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         </SheetHeader>
         <nav className="flex-grow">
             <div className="flex flex-col gap-4 text-lg font-medium mt-4">
