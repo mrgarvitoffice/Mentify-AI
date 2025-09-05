@@ -102,7 +102,7 @@ export default function Header({ onLogout }: { onLogout: () => void }) {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 flex items-center',
-          isScrolled ? 'bg-background/80 shadow-sm backdrop-blur-lg' : 'bg-transparent'
+          isScrolled ? 'bg-maroon/80 dark:bg-background/80 shadow-sm backdrop-blur-lg' : 'bg-transparent'
         )}
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
