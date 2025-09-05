@@ -23,6 +23,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { buddies } from '@/lib/buddies-data';
+import Image from 'next/image';
 
 export default function Header({ onLogout }: { onLogout: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,7 +69,7 @@ export default function Header({ onLogout }: { onLogout: () => void }) {
         <SheetHeader className="text-left">
            <SheetTitle asChild>
             <Link href="/" className="flex items-center gap-2 group mb-4" onClick={() => setMobileMenuOpen(false)}>
-                <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
+                <Image src="/icon.png" alt="Mentify-AI logo" width={32} height={32} />
                 <span className={cn('text-2xl font-bold font-headline text-foreground')}>
                 Mentify-AI
                 </span>
@@ -107,7 +108,7 @@ export default function Header({ onLogout }: { onLogout: () => void }) {
       >
         <div className="container mx-auto flex h-full items-center justify-between px-4">
             <Link href="/" className="flex items-center gap-2 group">
-                <Sparkles className="h-6 w-6 text-primary animate-pulse"/>
+                <Image src="/icon.png" alt="Mentify-AI logo" width={40} height={40} />
                 <span className={cn('text-2xl font-bold font-headline text-foreground')}>
                 Mentify-AI
                 </span>

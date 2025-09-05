@@ -8,6 +8,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buddies } from '@/lib/buddies-data';
+import Image from 'next/image';
 
 const supportLinks = [
     { name: 'FAQ', component: FaqDialog },
@@ -26,7 +27,7 @@ export default function Footer() {
                 <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
                     <div className="col-span-2 md:col-span-2">
                          <Link href="/" className="flex items-center gap-2 group w-fit">
-                            <Sparkles className="h-8 w-8 text-primary animate-pulse"/>
+                            <Image src="/icon.png" alt="Mentify-AI logo" width={40} height={40} />
                             <span className={cn('text-2xl font-bold font-headline')}>
                                 Mentify-AI
                             </span>
