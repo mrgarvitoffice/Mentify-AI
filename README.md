@@ -1,1 +1,1 @@
-Mentify AI Shop--
+Mentify AI Shop--  Contains Smart Buddies
