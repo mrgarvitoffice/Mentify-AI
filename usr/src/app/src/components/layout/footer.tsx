@@ -27,7 +27,9 @@ export default function Footer() {
                 <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
                     <div className="col-span-2 md:col-span-2">
                          <Link href="/" className="flex items-center gap-2 group w-fit">
-                            <Image src="/icon.png" alt="Mentify-AI logo" width={40} height={40} />
+                             <span className={cn('text-2xl font-bold text-primary')}>
+                                ✨
+                             </span>
                             <span className={cn('text-2xl font-bold font-headline')}>
                                 Mentify-AI
                             </span>
